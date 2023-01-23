@@ -1,27 +1,36 @@
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 interface MenuItemProps {
   url?: string;
   text: string;
-  icon: any;
   className?: string;
+  path?: string;
+  icon: any;
   onClick?: (e: any) => void;
 }
 
 export function MenuItem({
+  path,
   url,
   text,
   icon,
   className,
   onClick,
 }: MenuItemProps) {
+  const router = useRouter()
+
+  const paths = router.pathname
+
+  const checkPath = () => paths === path && "bg-gray-300 dark:bg-gray-800"
+
   function renderContentLink() {
     return (
       <button
-        className={`transition-all 
+        className={`transition-all
           flex flex-col justify-center items-center
           w-20 h-20 text-gray-600
           dark:text-gray-200
+          
           ${className}`}
       >
         {icon}
@@ -31,9 +40,11 @@ export function MenuItem({
   }
 
   return (
-    <li 
+    <li
       onClick={onClick}
-      className={`hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800`}
+      className={`hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800
+        ${checkPath()}
+      `}
     >
       {url ? (
         <Link href={url}>{renderContentLink()}</Link>

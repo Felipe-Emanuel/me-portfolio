@@ -16,8 +16,10 @@ export function TopBar({ title, subtitle }: TopBarProps) {
       <Title title={title} subtitle={subtitle} />
       <div className={`flex flex-grow justify-end items-center`}>
         <ButtonTheme theme={theme!} changeTheme={changeTheme!}/>
-        <AvatarUser className="ml-4"/>
+        <AvatarUser path='/profile' className="ml-4"/>
       </div>
     </div>
   );
 }
+
+//bg-gray-300 dark:bg-gray-800
