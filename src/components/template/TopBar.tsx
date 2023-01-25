@@ -11,6 +11,7 @@ interface TopBarProps {
 export function TopBar({ title, subtitle }: TopBarProps) {
   const {theme, changeTheme} = useAppData()
 
+
   return (
     <div className="flex items-center">
       <Title title={title} subtitle={subtitle} />
@@ -21,5 +22,3 @@ export function TopBar({ title, subtitle }: TopBarProps) {
     </div>
   );
 }
-
-//bg-gray-300 dark:bg-gray-800

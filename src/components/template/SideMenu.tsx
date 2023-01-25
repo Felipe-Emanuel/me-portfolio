@@ -1,6 +1,5 @@
 import { useAuth } from "@/data/hook/useAuth";
 import { SettingsIcon, HomeIcon, BellIcon, LogoOutIcon } from "@icons/index";
-import { useState } from "react";
 import { Logo } from "./Logo";
 import { MenuItem } from "./MenuItem";
 
@@ -9,6 +8,7 @@ export function SideMenu({}) {
   const { logout } = useAuth()
 
   const pathsArray = ['/', '/settings', '/news']
+  
 
   return (
     <aside className="

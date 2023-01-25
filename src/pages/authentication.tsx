@@ -62,6 +62,7 @@ export default function authentication() {
         )}
 
         <AuthInput
+          name="email"
           required
           type="email"
           label="E-mail"
@@ -69,9 +70,10 @@ export default function authentication() {
           changeValue={setEmail}
         />
         <AuthInput
+          name="password"
           required
           type="password"
-          label="password"
+          label="Password"
           value={password}
           changeValue={setPassword}
         />
