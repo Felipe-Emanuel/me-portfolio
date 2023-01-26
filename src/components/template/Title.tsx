@@ -1,16 +1,20 @@
 interface TitleProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  className?: string;
 }
 
-export function Title({ title, subtitle }: TitleProps) {
+export function Title({ title, subtitle, className }: TitleProps) {
   return (
     <div>
       <h1
-        className={`
+        className={
+          className ??
+          `
         font-black text-3xl
         text-gray-900 dark:text-gray-100
-        `}
+        `
+        }
       >
         {title}
       </h1>

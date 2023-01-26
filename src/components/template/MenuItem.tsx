@@ -26,6 +26,7 @@ export function MenuItem({
   function renderContentLink() {
     return (
       <button
+        key={Math.random()}
         className={`transition-all
           flex flex-col justify-center items-center
           w-20 h-20 text-gray-600

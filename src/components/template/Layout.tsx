@@ -11,26 +11,25 @@ interface LayoutProps {
 }
 
 export function Layout({ title, subtitle, children }: LayoutProps) {
-  const { theme, changeTheme } = useAppData();
+  const { theme } = useAppData();
 
   return (
-    <AuthForce >
-
-    <div
-      className={` ${theme}
+    <AuthForce>
+      <div
+        className={` ${theme}
         flex h-screen w-screen
         `}
-        >
-      <SideMenu />
-      <div
-        className={`
+      >
+        <SideMenu />
+        <div
+          className={`
         flex flex-col w-full p-7
         bg-gray-300 dark:bg-gray-800`}
         >
-        <TopBar title={title} subtitle={subtitle} />
-        <Content>{children}</Content>
+          <TopBar title={title} subtitle={subtitle} />
+          <Content>{children}</Content>
+        </div>
       </div>
-    </div>
-        </AuthForce>
+    </AuthForce>
   );
 }
