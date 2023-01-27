@@ -36,29 +36,16 @@ export default function authentication() {
     }
   }
 
-  <div
-    className=" 
-  absolute bg-gradient-to-l
-  from-red-500 via-yellow-500 to-green-500
-  w-9/12 h-[45vh] top-[5vh] right-0 
-"
-  >
-    <div className="m-0.5 mr-0 w-full h-full bg-current" />
-  </div>;
-
   return (
-    <>
-      <div
-        className="
-          absolute z-50 rotate-45 top-14 -right-16 md:hidden"
-      >
+      
+      <div className="flex h-screen md:h-auto relative items-center justify-center overflow-hidden">
+      <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
-          <AwesomeButtonSocial type="github" className="w-72">
-            Sigame
+          <AwesomeButtonSocial type="github" className="w-[100vw]">
+            Siga-me
           </AwesomeButtonSocial>
         </a>
       </div>
-      <div className="flex h-screen items-center justify-center">
         <SocialMedia />
         <NewsAtAuth />
         <div className="m-10 w-full md:w-1/2 lg:w-1/3">
@@ -147,6 +134,5 @@ export default function authentication() {
           )}
         </div>
       </div>
-    </>
   );
 }

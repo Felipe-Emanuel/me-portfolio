@@ -49,7 +49,7 @@ export function ProjectCardAuth({
             <a
               href={homepage}
               target="_blank"
-              className="cursor-pointer object-cover overflow-hidden rounded-lg"
+              className="cursor-pointer overflow-hidden rounded-lg"
             >
               <img
                 className={`
@@ -62,9 +62,6 @@ export function ProjectCardAuth({
               />
               <Stamp
                 text={state}
-                className={`${
-                  isVisible ? "scale-105 rotate-2 opacity-100" : ""
-                }`}
               />
             </a>
           </div>
