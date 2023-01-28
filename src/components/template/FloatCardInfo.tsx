@@ -15,7 +15,7 @@ export function FloatCardInfo({
   inverse,
 }: FloatCardInfoProps) {
   const [isActive, setIsActive] = useState(true);
-  const normalize = title!.toUpperCase().replaceAll("-", " ")
+  const normalize = title?.toUpperCase().replaceAll("-", " ")
 
   function normalizeTechs(data: any[]) {
     return data?.length > 0 ? (
