@@ -19,7 +19,7 @@ export function FloatCardInfo({
 
   function normalizeTechs(data: any[]) {
     return data?.length > 0 ? (
-      data?.map((tech: string) => <li key={tech}>{tech}</li>)
+      data?.map((tech: string) => <li className="first-letter:uppercase" key={tech}>{tech}</li>)
     ) : (
       <p>carregando dados</p>
     );

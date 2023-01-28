@@ -10,7 +10,7 @@ export function HoverTechCard({ techs }: HoverTechCardProps) {
       return (
         <li
           key={tech}
-          className={`font-sans
+          className={`font-sans uppercase
             absolue z-10 flex justify-center items-center text-xs
             bg-white rounded m-1 py-2 px-3 after:contents transform
             hover:bg-black hover:text-white cursor-default
