@@ -10,11 +10,11 @@ export function HoverTechCard({ techs }: HoverTechCardProps) {
       return (
         <li
           key={tech}
-          className={`
+          className={`font-sans
             absolue z-10 flex justify-center items-center text-xs
             bg-white rounded m-1 py-2 px-3 after:contents transform
             hover:bg-black hover:text-white cursor-default
-            shadow shadow-green-500 hover:shadow-white 
+            shadow shadow-purple-500 hover:shadow-white 
             ${index % 2 === 0 ? "animate-appearDown" : "animate-appearTop"}
           `}
         >
@@ -26,7 +26,7 @@ export function HoverTechCard({ techs }: HoverTechCardProps) {
   return (
     <ul
       className="
-       flex text-green-500 transition-all font-black flex-wrap justify-center"
+       flex text-purple-500 transition-all font-black flex-wrap justify-center"
     >
       {normalizeTechs(techs)}
     </ul>

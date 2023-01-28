@@ -1,3 +1,4 @@
+import styles from "@styles/ProjectCard.module.css";
 import { HoverTechCard } from "./HoverTechCard";
 import { Title } from "./Title";
 import { useState } from "react";
@@ -11,7 +12,6 @@ interface ProjectCardAuthProps {
   language: string;
   homepage: string;
   img: string;
-  description: string;
   inverse?: boolean;
   techs: any;
   state: "Codando" | "Concluído" | "anulado";
@@ -24,7 +24,6 @@ export function ProjectCardAuth({
   language,
   homepage,
   img,
-  description,
   inverse,
   state,
 }: ProjectCardAuthProps) {
@@ -34,12 +33,19 @@ export function ProjectCardAuth({
 
   function renderImageLink() {
     return (
-      <div className="flex flex-col mt-7 xl:m-auto xl:flex-row overflow-hidden">
-        <div className="relative flex w-72 lg:w-80 h-full z-10 rounded-lg ">
+      <div className="transition-all object-contain duration-1000">
+        <div
+          className={
+            !inverse ? `flex relative ${styles.card}` : `${styles.card_reverse}`
+          }
+        >
           <div
             onMouseEnter={() => setisVisible((isVisible) => !isVisible)}
             onMouseLeave={() => setisVisible((isVisible) => !isVisible)}
-            className="relative w-full h-fit flex items-center justify-center"
+            className="
+              animate-appearCardTop w-full z-10 
+              flex items-center justify-center translate-y-7
+            "
           >
             {isVisible && (
               <span className="absolute">
@@ -49,77 +55,95 @@ export function ProjectCardAuth({
             <a
               href={homepage}
               target="_blank"
-              className="cursor-pointer overflow-hidden rounded-lg"
+              className="
+                cursor-pointer max-w-[350px]
+                relative overflow-hidden rounded-lg
+              "
             >
               <img
                 className={`
-                rounded-lg
-                transition-all opacity-50 
-                ${isVisible ? "scale-105 rotate-2 opacity-100" : ""}
+                  rounded-lg
+                  transition-all opacity-75 
+                  ${isVisible ? "scale-105 rotate-2 opacity-100" : ""}
                 `}
                 src={img}
                 alt="Imagem da Tela de Autenticação"
               />
-              <Stamp
-                text={state}
-              />
+              <Stamp text={state} />
             </a>
           </div>
         </div>
-        <div className="text-center flex flex-col justify-center items-center xl:hidden pt-8 m-auto">
-          <a href={gitLink} target="_blank">
-            <AwesomeButtonSocial type="github">GitHub</AwesomeButtonSocial>
-          </a>
-          <div>
+        <div className="flex flex-col">
+          <div
+            className={`transition-transform duration-1000 relative scale-95
+          ${
+            isVisible
+              ? `translate-y-5 lg:translate-x-2 ${
+                  inverse ? `2xl:-translate-x-2` : `lg:translate-y-2 `
+                }`
+              : `-translate-y-36 ${
+                  inverse
+                    ? `translate-x-28 lg:-translate-x-44 lg:-translate-y-32 xl:-translate-x-60 2xl:-translate-x-72`
+                    : `-translate-x-28 lg:translate-x-44 xl:translate-x-60 2xl:translate-x-72`
+                }
+               `
+          }`}
+          >
             <Title
               title={normalize}
-              className="text-gray-100 font-black text-3xl truncate"
+              className={`font-sans 
+                font-black text-2xl animate-appearCardLeft
+                lg:animate-appearCardRight`}
             />
-            <span className="font-thin">{language}</span>
+            <p
+              className={
+                isVisible
+                  ? `hidden`
+                  : `font-thin ${
+                      inverse
+                        ? `animate-appearCardLeft`
+                        : `animate-appearCardRight`
+                    }`
+              }
+            >
+              {language}
+            </p>
+          </div>
+          <div className="flex flex-col items-center text-center py-8">
+            <a
+              href={gitLink}
+              target="_blank"
+              className={`z-50 transition-all duration-1000 absolute ${
+                inverse ? `top-64` : `top-72`
+              } animate-appearX
+              ${
+                isVisible
+                  ? `translate-y-5 lg:-translate-y-6 ${
+                      inverse ? `2xl:-translate-x-2` : `2xl:translate-x-2`
+                    }`
+                  : ` -translate-y-32 ${
+                      inverse
+                        ? `translate-x-28 lg:-translate-x-44 xl:-translate-x-60 2xl:-translate-x-72`
+                        : `-translate-x-28 lg:translate-x-44 xl:translate-x-60 2xl:translate-x-72`
+                    }
+                    lg:-translate-y-36`
+              }`}
+            >
+              <AwesomeButtonSocial type="github">GitHub</AwesomeButtonSocial>
+            </a>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  function renderInfo() {
-    return (
-      <div
-        className=" overflow-hidden
-          hidden items-center text-center justify-between
-          w-80 h-80 p-10 xl:flex flex-col 
-        "
-      >
-        <div>
-          <Title
-            title={normalize}
-            className="text-gray-100 font-black text-3xl truncate"
-          />
-          <span className="font-thin">{language}</span>
-        </div>
-        <span className="text-sm font-light py-2">{description}</span>
-        <a href={gitLink} target="_blank">
-          <AwesomeButtonSocial type="github">GitHub</AwesomeButtonSocial>
-        </a>
       </div>
     );
   }
 
   return (
-    <div className="text-gray-100 relative overflow-hidden flex justify-center items-center animate-appearX">
-      <div className="flex gap-4">
-        {inverse ? (
-          <>
-            {renderImageLink()}
-            {renderInfo()}
-          </>
-        ) : (
-          <>
-            {renderInfo()}
-            {renderImageLink()}
-          </>
-        )}
-      </div>
+    <div
+      className={`absolute z-20 transition-all duration-1000 top-[10vh] lg:top-[2vh] ${
+        inverse ? `xl:translate-x-[7vw]` : `xl:-translate-x-[7vw]`
+      }`}
+    >
+      {renderImageLink()}
     </div>
   );
 }

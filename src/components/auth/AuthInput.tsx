@@ -29,7 +29,7 @@ export function AuthInput({
         required={required}
         className={`
           px-4 py-3 rounded-lg mt-2
-          border focus:border-blue-500 focus:bg-white
+          border focus:border-blue-500 bg-neutral-900
           focus:outline-none text-sm font-light
           peer
         `}
@@ -42,7 +42,7 @@ export function AuthInput({
           peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-2
           peer-placeholder-shown:top-1/2 peer-focus:top-4 peer-focus:scale-85
           peer-focus:px-4 peer-focus:-translate-y-4 left-4
-          font-light peer-focus:bg-white
+          font-light peer-focus:bg-neutral-900
         "
       >
         {label}

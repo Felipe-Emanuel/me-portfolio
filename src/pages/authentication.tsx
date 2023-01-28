@@ -37,8 +37,7 @@ export default function authentication() {
   }
 
   return (
-      
-      <div className="flex h-screen md:h-auto relative items-center justify-center overflow-hidden">
+    <div className="flex text-white bg-neutral-900 h-screen relative items-center justify-center overflow-hidden">
       <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
           <AwesomeButtonSocial type="github" className="w-[100vw]">
@@ -46,93 +45,95 @@ export default function authentication() {
           </AwesomeButtonSocial>
         </a>
       </div>
+      <div>
         <SocialMedia />
-        <NewsAtAuth />
-        <div className="m-10 w-full md:w-1/2 lg:w-1/3">
-          <h1 className="text-xl sm:text-3xl font-bold mb-5 text-center">
-            {mode === "login"
-              ? "Entre com a sua conta"
-              : "Cadastre-se na plataforma"}
-          </h1>
+      </div>
+      <NewsAtAuth />
+      <div className="m-10 w-1/2 lg:w-1/3">
+        <h1 className="text-xl text-white sm:text-3xl font-bold mb-5 text-center">
+          {mode === "login"
+            ? "Entre com a sua conta"
+            : "Cadastre-se na plataforma"}
+        </h1>
 
-          {error && (
-            <div
-              className={`
-                bg-red-400 text-white border-red-700
+        {error && (
+          <div
+            className={`
+                bg-red-400 border-red-700
                 py-3 px-5 my-2 flex items-center
                 rounded-lg border
             `}
-            >
-              <WarningIcon />
-              <span className="ml-4">{error}</span>
-            </div>
-          )}
+          >
+            <WarningIcon />
+            <span className="ml-4">{error}</span>
+          </div>
+        )}
 
-          <AuthInput
-            name="email"
-            required
-            type="email"
-            label="E-mail"
-            value={email}
-            changeValue={setEmail}
-          />
-          <AuthInput
-            name="password"
-            required
-            type="password"
-            label="Senha"
-            value={password}
-            changeValue={setPassword}
-          />
+        <AuthInput
+          name="email"
+          required
+          type="email"
+          label="E-mail"
+          value={email}
+          changeValue={setEmail}
+        />
+        <AuthInput
+          name="password"
+          required
+          type="password"
+          label="Senha"
+          value={password}
+          changeValue={setPassword}
+        />
 
-          <button
-            onClick={submit}
-            className={`
+        <button
+          onClick={submit}
+          className={`
         w-full bg-indigo-500 hover:bg-indigo-400 transition-all
-        text-white rounded-lg px-4 py-3 mt-6
+       rounded-lg px-4 py-3 mt-6
       `}
-          >
-            {mode === "login" ? "Entrar" : "Cadastrar"}
-          </button>
+        >
+          {mode === "login" ? "Entrar" : "Cadastrar"}
+        </button>
 
-          <hr className="my-6 border-gray-300 w-full" />
+        <hr className="my-6 border-gray-300 w-full" />
 
-          <button
-            onClick={loginGoogle}
-            className={`
+        <button
+          onClick={loginGoogle}
+          className={`
         w-full bg-red-500 hover:bg-red-400 transition-all
-        text-white rounded-lg px-4 py-3 flex
+       rounded-lg px-4 py-3 flex
       `}
-          >
-            <span className="m-auto flex gap-4">
-              <GoogleIcon /> Google
-            </span>
-          </button>
+        >
+          <span className="m-auto flex gap-4">
+            <GoogleIcon /> Google
+          </span>
+        </button>
 
-          {mode === "login" ? (
-            <p className="mt-8 text-center">
-              {" "}
-              Novo por aqui?{" "}
-              <a
-                onClick={() => setMode("register")}
-                className={`transition-all text-blue-500 hover:text-blue-700 font-semibold cursor-pointer`}
-              >
-                Crie sua conta gratuitamente
-              </a>
-            </p>
-          ) : (
-            <p className="mt-8 text-center">
-              {" "}
-              Já faz parte da nossa comunidade?{" "}
-              <a
-                onClick={() => setMode("login")}
-                className={`transition-all text-blue-500 hover:text-blue-700 font-semibold cursor-pointer`}
-              >
-                Entre com suas credenciais
-              </a>
-            </p>
-          )}
-        </div>
+        {mode === "login" ? (
+          <p className="mt-8 text-center">
+            {" "}
+            Novo por aqui?{" "}
+            <a
+              onClick={() => setMode("register")}
+              className={`transition-all text-blue-500 hover:text-blue-700 font-semibold cursor-pointer`}
+            >
+              Crie sua conta gratuitamente
+            </a>
+          </p>
+        ) : (
+          <p className="mt-8 text-center">
+            {" "}
+            Já faz parte da nossa comunidade?{" "}
+            <a
+              onClick={() => setMode("login")}
+              className={`transition-all text-blue-500 hover:text-blue-700 font-semibold cursor-pointer`}
+            >
+              Entre com suas credenciais
+            </a>
+          </p>
+        )}
       </div>
+    </div>
   );
 }

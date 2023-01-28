@@ -18,6 +18,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@model/*": ["src/model/*"],
+      "@styles/*": ["src/styles/*"],
       "@functions/*": ["src/functions/*"],
       "@templates/*": ["src/components/template/*"],
       "@icons/*": ["src/components/icons/*"],
