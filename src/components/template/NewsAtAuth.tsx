@@ -31,7 +31,7 @@ export function NewsAtAuth() {
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti esse, quaerat, ab est architecto assumenda modi rerum voluptas ipsum ex fuga similique, placeat qui alias quas eum tempore. Nulla, facilis."
       />
       <div className="w-full flex justify-center items-center">
-        {/* {data.length > 0 ? (
+        {data.length > 0 ? (
           <ProjectCardAuth
             state="Codando"
             img="/images/admin-template.png"
@@ -47,22 +47,13 @@ export function NewsAtAuth() {
             alt="loading"
             className="relative bottom-[50%]"
           />
-        )} */}
-        <ProjectCardAuth
-          state="Codando"
-          img="/images/admin-template.png"
-          techs={mock}
-          homepage="{data[0].homepage}"
-          language="TypeScript"
-          gitLink="{data[0].clone_url}"
-          title="ADMIN TEMPLATE"
-        />
+        )}
       </div>
 
       <hr className="w-[50vw] border-gray-300 relative top-7" />
 
       <div className="relative bottom-4 z-0 w-full flex justify-center items-center">
-        {/* {data.length > 0 ? (
+        {data.length > 0 ? (
           <ProjectCardAuth
             state="Concluído"
             img="/images/Quiz.png"
@@ -79,17 +70,7 @@ export function NewsAtAuth() {
             alt="loading"
             className="relative top-[50%]"
           />
-        )} */}
-        <ProjectCardAuth
-          state="Concluído"
-          img="/images/Quiz.png"
-          inverse
-          techs={mock}
-          homepage="{data[0].homepage}"
-          language="TypeScript"
-          gitLink="{data[0].clone_url}"
-          title="ADMIN TEMPLATE"
-        />
+        )}
       </div>
     </div>
   );
