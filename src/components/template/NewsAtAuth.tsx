@@ -15,8 +15,6 @@ export function NewsAtAuth() {
     });
   }, []);
 
-  const mock = ["typescript", "typescript", "typescript"];
-
   return (
     <div
       className="overflow-hidden relative bg-AuthLogin h-screen w-full  bg-cover bg-no-repeat opacity-75
@@ -25,11 +23,20 @@ export function NewsAtAuth() {
       <h2 className="absolute top-4 font-black text-3xl text-gray-100 animate-appearY">
         Últimos Projetos
       </h2>
+
       <FloatCardInfo
-        title="teste"
-        techs={mock}
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti esse, quaerat, ab est architecto assumenda modi rerum voluptas ipsum ex fuga similique, placeat qui alias quas eum tempore. Nulla, facilis."
+        title={data[0]?.name}
+        techs={data[0]?.topics}
+        description={data[0]?.description}
       />
+
+      <FloatCardInfo
+        inverse
+        title={data[15]?.name}
+        techs={data[15]?.topics}
+        description={data[15]?.description}
+      />
+
       <div className="w-full flex justify-center items-center">
         {data.length > 0 ? (
           <ProjectCardAuth

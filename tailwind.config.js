@@ -2,6 +2,26 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   darkMode: "class",
+  safelist: [
+    {
+      pattern: /^bg-/,
+    },
+    {
+      pattern: /^from-/,
+    },
+    {
+      pattern: /^to-/,
+    },
+    {
+      pattern: /^text-/,
+    },
+    {
+      pattern: /^top-/,
+    },
+    {
+      pattern: /^left-/,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {
