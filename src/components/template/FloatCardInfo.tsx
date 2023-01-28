@@ -7,7 +7,7 @@ interface FloatCardInfoProps {
 }
 
 export function FloatCardInfo({ text, title, techs }: FloatCardInfoProps) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   function normalizeTechs(data: any[] | undefined) {
     return data?.map((tech: string) => {
@@ -24,7 +24,7 @@ export function FloatCardInfo({ text, title, techs }: FloatCardInfoProps) {
   }
 
   return (
-    <div onClick={() => setIsActive(isActive => !isActive)} className={`transition-all duration-1000 absolute 
+    <div onClick={() => setIsActive(isActive => !isActive)} className={`z-50 transition-all duration-1000 absolute 
     top-16 -right-44 ${isActive ? `translate-x-52` : `-translate-x-0`}`}>
       <div className="hidden overflow-hidden 2xl:flex justify-center items-start px-8 py-6 flex-col text-black w-96 h-96  bg-gray-300 rounded-l-2xl">
         <h2 className="font-black text-3xl">{title}</h2>

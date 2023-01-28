@@ -1,10 +1,10 @@
 import styles from "@styles/ProjectCard.module.css";
+import "react-awesome-button/dist/styles.css";
+import { AwesomeButtonSocial } from "react-awesome-button";
 import { HoverTechCard } from "./HoverTechCard";
 import { Title } from "./Title";
 import { useState } from "react";
 import { Stamp } from "./Stamp";
-import { AwesomeButtonSocial } from "react-awesome-button";
-import "react-awesome-button/dist/styles.css";
 
 interface ProjectCardAuthProps {
   gitLink: string;
@@ -28,6 +28,41 @@ export function ProjectCardAuth({
   state,
 }: ProjectCardAuthProps) {
   const [isVisible, setisVisible] = useState(false);
+
+  const isVisibileAndIsInverseTitle = `${
+    isVisible
+      ? `2xl:translate-y-1 translate-y-5 lg:translate-x-2 ${
+          inverse ? `2xl:-translate-x-2 ` : `lg:translate-y-2`
+        }`
+      : `-translate-y-36 ${
+          inverse
+            ? `translate-x-28 lg:-translate-x-44 lg:-translate-y-32
+              xl:-translate-x-60 2xl:-translate-x-72 2xl:-translate-y-48`
+            : `-translate-x-28 lg:translate-x-44
+              xl:translate-x-60 2xl:translate-x-72 2xl:-translate-y-56`
+        }
+       `
+  }`;
+
+  const isVisibileAndIsInverseAwsomeButton = `${
+    inverse ? `top-64` : `top-72`
+  } animate-appearX
+  ${
+    isVisible
+      ? `translate-y-5 lg:-translate-y-6 ${
+          inverse
+            ? `2xl:-translate-x-2 2xl:translate-y-7`
+            : `2xl:translate-x-2 2xl:translate-y-16`
+        }`
+      : ` -translate-y-32 ${
+          inverse
+            ? `translate-x-28 lg:-translate-x-44 xl:-translate-x-60
+              2xl:-translate-x-72 2xl:-translate-y-32`
+            : `-translate-x-28 lg:translate-x-44 xl:translate-x-60
+              2xl:translate-x-72 2xl:-translate-y-32`
+        }
+      lg:-translate-y-36`
+  }`;
 
   const normalize = title.toUpperCase().replaceAll("-", " ");
 
@@ -56,7 +91,7 @@ export function ProjectCardAuth({
               href={homepage}
               target="_blank"
               className="
-                cursor-pointer max-w-[350px]
+                cursor-pointer w-[350px] 2xl:w-[500px]
                 relative overflow-hidden rounded-lg
               "
             >
@@ -75,35 +110,21 @@ export function ProjectCardAuth({
         </div>
         <div className="flex flex-col">
           <div
-            className={`transition-transform duration-1000 relative scale-95
-          ${
-            isVisible
-              ? `translate-y-5 lg:translate-x-2 ${
-                  inverse ? `2xl:-translate-x-2` : `lg:translate-y-2 `
-                }`
-              : `-translate-y-36 ${
-                  inverse
-                    ? `translate-x-28 lg:-translate-x-44 lg:-translate-y-32 xl:-translate-x-60 2xl:-translate-x-72`
-                    : `-translate-x-28 lg:translate-x-44 xl:translate-x-60 2xl:translate-x-72`
-                }
-               `
-          }`}
+            className={`transition-transform duration-1000
+              relative scale-95 pointer-events-none ${isVisibileAndIsInverseTitle}
+          `}
           >
             <Title
               title={normalize}
-              className={`font-sans 
+              className={`font-sans
                 font-black text-2xl animate-appearCardLeft
                 lg:animate-appearCardRight`}
             />
             <p
               className={
-                isVisible
-                  ? `hidden`
-                  : `font-thin ${
-                      inverse
-                        ? `animate-appearCardLeft`
-                        : `animate-appearCardRight`
-                    }`
+                isVisible ? `hidden` : `font-thin
+                  ${inverse ? `animate-appearCardLeft` : `animate-appearCardRight`}
+                `
               }
             >
               {language}
@@ -113,21 +134,8 @@ export function ProjectCardAuth({
             <a
               href={gitLink}
               target="_blank"
-              className={`z-50 transition-all duration-1000 absolute ${
-                inverse ? `top-64` : `top-72`
-              } animate-appearX
-              ${
-                isVisible
-                  ? `translate-y-5 lg:-translate-y-6 ${
-                      inverse ? `2xl:-translate-x-2` : `2xl:translate-x-2`
-                    }`
-                  : ` -translate-y-32 ${
-                      inverse
-                        ? `translate-x-28 lg:-translate-x-44 xl:-translate-x-60 2xl:-translate-x-72`
-                        : `-translate-x-28 lg:translate-x-44 xl:translate-x-60 2xl:translate-x-72`
-                    }
-                    lg:-translate-y-36`
-              }`}
+              className={`z-50 transition-all duration-1000 absolute
+                ${isVisibileAndIsInverseAwsomeButton}`}
             >
               <AwesomeButtonSocial type="github">GitHub</AwesomeButtonSocial>
             </a>
@@ -139,9 +147,10 @@ export function ProjectCardAuth({
 
   return (
     <div
-      className={`absolute z-20 transition-all duration-1000 top-[10vh] lg:top-[2vh] ${
-        inverse ? `xl:translate-x-[7vw]` : `xl:-translate-x-[7vw]`
-      }`}
+      className={`absolute z-20 transition-all duration-1000
+        top-[10vh] lg:top-[2vh] ${
+          inverse ? `xl:translate-x-[7vw]` : `xl:-translate-x-[7vw]`
+        }`}
     >
       {renderImageLink()}
     </div>

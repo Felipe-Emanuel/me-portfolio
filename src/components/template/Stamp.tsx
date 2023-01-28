@@ -6,7 +6,7 @@ interface StampProps {
 export function Stamp({ text, className }: StampProps) {
   const checkText =
     text === "Concluído"
-      ? "bg-purple-500"
+      ? "bg-green-500"
       : text === "Codando"
       ? "bg-yellow-500"
       : text === "anulado"
@@ -15,8 +15,9 @@ export function Stamp({ text, className }: StampProps) {
 
   return (
     <div
-      className={`${checkText} absolute top-[2vh] lg:top-7 lg:-right-32 -right-[15vw]
-      text-xs py-2 px-6 rotate-45
+      className={`${checkText} absolute
+      top-5 lg:top-7 lg:-right-32 2xl:-right-52 -right-36
+      text-xs py-2 px-6 rotate-45 2xl:text-base 2xl:justify-center
       flex justify-center w-full 
       ${className}
       `}
