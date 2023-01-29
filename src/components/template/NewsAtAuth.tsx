@@ -19,9 +19,9 @@ export function NewsAtAuth() {
         overflow-hidden relative h-screen w-full flex-wrap 
         hidden md:flex justify-center items-center text-center"
     >
-      <div className="px-10 z-40 font-sans text-left absolute left-0 top-[50%]">
-        <h2 className="text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl py-10">Felipe.Emanuel</h2>
-        <p className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">Desenvolvedor Frontend</p>
+      <div className="px-10 z-40 text-left absolute left-0 top-[50%]">
+        <h2 className="text-6xl font-sans lg:text-7xl xl:text-8xl 2xl:text-9xl py-10">Felipe.Emanuel</h2>
+        <p className="text-2xl font-SecondarySans lg:text-3xl xl:text-4xl 2xl:text-5xl">Desenvolvedor Frontend</p>
       </div>
       <div
         className="
