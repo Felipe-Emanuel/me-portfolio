@@ -26,7 +26,7 @@ module.exports = {
     extend: {
       fontFamily: {
         default: ["font-family: 'Poppins', sans-serif"],
-        sans: ["'Abril Fatface', cursive"],
+        sans: ["'Abril Fatface', sans-serif"],
         SecondarySans: ["'Antic Didone', serif"],
       },
       backgroundImage: {
