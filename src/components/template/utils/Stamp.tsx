@@ -16,10 +16,10 @@ export function Stamp({ text, className }: StampProps) {
   return (
     <div
       className={`${checkText} absolute
-      top-5 lg:top-7 lg:-right-32 2xl:-right-52 -right-36
-      text-xs py-2 px-6 rotate-45 2xl:text-base 2xl:justify-center
-      flex justify-center w-full 
-      ${className}
+        top-5 lg:top-7 lg:-right-32 2xl:-right-52 -right-36
+        text-xs py-2 px-6 rotate-45 2xl:text-base 2xl:justify-center
+        flex justify-center w-full 
+        ${className}
       `}
     >
       {text}

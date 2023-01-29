@@ -1,4 +1,4 @@
-import { Layout } from "@templates/Layout";
+import { Layout } from "@/components/template/layout/Layout";
 
 export default function News() {
 

@@ -1,11 +1,12 @@
 import { GoogleIcon, WarningIcon } from "@/components/icons";
-import { NewsAtAuth } from "@templates/NewsAtAuth";
 import { useAuth } from "@/data/hook/useAuth";
 import { AuthInput } from "@auth/AuthInput";
 import { useState } from "react";
-import { SocialMedia } from "@/components/template/SocialMedia";
 import { AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+import { NewsAtAuth } from "@/components/template/layout/NewsAtAuth";
+import { SocialMedia } from "@/components/template/utils/SocialMedia";
+import { Title } from "@/components/template/utils/Title";
 
 export default function authentication() {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -36,24 +37,9 @@ export default function authentication() {
     }
   }
 
-  return (
-    <div className="flex text-white bg-neutral-900 max-w-[1920px] h-screen relative items-center justify-center overflow-hidden">
-      <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
-        <a href="https://github.com/Felipe-Emanuel" target="_blank">
-          <AwesomeButtonSocial type="github" className="w-[100vw]">
-            Siga-me
-          </AwesomeButtonSocial>
-        </a>
-      </div>
-      <SocialMedia />
-      <NewsAtAuth />
-      <div className="m-5 w-1/2 ">
-        <h1 className="text-xl text-white sm:text-3xl font-bold mb-5 text-center">
-          {mode === "login"
-            ? "Entre com a sua conta"
-            : "Cadastre-se na plataforma"}
-        </h1>
-
+  function errorMsg() {
+    return (
+      <>
         {error && (
           <div
             className={`
@@ -66,48 +52,13 @@ export default function authentication() {
             <span className="ml-4">{error}</span>
           </div>
         )}
+      </>
+    );
+  }
 
-        <AuthInput
-          name="email"
-          required
-          type="email"
-          label="E-mail"
-          value={email}
-          changeValue={setEmail}
-        />
-        <AuthInput
-          name="password"
-          required
-          type="password"
-          label="Senha"
-          value={password}
-          changeValue={setPassword}
-        />
-
-        <button
-          onClick={submit}
-          className={`
-        w-full bg-indigo-500 hover:bg-indigo-400 transition-all
-       rounded-lg px-4 py-3 mt-6
-      `}
-        >
-          {mode === "login" ? "Entrar" : "Cadastrar"}
-        </button>
-
-        <hr className="my-6 border-gray-300 w-full" />
-
-        <button
-          onClick={loginGoogle}
-          className={`
-        w-full bg-red-500 hover:bg-red-400 transition-all
-       rounded-lg px-4 py-3 flex
-      `}
-        >
-          <span className="m-auto flex gap-4">
-            <GoogleIcon /> Google
-          </span>
-        </button>
-
+  function renderLoginOrRegister(){
+    return(
+      <>
         {mode === "login" ? (
           <p className="mt-8 text-center">
             {" "}
@@ -131,6 +82,72 @@ export default function authentication() {
             </a>
           </p>
         )}
+      </>
+    )
+  }
+
+  return (
+    <div className="flex text-white bg-neutral-900 max-w-[1920px] h-screen relative items-center justify-center overflow-hidden">
+      <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
+        <a href="https://github.com/Felipe-Emanuel" target="_blank">
+          <AwesomeButtonSocial type="github" className="w-[100vw]">
+            Siga-me
+          </AwesomeButtonSocial>
+        </a>
+      </div>
+      <SocialMedia />
+      <NewsAtAuth />
+      <div className="m-5 lg:px-5 w-full md:w-1/2 ">
+        <Title
+          className="text-xl text-white sm:text-3xl font-bold mb-5 text-center"
+          title={
+            mode === "login"
+              ? "Entre com a sua conta"
+              : "Cadastre-se na plataforma"
+          }
+        />
+        {errorMsg()}
+        <AuthInput
+          name="email"
+          required
+          type="email"
+          label="E-mail"
+          value={email}
+          changeValue={setEmail}
+        />
+        <AuthInput
+          name="password"
+          required
+          type="password"
+          label="Senha"
+          value={password}
+          changeValue={setPassword}
+        />
+
+        <button
+          onClick={submit}
+          className={`
+            w-full bg-indigo-500 hover:bg-indigo-400 transition-all
+          rounded-lg px-4 py-3 mt-6
+          `}
+        >
+          {mode === "login" ? "Entrar" : "Cadastrar"}
+        </button>
+
+        <hr className="my-6 border-gray-300 w-full" />
+
+        <button
+          onClick={loginGoogle}
+          className={`
+            w-full bg-red-500 hover:bg-red-400 transition-all
+            rounded-lg px-4 py-3 flex
+          `}
+        >
+          <span className="m-auto flex gap-4">
+            <GoogleIcon /> Google
+          </span>
+        </button>
+          {renderLoginOrRegister()}
       </div>
     </div>
   );
