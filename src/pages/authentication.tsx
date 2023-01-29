@@ -37,7 +37,7 @@ export default function authentication() {
   }
 
   return (
-    <div className="flex text-white bg-neutral-900 h-screen relative items-center justify-center overflow-hidden">
+    <div className="flex text-white bg-neutral-900 max-w-[1920px] h-screen relative items-center justify-center overflow-hidden">
       <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
           <AwesomeButtonSocial type="github" className="w-[100vw]">
@@ -45,11 +45,9 @@ export default function authentication() {
           </AwesomeButtonSocial>
         </a>
       </div>
-      <div>
-        <SocialMedia />
-      </div>
+      <SocialMedia />
       <NewsAtAuth />
-      <div className="m-10 w-1/2 lg:w-1/3">
+      <div className="m-5 w-1/2 ">
         <h1 className="text-xl text-white sm:text-3xl font-bold mb-5 text-center">
           {mode === "login"
             ? "Entre com a sua conta"
