@@ -2,7 +2,7 @@ import api from "@api/api";
 import { useEffect, useState } from "react";
 import { Slider } from "@cubeAnimation/CubeAnimation";
 
-export function ProjectSlider() {
+export function RenderSlider() {
   const [data, setData] = useState([]);
 
   async function renderBanner() {
