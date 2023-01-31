@@ -47,7 +47,7 @@ export function ButtonTheme({ theme, changeTheme }: ButtonThemeProps) {
       <div
         className={`
                 hidden lg:flex items-center mr-2
-                text-gray-300
+                text-light
             `}
       >
         <span className="text-sm">Escuro</span>
@@ -55,7 +55,7 @@ export function ButtonTheme({ theme, changeTheme }: ButtonThemeProps) {
       <div
         className={`
                 flex items-center justify-center
-                bg-black text-gray-300
+                bg-black text-light
                 w-6 h-6 rounded-full
             `}
       >

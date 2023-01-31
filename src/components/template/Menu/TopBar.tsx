@@ -13,7 +13,7 @@ export function TopBar({ title, subtitle }: TopBarProps) {
 
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center z-10">
       <Title title={title} subtitle={subtitle} />
       <div className={`flex flex-grow justify-end items-center`}>
         <ButtonTheme theme={theme!} changeTheme={changeTheme!}/>

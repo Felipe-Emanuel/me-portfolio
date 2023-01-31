@@ -1,12 +1,15 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
-import "react-awesome-slider/dist/custom-animations/cube-animation.css";
+import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import { useState, useEffect } from "react";
+import { Title } from "../utils/Title";
+import { useAppData } from "@/data/hook/useAppData";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export const slider = (data = []) => {
+  const { theme } = useAppData();
   const [Bullet, setIsBullet] = useState(false);
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -30,16 +33,28 @@ export const slider = (data = []) => {
 
   return (
     <AutoplaySlider
+      className="h-full"
+      buttons={false}
       play={true}
       cancelOnInteraction={false}
-      interval={3000}
-      animation="cubeAnimation"
+      interval={2000}
+      animation="fallAnimation"
       bullets={Bullet}
     >
       {data.map((images) => {
         return (
-          <div className="cover md" key={images.id} data-src={images.image}>
-            <div className="bg-black/25 absolute inset-0" />
+          <div key={images.id} data-src={images.image}>
+            <div
+              className={`absolute left-0 h-full w-screen bg-gradient-to-b
+                from-transparent ${theme === "dark" ? `to-dark` : `to-light`}`}
+            />
+
+            <div
+              className={`absolute left-0 top-0 h-full xl:h-[80vh] w-full
+                bg-gradient-to-b from-transparent ${
+                  theme === "dark" ? `to-dark` : `to-light`
+                }`}
+            />
           </div>
         );
       })}

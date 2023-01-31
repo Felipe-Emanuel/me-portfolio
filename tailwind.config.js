@@ -29,6 +29,16 @@ module.exports = {
         sans: ["'Abril Fatface', sans-serif"],
         SecondarySans: ["'Antic Didone', serif"],
       },
+      colors: {
+        dark: "#121214",
+        darkSecondary: "#000012",
+        light: "#ddd",
+      },
+      backgroundColor: {
+        dark: "#121214",
+        darkSecondary: "#000012",
+        light: "#ddd",
+      },
       backgroundImage: {
         AuthLogin: "url('/images/aura1.jpg')",
       },

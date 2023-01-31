@@ -24,7 +24,7 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
         <div
           className={`
             flex flex-col w-full p-7
-            bg-gray-300 dark:bg-gray-800`}
+            bg-light dark:bg-dark`}
           >
           <TopBar title={title} subtitle={subtitle} />
           <Content>{children}</Content>

@@ -12,7 +12,7 @@ export function AvatarUser({className, path}: AvatarUserProps) {
   const router = useRouter()
   const paths = router.pathname
   const avatarSelector = () => paths === path &&
-    'border-2 border-gray-800 dark:border-white animate-pup'
+    'border-2 border-dark dark:border-white animate-pup'
   const { user } = useAuth();
   return (
     <Link href="/profile">

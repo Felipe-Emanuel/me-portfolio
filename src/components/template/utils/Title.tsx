@@ -24,7 +24,7 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
       <h2
         className={`
           font-light text-sm
-          text-gray-600 dark:text-gray-300
+          text-gray-600 dark:text-light
         `}
       >
         {subtitle}

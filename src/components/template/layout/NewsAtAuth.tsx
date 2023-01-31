@@ -34,7 +34,7 @@ export function NewsAtAuth() {
           as="h2"
           title="Felipe.Emanuel"
         />
-        <h3 className="text-2xl text-gray-300 font-SecondarySans lg:text-3xl xl:text-4xl 2xl:text-5xl">
+        <h3 className="text-2xl text-light font-SecondarySans lg:text-3xl xl:text-4xl 2xl:text-5xl">
           Desenvolvedor Frontend
         </h3>
       </div>

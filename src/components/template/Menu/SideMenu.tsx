@@ -11,9 +11,9 @@ export function SideMenu({}) {
 
   return (
     <aside className="
-      flex flex-col
+      flex flex-col z-10
       bg-gray-200 text-gray-200
-      dark:bg-gray-900 
+      dark:bg-darkSecondary 
     ">
       <div
         className={`

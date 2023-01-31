@@ -23,7 +23,7 @@ export function MenuItem({
 
   const paths = router.pathname;
 
-  const checkPath = () => paths === path && "bg-gray-300 dark:bg-gray-800";
+  const checkPath = () => paths === path && "bg-light dark:bg-dark";
 
   function renderContentLink() {
     return (
@@ -45,7 +45,7 @@ export function MenuItem({
   return (
     <li
       onClick={onClick}
-      className={`hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800
+      className={`hover:bg-gray-100 cursor-pointer dark:hover:bg-dark
         ${checkPath()}
       `}
     >

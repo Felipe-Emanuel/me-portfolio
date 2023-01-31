@@ -2,7 +2,7 @@ export function Logo() {
   return (
     <div
       className={`
-        border-2 border-gray-800 dark:border-white
+        border-2 border-dark dark:border-white
         flex flex-col items-center justify-center
         w-12 h-12 rounded-full  
         bg-white dark:bg-gray-900  

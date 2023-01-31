@@ -14,7 +14,7 @@ export function AuthForce({ children }: any) {
     return (
       <div
         className={`
-            flex justify-center items-center h-screen bg-gray-300 dark:bg-gray-800
+            flex justify-center items-center h-screen bg-light dark:bg-dark
         `}
       >
         <Image src={loadingImage} alt="loading" />

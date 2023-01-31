@@ -134,7 +134,7 @@ export default function authentication() {
           {mode === "login" ? "Entrar" : "Cadastrar"}
         </button>
 
-        <hr className="my-6 border-gray-300 w-full" />
+        <hr className="my-6 border-light w-full" />
 
         <button
           onClick={loginGoogle}
