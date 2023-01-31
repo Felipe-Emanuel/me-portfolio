@@ -33,7 +33,7 @@ export const slider = (data = []) => {
     >
       {data.map((images) => {
         return (
-          <div className="bg-cover" key={images.id} data-src={images.image}>
+          <div key={images.id} data-src={images.image}>
             <BlackOverlay high />
           </div>
         );
