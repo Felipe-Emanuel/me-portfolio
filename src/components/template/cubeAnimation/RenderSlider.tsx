@@ -18,7 +18,8 @@ export function RenderSlider() {
 
   return (
     <div>
-      <div className="
+      <div
+        className="
         relative sm:absolute w-screen z-0 h-[75vh] right-0 -left-7 -top-14
         sm:left-0 sm:-right-20 sm:top-0 sm:max-h-[80vh]
         xl:h-[80vh]"
