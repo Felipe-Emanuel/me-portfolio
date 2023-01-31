@@ -1,5 +1,6 @@
 import { useAuth } from "@/data/hook/useAuth";
 import { SettingsIcon, HomeIcon, BellIcon, LogoOutIcon, ComputerIcon, AboutIcon } from "@icons/index";
+import { AvatarUser } from "../layout/AvatarUser";
 import { Logo } from "../layout/Logo";
 import { MenuItem } from "./MenuItem";
 
@@ -32,6 +33,9 @@ export function SideMenu({}) {
         <MenuItem path={pathsArray[4]} url="/about" text="Sobre" icon={<AboutIcon />} />
       </ul>
       <ul>
+        <li>
+          <AvatarUser path='/profile' className="ml-4 md:hidden flex"/>
+        </li>
         <MenuItem
           onClick={logout}
           text="Sair"

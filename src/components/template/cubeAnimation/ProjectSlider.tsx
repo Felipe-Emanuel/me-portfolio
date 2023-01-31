@@ -1,7 +1,7 @@
 import { useAppData } from "@/data/hook/useAppData";
 import api from "@/data/services/api";
 import { useEffect, useState } from "react";
-import { slider } from "./cubeAnimation";
+import { slider } from "./CubeAnimation";
 
 export function ProjectSlider() {
   const [data, setData] = useState([]);
@@ -19,7 +19,11 @@ export function ProjectSlider() {
 
   return (
     <div>
-      <div className="absolute w-screen -right-20 top-0 max-h-[80vh] xl:h-[80vh]">
+      <div className="
+        relative sm:absolute w-screen z-0 h-[75vh] right-0 -left-7 -top-14
+        sm:left-0 sm:-right-20 sm:top-0 sm:max-h-[80vh]
+        xl:h-[80vh]"
+      >
         {slider(data.map((images: string) => images))}
       </div>
     </div>
