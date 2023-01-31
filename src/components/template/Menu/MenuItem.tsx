@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-
 interface MenuItemProps {
   url?: string;
   text: string;

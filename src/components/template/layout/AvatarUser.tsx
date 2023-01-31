@@ -1,7 +1,7 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import { useAuth } from "@/data/hook/useAuth";
-import { useRouter } from "next/router";
+import { useAuth } from "@hook/useAuth";
 
 interface AvatarUserProps{
     className?: string;

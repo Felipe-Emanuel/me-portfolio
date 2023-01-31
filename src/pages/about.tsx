@@ -1,5 +1,5 @@
-import { Layout } from "@/components/template/layout/Layout";
-import { useAuth } from "@/data/hook/useAuth";
+import { Layout } from "@layout/Layout";
+import { useAuth } from "@hook/useAuth";
 
 export default function About() {
   const { user } = useAuth()

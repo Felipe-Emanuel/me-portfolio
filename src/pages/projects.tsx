@@ -1,4 +1,4 @@
-import { Layout } from "@/components/template/layout/Layout";
+import { Layout } from "@layout/Layout";
 
 export default function projects() {
 

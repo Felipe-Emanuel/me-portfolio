@@ -1,4 +1,4 @@
-import { useAppData } from "@/data/hook/useAppData";
+import { useAppData } from "@hook/useAppData";
 
 interface BlackOverlayProps {
     high?: boolean;

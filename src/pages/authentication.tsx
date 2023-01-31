@@ -1,12 +1,12 @@
-import { GoogleIcon, WarningIcon } from "@/components/icons";
-import { useAuth } from "@/data/hook/useAuth";
-import { AuthInput } from "@auth/AuthInput";
 import { useState } from "react";
 import { AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import { NewsAtAuth } from "@/components/template/layout/NewsAtAuth";
-import { SocialMedia } from "@/components/template/utils/SocialMedia";
-import { Title } from "@/components/template/utils/Title";
+import { GoogleIcon, WarningIcon } from "@/components/icons";
+import { useAuth } from "@hook/useAuth";
+import { AuthInput } from "@auth/AuthInput";
+import { NewsAtAuth } from "@layout/NewsAtAuth";
+import { SocialMedia } from "@utils/SocialMedia";
+import { Title } from "@utils/Title";
 
 export default function authentication() {
   const [mode, setMode] = useState<"login" | "register">("login");

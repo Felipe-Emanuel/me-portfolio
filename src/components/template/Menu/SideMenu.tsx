@@ -1,8 +1,14 @@
-import { useAuth } from "@/data/hook/useAuth";
-import { SettingsIcon, HomeIcon, BellIcon, LogoOutIcon, ComputerIcon, AboutIcon } from "@icons/index";
-import { AvatarUser } from "../layout/AvatarUser";
-import { Logo } from "../layout/Logo";
-import { MenuItem } from "./MenuItem";
+import {
+  SettingsIcon,
+  HomeIcon,
+  BellIcon,
+  LogoOutIcon,
+  ComputerIcon,
+  AboutIcon } from "@icons/index";
+import { useAuth } from "@hook/useAuth";
+import { AvatarUser } from "@layout/AvatarUser";
+import { Logo } from "@layout/Logo";
+import { MenuItem } from "@Menu/MenuItem";
 
 
 export function SideMenu({}) {

@@ -1,7 +1,7 @@
-import api from "@/data/services/api";
+import api from "@api/api";
 import { useEffect, useState } from "react";
 import { AuthImages } from "./AuthImages";
-import { Title } from "../utils/Title";
+import { Title } from "@utils/Title";
 
 export function NewsAtAuth() {
   const [data, setData] = useState<any[]>([]);

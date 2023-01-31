@@ -1,8 +1,8 @@
-import { AuthForce } from "@/components/auth/AuthForce";
-import { useAppData } from "@/data/hook/useAppData";
-import { Content } from "./Content";
-import { TopBar } from "../Menu/TopBar";
-import { SideMenu } from "../Menu/SideMenu";
+import { AuthForce } from "@auth/AuthForce";
+import { useAppData } from "@hook/useAppData";
+import { TopBar } from "@Menu/TopBar";
+import { SideMenu } from "@Menu/SideMenu";
+import { Content } from "@layout/Content";
 
 interface LayoutProps {
   title: string;

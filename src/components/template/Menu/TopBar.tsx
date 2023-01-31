@@ -1,7 +1,7 @@
-import { useAppData } from "@/data/hook/useAppData";
-import { ButtonTheme } from "../utils/ButtonTheme";
-import { AvatarUser } from "../layout/AvatarUser";
-import { Title } from "../utils/Title";
+import { useAppData } from "@hook/useAppData";
+import { ButtonTheme } from "@utils/ButtonTheme";
+import { AvatarUser } from "@layout/AvatarUser";
+import { Title } from "@utils/Title";
 
 interface TopBarProps {
   title: string;

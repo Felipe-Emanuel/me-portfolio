@@ -3,8 +3,8 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import { useState, useEffect } from "react";
-import { BlackOverlay } from "./BlackOverlay";
-import { useWindow } from "@/data/hook/useWindow";
+import { BlackOverlay } from "@cubeAnimation/BlackOverlay";
+import { useWindow } from "@hook/useWindow";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 

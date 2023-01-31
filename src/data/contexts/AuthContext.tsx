@@ -1,6 +1,6 @@
+import firebase from "../../firebase/config";
 import router from "next/router";
 import Cookies from "js-cookie";
-import firebase from "../../firebase/config";
 import { User } from "@/model/User";
 import { createContext, useEffect, useState } from "react";
 

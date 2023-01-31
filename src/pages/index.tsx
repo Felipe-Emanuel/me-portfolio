@@ -1,5 +1,5 @@
-import { Layout } from "@/components/template/layout/Layout";
-import { ProjectSlider } from "@/components/template/cubeAnimation/ProjectSlider";
+import { Layout } from "@layout/Layout";
+import { ProjectSlider } from "@cubeAnimation/ProjectSlider";
 
 export default function Home() {
   return (
