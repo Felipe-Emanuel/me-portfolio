@@ -1,6 +1,6 @@
 import api from "@api/api";
 import { useEffect, useState } from "react";
-import { Slider } from "@cubeAnimation/CubeAnimation";
+import { slider } from "@cubeAnimation/CubeAnimation";
 
 export function ProjectSlider() {
   const [data, setData] = useState([]);
@@ -23,7 +23,7 @@ export function ProjectSlider() {
         sm:left-0 sm:-right-20 sm:top-0 sm:max-h-[80vh]
         xl:h-[80vh]"
       >
-        {Slider(data.map((images: string) => images))}
+        {slider(data.map((images: string) => images))}
       </div>
     </div>
   );
