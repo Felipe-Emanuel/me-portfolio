@@ -38,11 +38,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       id: id++,
       image: "/images/alura-tube.png",
     },
-    {
-      name: 'Rick and Morty API',
-      id: id++,
-      image: "/images/Rick&Morty.png",
-    },
+    // {
+    //   name: 'Rick and Morty API',
+    //   id: id++,
+    //   image: "/images/Rick&Morty.png",
+    // },
     {
       name: 'Login System',
       id: id++,
