@@ -38,8 +38,8 @@
       "@icons/*": [
         "src/components/icons/*"
       ],
-      "@cubeAnimation/*": [
-        "src/components/template/cubeAnimation/*"
+      "@sliderAnimation/*": [
+        "src/components/template/sliderAnimation/*"
       ],
       "@layout/*": [
         "src/components/template/layout/*"

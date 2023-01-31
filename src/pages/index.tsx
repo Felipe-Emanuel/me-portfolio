@@ -1,4 +1,4 @@
-import { RenderSlider } from "@/components/template/cubeAnimation/RenderSlider";
+import { RenderSlider } from "@/components/template/sliderAnimation/RenderSlider";
 import { Layout } from "@layout/Layout";
 
 export default function Home() {
