@@ -4,72 +4,88 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   let id = 0;
   const images = [
     {
+      name: 'Casa Verde',
       id: id++,
-      image: "/images/alura-tube.png",
+      image: "/images/casa-verde.png",
     },
     {
+      name: 'Next Quiz',
       id: id++,
       image: "/images/Quiz.png",
     },
     {
+      name: 'Admin Template',
       id: id++,
       image: "/images/admin-template.png",
     },
     {
+      name: 'Pearson Hardman',
       id: id++,
       image: "/images/pearson-hardman.png",
     },
     {
+      name: 'Webnar Practicum',
       id: id++,
       image: "/images/webnar_01.png",
     },
     {
+      name: 'Next Crud',
       id: id++,
       image: "/images/Next-Crud.png",
     },
     {
+      name: 'Alura Tube',
       id: id++,
-      image: "/images/casa-verde.png",
+      image: "/images/alura-tube.png",
     },
-
     {
+      name: 'Rick and Morty API',
       id: id++,
       image: "/images/Rick&Morty.png",
     },
     {
+      name: 'Login System',
       id: id++,
       image: "/images/Login-system.png",
     },
     {
+      name: 'Star Wars',
       id: id++,
       image: "/images/star-wars.png",
     },
     {
+      name: 'Ignite Lab',
       id: id++,
       image: "/images/ignite-lab.png",
     },
     {
+      name: 'Monty Hall',
       id: id++,
       image: "/images/monty-hall.png",
     },
     {
+      name: 'Covid Cases',
       id: id++,
       image: "/images/covid-cases.png",
     },
     {
+      name: 'Credit Card',
       id: id++,
       image: "/images/credit-card.png",
     },
 
     {
+      name: 'Guitar Sell',
       id: id++,
       image: "/images/guitar-sell.png",
     },
     {
+      name: 'Old Portfolio',
       id: id++,
       image: "/images/old-portfolio.png",
     },
     {
+      name: 'Cash do Fray',
       id: id++,
       image: "/images/cash-do-fray.png",
     },

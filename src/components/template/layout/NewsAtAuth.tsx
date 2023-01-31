@@ -5,6 +5,7 @@ import { Title } from "../utils/Title";
 
 export function NewsAtAuth() {
   const [data, setData] = useState<any[]>([]);
+  
   useEffect(() => {
     api.get("/api/images").then(({ data }) => {
       setData(data.images);

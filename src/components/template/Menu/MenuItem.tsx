@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+
+
 interface MenuItemProps {
   url?: string;
   text: string;
@@ -17,11 +19,11 @@ export function MenuItem({
   className,
   onClick,
 }: MenuItemProps) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const paths = router.pathname
+  const paths = router.pathname;
 
-  const checkPath = () => paths === path && "bg-gray-300 dark:bg-gray-800"
+  const checkPath = () => paths === path && "bg-gray-300 dark:bg-gray-800";
 
   function renderContentLink() {
     return (

@@ -7,7 +7,7 @@ import { SideMenu } from "../Menu/SideMenu";
 interface LayoutProps {
   title: string;
   subtitle: string;
-  children: any;
+  children?: any;
 }
 
 export function Layout({ title, subtitle, children }: LayoutProps) {

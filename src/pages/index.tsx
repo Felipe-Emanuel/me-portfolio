@@ -1,9 +1,10 @@
 import { Layout } from "@/components/template/layout/Layout";
+import { ProjectSlider } from "@/components/template/cubeAnimation/ProjectSlider";
 
 export default function Home() {
   return (
-    <Layout title="Página inicial" subtitle="Fase inicial">
-      <h3>Conteúdo</h3>
+    <Layout subtitle="" title="">
+      <ProjectSlider />
     </Layout>
   );
 }

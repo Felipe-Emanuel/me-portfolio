@@ -26,6 +26,6 @@
       "@context/*": ["src/data/contexts/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.js"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import { useAuth } from "@/data/hook/useAuth";
-import { SettingsIcon, HomeIcon, BellIcon, LogoOutIcon } from "@icons/index";
+import { SettingsIcon, HomeIcon, BellIcon, LogoOutIcon, ComputerIcon, AboutIcon } from "@icons/index";
 import { Logo } from "../layout/Logo";
 import { MenuItem } from "./MenuItem";
 
@@ -7,7 +7,7 @@ import { MenuItem } from "./MenuItem";
 export function SideMenu({}) {
   const { logout } = useAuth()
 
-  const pathsArray = ['/', '/settings', '/news']
+  const pathsArray = ['/', '/settings', '/news', '/projects', '/about']
 
   return (
     <aside className="
@@ -28,6 +28,8 @@ export function SideMenu({}) {
         <MenuItem path={pathsArray[0]} url="/" text="Início" icon={<HomeIcon />} />
         <MenuItem path={pathsArray[1]} url="/settings" text="Ajustes" icon={<SettingsIcon />} />
         <MenuItem path={pathsArray[2]} url="/news" text="Notificações" icon={<BellIcon />} />
+        <MenuItem path={pathsArray[3]} url="/projects" text="Projetos" icon={<ComputerIcon />} />
+        <MenuItem path={pathsArray[4]} url="/about" text="Sobre" icon={<AboutIcon />} />
       </ul>
       <ul>
         <MenuItem
