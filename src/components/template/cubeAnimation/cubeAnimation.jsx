@@ -23,7 +23,7 @@ export const Slider = (data = []) => {
 
   return (
     <AutoplaySlider
-      fillParent
+      className="w-full h-full"
       buttons={false}
       play={true}
       cancelOnInteraction={false}
