@@ -1,7 +1,6 @@
-import { useAppData } from "@/data/hook/useAppData";
 import api from "@/data/services/api";
 import { useEffect, useState } from "react";
-import { slider } from "./CubeAnimation";
+import { slider } from './cubeAnimation';
 
 export function ProjectSlider() {
   const [data, setData] = useState([]);
