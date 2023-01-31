@@ -1,6 +1,6 @@
 import api from "@api/api";
 import { useEffect, useState } from "react";
-import { Slider } from "@cubeAnimation/CubeAnimation";
+import { Slider } from "./CubeAnimation";
 
 export function RenderSlider() {
   const [data, setData] = useState([]);
