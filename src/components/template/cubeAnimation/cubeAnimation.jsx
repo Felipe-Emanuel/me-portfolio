@@ -8,7 +8,7 @@ import { useWindow } from "@/data/hook/useWindow";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
-export const slider = (data = []) => {
+export const Slider = (data = []) => {
   const [Bullet, setIsBullet] = useState(false);
 
   const { width } = useWindow();
