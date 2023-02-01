@@ -4,24 +4,15 @@ import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import { useState, useEffect } from "react";
 import { BlackOverlay } from "@/components/template/sliderAnimation/BlackOverlay";
-// import { useWindow } from "@hook/useWindow";
+import Image from "next/image";
+import { useWindow } from "@hook/useWindow";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export const Slider = (data = []) => {
   const [Bullet, setIsBullet] = useState(false);
 
-  const [width, setWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => setWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
+  const { width } = useWindow();
 
   function updateBullets() {
     width >= 768 ? setIsBullet(true) : setIsBullet(false);
@@ -44,9 +35,9 @@ export const Slider = (data = []) => {
     >
       {data.map((images) => {
         return (
-          <div key={images.id} data-src={images.image}>
-            <BlackOverlay high />
-          </div>
+          <Image width={100} key={images.id} data-src={images.image}>
+            <BlackOverlay />
+          </Image>
         );
       })}
     </AutoplaySlider>

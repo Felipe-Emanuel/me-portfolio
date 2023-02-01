@@ -17,7 +17,7 @@ export function TopBar({ title, subtitle }: TopBarProps) {
       <Title title={title} subtitle={subtitle} />
       <div className={`flex flex-grow justify-end items-center`}>
         <ButtonTheme theme={theme!} changeTheme={changeTheme!}/>
-        <AvatarUser path='/profile' className="ml-4 hidden md:flex"/>
+        <AvatarUser path='/profile' className="ml-4 flex"/>
       </div>
     </div>
   );
