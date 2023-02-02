@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@model/*": [
+        "src/model/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@functions/*": [
+        "src/functions/*"
+      ],
+      "@templates/*": [
+        "src/components/template/*"
+      ],
+      "@icons/*": [
+        "src/components/icons/*"
+      ],
+      "@sliderAnimation/*": [
+        "src/components/template/sliderAnimation/*"
+      ],
+      "@layout/*": [
+        "src/components/template/layout/*"
+      ],
+      "@Menu/*": [
+        "src/components/template/Menu/*"
+      ],
+      "@utils/*": [
+        "src/components/template/utils/*"
+      ],
+      "@auth/*": [
+        "src/components/auth/*"
+      ],
+      "@animations/*": [
+        "src/components/animations/*"
+      ],
+      "@context/*": [
+        "src/data/contexts/*"
+      ],
+      "@hook/*": [
+        "src/data/hook/*"
+      ],
+      "@api/*": [
+        "src/data/services/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
