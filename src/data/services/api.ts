@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://admin-template-coral.vercel.app/',
+    baseURL: 'https://meportfolio-nine.vercel.app/',
 })
 
 export default api
