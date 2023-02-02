@@ -30,14 +30,14 @@ module.exports = {
         SecondarySans: ["'Antic Didone', serif"],
       },
       colors: {
-        dark: "#121214",
+        dark: "#000",
         darkSecondary: "#000012",
-        light: "#ddd",
+        light: "#bbb",
       },
       backgroundColor: {
         dark: "#121214",
         darkSecondary: "#000012",
-        light: "#ddd",
+        light: "#bbb",
       },
       backgroundImage: {
         AuthLogin: "url('/images/aura1.jpg')",

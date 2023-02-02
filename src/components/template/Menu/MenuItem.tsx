@@ -6,7 +6,7 @@ interface MenuItemProps {
   text: string;
   className?: string;
   path?: string;
-  icon: any;
+  icon?: any;
   onClick?: (e: any) => void;
 }
 
@@ -14,45 +14,29 @@ export function MenuItem({
   path,
   url,
   text,
-  icon,
   className,
+  icon,
   onClick,
 }: MenuItemProps) {
   const router = useRouter();
-
   const paths = router.pathname;
-
-  const checkPath = () => paths === path && "bg-light dark:bg-dark";
-
-  function renderContentLink() {
-    return (
-      <button
-        key={Math.random()}
-        className={`transition-all
-          flex flex-col justify-center items-center
-          w-20 h-20 text-gray-600
-          dark:text-gray-200
-          
-          ${className}`}
-      >
-        {icon}
-        <span className={`text-xs font-light`}>{text}</span>
-      </button>
-    );
-  }
+  const checkPath = () => paths === path && "dark:text-white/70 text-dark/60";
+  const checkCursor = () =>
+    paths === path ? `cursor-default` : `cursor-pointer`;
 
   return (
-    <li
+    <Link
       onClick={onClick}
-      className={`hover:bg-gray-100 cursor-pointer dark:hover:bg-dark
-        ${checkPath()}
-      `}
+      href={`${url}`}
+      className={`dark:text-white dark:hover:text-white/80 flex justify-center items-center
+          transition-all duration-300 text-dark hover:text-dark/60
+          ${checkPath()}
+          ${checkCursor()}
+          ${className}
+        `}
     >
-      {url ? (
-        <Link href={url}>{renderContentLink()}</Link>
-      ) : (
-        renderContentLink()
-      )}
-    </li>
+      {text}
+      <span>{icon}</span>
+    </Link>
   );
 }

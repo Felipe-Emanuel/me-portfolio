@@ -11,8 +11,8 @@ interface AvatarUserProps{
 export function AvatarUser({className, path}: AvatarUserProps) {
   const router = useRouter()
   const paths = router.pathname
-  const avatarSelector = () => paths === path &&
-    'border-2 border-dark dark:border-white animate-pup'
+  const avatarSelector = () => paths === path ?
+    'border-2 border-dark dark:border-white animate-pup': 'border-2 border-transparent'
   const { user } = useAuth();
   return (
     <Link href="/profile">
@@ -21,7 +21,7 @@ export function AvatarUser({className, path}: AvatarUserProps) {
         alt="Perfil"
         width={40}
         height={40}
-        className={`h-10 w-10 rounded-full cursor-pointer
+        className={`h-6 md:h-10 w-6 md:w-10 rounded-full cursor-pointer 
           ${avatarSelector()} ${className}`}
         />
     </Link>

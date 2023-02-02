@@ -21,7 +21,7 @@ export function RenderSlider() {
       <div
         className="
         absolute w-full z-0 right-0 xl:h-[80vh] bg-contain -top-0
-        sm:left-0 2xl:left-20 sm:top-0"
+        sm:left-0 sm:top-0"
       >
         {Slider(data.map((images: string) => images))}
       </div>
