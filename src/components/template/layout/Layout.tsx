@@ -2,7 +2,6 @@ import { useEffect, useCallback } from "react";
 import { AuthForce } from "@auth/AuthForce";
 import { useAppData } from "@hook/useAppData";
 import { TopBar } from "@Menu/TopBar";
-import { Content } from "@layout/Content";
 import { Title } from "../utils/Title";
 import { useMobileMenu } from "@/data/hook/useMobileMenu";
 import { MenuAnimation } from "@/components/animations/menu/MenuAnimation";
@@ -18,6 +17,11 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
   const { isOverlayActive, openMenu, isMenuOpen } = useMobileMenu();
   const { theme } = useAppData();
 
+  const checkOverlay =
+    isOverlayActive === true
+      ? "overflow-hidden"
+      : "overflow-y-auto overflow-x-hidden";
+
   return (
     <AuthForce>
       <div
@@ -27,11 +31,11 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
       >
         <div
           className={`w-full flex flex-col p-10 relative
-            bg-light dark:bg-dark 
+            bg-light dark:bg-dark ${checkOverlay}
             `}
         >
           {isOverlayActive && <Overlay />}
-          <div className="pb-8 fixed z-50">
+          <div className="absolute pb-10 z-50">
             <TopBar
               hamburger={
                 <MenuAnimation
@@ -41,7 +45,11 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
               }
             />
           </div>
-          <Title title={title} subtitle={subtitle} />
+          {title && (
+            <div className="py-14">
+            <Title title={title} subtitle={subtitle} />
+          </div>
+          )}
           {children}
         </div>
       </div>

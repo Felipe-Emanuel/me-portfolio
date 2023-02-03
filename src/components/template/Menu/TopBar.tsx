@@ -1,6 +1,6 @@
 import { AvatarUser } from "@layout/AvatarUser";
 import { useRouter } from "next/router";
-import { Logo } from "@layout/Logo";
+// import { Logo } from "@layout/Logo";
 import { NavBar } from "./NavBar";
 import { useAuth } from "@/data/hook/useAuth";
 import { MobileMenu } from "./MobileMenu";
@@ -18,7 +18,7 @@ export function TopBar({ hamburger }: TopBarProps) {
 
   const path = router.pathname;
 
-  const checkPathLogo = path === "/" ? "flex" : "hidden";
+  // const checkPathLogo = path === "/" ? "flex" : "hidden";
   const checkPathUserName = path === "/" ? "text-light" : "dark:text-light text-dark";
 
   function renderMenuButton() {
@@ -56,15 +56,15 @@ export function TopBar({ hamburger }: TopBarProps) {
 
   return (
     <div
-      className={` left-0 px-10 top-0
-      justify-between flex items-stretch  w-full z-20 fixed`}
+      className={` left-0 px-10
+      justify-between flex items-stretch w-full z-20 fixed`}
     >
       {renderMenuButton()}
       <MobileMenu isOpen={isMenuOpen} />
       {renderNavBar()}
-      <div className={`${checkPathLogo} w-fit`}>
+      {/* <div className={`${checkPathLogo} w-fit`}>
         <Logo />
-      </div>
+      </div> */}
       {renderAvatarUser()}
     </div>
   );

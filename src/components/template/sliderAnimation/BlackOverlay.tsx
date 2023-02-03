@@ -27,7 +27,7 @@ export function Overlay() {
     <div
       style={checkBottomTheme}  
       className={`
-      absolute z-50 inset-0 overflow-hidden pointer-events-none`}
+      absolute z-50 inset-0`}
     />
   )
 }
