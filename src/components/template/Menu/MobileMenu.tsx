@@ -6,26 +6,24 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen }: MobileMenuProps) {
-  const { openMenu } = useMobileMenu();
   const pathsArray = ["/", "/settings", "/about"];
 
   const openNavBarAnimation = () =>
     isOpen === true ? "translate-x-0" : "-translate-x-64";
 
-  const linkStyle = `hover:bg-white/30 w-full text-center transition-all duration-300 ease-in-out
-                      dark:hover:bg-dark/50`;
+  const linkStyle = `hover:bg-white/95 w-full text-center transition-all duration-300 ease-in-out
+                      dark:hover:bg-dark/50 text-dark dark:text-light`;
 
   return (
     <nav
       className={`
-        flex sm:hidden absolute -top-10 -left-20 
-        h-screen w-72 transition-all duration-300 ease-out bg-white/75 dark:bg-dark/75
+        flex sm:hidden absolute -top-10 -left-20  
+        h-screen w-72 transition-all duration-300 ease-in-out bg-white/75 dark:bg-dark/75
         ${openNavBarAnimation()}
       `}
     >
       <div
-        onClick={() => openMenu()}
-        className={`gap-4 flex flex-col justify-center items-center leading-10 w-full `}
+        className={`flex flex-col justify-center items-center leading-10 w-full `}
       >
         <MenuItem
           path={pathsArray[0]}

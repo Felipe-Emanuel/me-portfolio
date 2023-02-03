@@ -11,6 +11,7 @@ export function MenuAnimation({ isClose, onClick }: MenuAnimationProps) {
   useEffect(() => {
     isClose === false ? setDirection(-1) : setDirection(1);
     play();
+    setSpeed(3)
   }, [isClose]);
 
   const options = {
@@ -19,7 +20,7 @@ export function MenuAnimation({ isClose, onClick }: MenuAnimationProps) {
     loop: 0,
   };
 
-  const { View, play, setDirection } = useLottie(options);
+  const { View, play, setDirection, setSpeed } = useLottie(options);
 
   return (
     <button

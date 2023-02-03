@@ -9,7 +9,7 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
   const Comp = as ?? "h1";
 
   return (
-    <div>
+    <div className="relative">
       <Comp
         className={
           className ??

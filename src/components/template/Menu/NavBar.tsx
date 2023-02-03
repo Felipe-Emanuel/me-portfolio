@@ -5,7 +5,7 @@ export function NavBar() {
 
   return (
     <nav className={`z-10 text-gray-200`}>
-      <ul className={`gap-4 flex`}>
+      <ul className={`gap-4 flex text-xs md:text-sm lg:text-base`}>
         <MenuItem path={pathsArray[0]} url="/" text="Início" />
         <MenuItem path={pathsArray[1]} url="/settings" text="Ajustes" />
         <MenuItem path={pathsArray[2]} url="/about" text="Sobre" />

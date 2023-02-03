@@ -20,7 +20,7 @@ export function MenuItem({
 }: MenuItemProps) {
   const router = useRouter();
   const paths = router.pathname;
-  const checkPath = () => paths === path && "dark:text-white/70 text-dark/60";
+  const checkPath = () => paths === path && "text-white/50";
   const checkCursor = () =>
     paths === path ? `cursor-default` : `cursor-pointer`;
 
@@ -28,8 +28,8 @@ export function MenuItem({
     <Link
       onClick={onClick}
       href={url ?? '#'}
-      className={`dark:text-white dark:hover:text-white/80 flex justify-center items-center
-          transition-all duration-300 text-dark hover:text-dark/60
+      className={`text-white dark:hover:text-white/60 flex justify-center items-center
+          transition-all duration-300 hover:text-white/60
           ${checkPath()}
           ${checkCursor()}
           ${className}

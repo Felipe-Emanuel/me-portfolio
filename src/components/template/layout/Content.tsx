@@ -4,6 +4,6 @@ interface ContentProps {
 
 export function Content({ children }: ContentProps) {
   return (
-    <div className={`flex flex-col mt-7 dark:text-gray-200`}>{children}</div>
+    <div className={`flex dark:text-gray-200 relative bg-light`}>{children}</div>
   );
 }
