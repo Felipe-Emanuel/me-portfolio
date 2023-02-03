@@ -17,7 +17,7 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
   return (
     <nav
       className={`
-        flex sm:hidden absolute -top-10 -left-20  
+        flex sm:hidden absolute -left-20  
         h-screen w-72 transition-all duration-300 ease-in-out bg-white/75 dark:bg-dark/75
         ${openNavBarAnimation()}
       `}
