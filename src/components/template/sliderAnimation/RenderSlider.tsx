@@ -27,7 +27,7 @@ export function RenderSlider({ shadow }: any) {
   };
 
   return (
-    <div className="relative -top-10 -left-10 w-screen h-screen bg-light">
+    <div className="relative -top-10 -left-10 w-screen h-screen bg-light dark:bg-dark">
       <div
         className="flex flex-col
       relative w-full z-10 right-0 xl:h-[80vh] bg-contain -top-0
