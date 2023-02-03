@@ -27,7 +27,7 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
       >
         <div
           className={`w-full flex flex-col p-10 relative
-            bg-light dark:bg-black h-auto
+            bg-light dark:bg-dark 
             `}
         >
           {isOverlayActive && <Overlay />}
