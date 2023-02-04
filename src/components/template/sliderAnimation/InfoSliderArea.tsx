@@ -37,7 +37,7 @@ export function InfoSliderArea({
         <button
           onMouseEnter={setHoverIcon}
           onMouseLeave={setHoverIcon}
-          className="
+          className="shadow shadow-black/25
             rounded flex gap-4 items-center hover:text-white transition-all duration-300
             bg-white hover:bg-pinkLight dark:hover:bg-orangeDark text-xs font-default
             font-medium absolute bottom-0 left-10 py-1 px-2"
@@ -57,7 +57,7 @@ export function InfoSliderArea({
       </a>
       <a href={gitLink} target="_blank">
         <button
-          className="
+          className="shadow shadow-black/25
             rounded flex gap-4 items-center hover:text-white transition-all duration-300
             bg-pinkLight hover:bg-pinkLight/75 dark:bg-orangeDark dark:hover:bg-orangeDark/75
             text-xs font-default font-medium

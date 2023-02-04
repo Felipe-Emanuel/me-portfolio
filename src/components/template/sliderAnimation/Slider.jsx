@@ -27,7 +27,7 @@ export const Slider = (data = []) => {
       buttons={false}
       play={true}
       cancelOnInteraction={false}
-      interval={8000}
+      interval={5000}
       animation="fallAnimation"
       bullets={Bullet}
     >

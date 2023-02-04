@@ -20,7 +20,7 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
 
   return (
     <nav
-      className={`overflow-hidden bg-light dark:bg-dark/75 -top-10
+      className={`overflow-hidden bg-light dark:bg-dark/75 -top-0
         flex sm:hidden absolute -left-10 py-24 pl-[5.5rem]
         h-screen w-72 transition-all duration-300 ease-in-out
         ${openNavBarAnimation()}

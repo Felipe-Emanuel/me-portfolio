@@ -26,13 +26,13 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
     <AuthForce>
       <div
         className={` ${theme}
-        flex flex-col h-screen w-screen 
+        flex flex-col h-screen w-screen
         `}
       >
         <div
-          className={`w-full flex flex-col p-10 relative
+          className={`flex flex-col p-10 relative
             bg-light dark:bg-dark ${checkOverlay}
-            `}
+          `}
         >
           {isOverlayActive && <Overlay />}
           <div className="absolute pb-10 z-50">
@@ -47,8 +47,8 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
           </div>
           {title && (
             <div className="py-14">
-            <Title title={title} subtitle={subtitle} />
-          </div>
+              <Title title={title} subtitle={subtitle} />
+            </div>
           )}
           {children}
         </div>
