@@ -5,6 +5,8 @@ import { NavBar } from "./NavBar";
 import { useAuth } from "@/data/hook/useAuth";
 import { MobileMenu } from "./MobileMenu";
 import { useMobileMenu } from "@/data/hook/useMobileMenu";
+import { useWindow } from "@/data/hook/useWindow";
+import { useEffect } from "react";
 
 interface TopBarProps {
   hamburger: any;
@@ -13,13 +15,19 @@ interface TopBarProps {
 export function TopBar({ hamburger }: TopBarProps) {
   const { isMenuOpen, openMenu } = useMobileMenu();
   const { user } = useAuth();
+  const { scrollY } = useWindow();
   const userName = user?.name.split(" ")[0];
   const router = useRouter();
-
   const path = router.pathname;
 
+  useEffect(() => {
+    console.log("SCROLL: ", scrollY);
+  }, [scrollY]);
+
+
   // const checkPathLogo = path === "/" ? "flex" : "hidden";
-  const checkPathUserName = path === "/" ? "text-light" : "dark:text-light text-dark";
+  const checkPathUserName =
+    path === "/" ? "text-light" : "dark:text-light text-dark";
 
   function renderMenuButton() {
     return (
@@ -57,7 +65,9 @@ export function TopBar({ hamburger }: TopBarProps) {
   return (
     <div
       className={` left-0 px-10
-      justify-between flex items-stretch w-full z-20 fixed`}
+    justify-between flex items-stretch w-full z-20 fixed
+    ${scrollY > 0 ? "bg-green-600" : "bg-transparent"}
+  `}
     >
       {renderMenuButton()}
       <MobileMenu isOpen={isMenuOpen} />

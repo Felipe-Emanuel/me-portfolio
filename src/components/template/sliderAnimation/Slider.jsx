@@ -10,9 +10,8 @@ import { useWindow } from "@hook/useWindow";
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export const Slider = (data = []) => {
-  const [Bullet, setIsBullet] = useState(false);
-
   const { width } = useWindow();
+  const [Bullet, setIsBullet] = useState(false);
 
   function updateBullets() {
     width >= 768 ? setIsBullet(true) : setIsBullet(false);
@@ -21,7 +20,6 @@ export const Slider = (data = []) => {
   useEffect(() => {
     updateBullets();
   }, [width]);
-
   return (
     <AutoplaySlider
       mobileTouch
@@ -29,14 +27,18 @@ export const Slider = (data = []) => {
       buttons={false}
       play={true}
       cancelOnInteraction={false}
-      interval={2000}
+      interval={8000}
       animation="fallAnimation"
       bullets={Bullet}
     >
       {data.map((images) => {
         return (
           <Image width={100} key={images.id} data-src={images.image}>
-            <BlackOverlay />
+            <BlackOverlay
+              acessLink={images.acessLlink}
+              text={images.name}
+              gitLink={images.gitLlink}
+            />
           </Image>
         );
       })}

@@ -36,7 +36,7 @@ export function MenuItem({
         `}
     >
       
-      <span className="flex justify-between items-center w-full pr-10">{text} {icon}</span>
+      <span className={`flex justify-between items-center ${icon && 'w-full pr-10'}`}>{text} {icon}</span>
     </Link>
   );
 }

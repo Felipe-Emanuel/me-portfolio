@@ -5,6 +5,10 @@ export const useWindow = () => {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
 
+  const [scrollY, setScrollY] = useState(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleResize = () => setWidth(window.innerWidth);
@@ -13,7 +17,16 @@ export const useWindow = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleScroll = () => setScrollY(window.scrollY);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [scrollY]);
+
   return {
-    width
-  }
+    width,
+    scrollY,
+  };
 };

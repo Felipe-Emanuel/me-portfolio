@@ -87,7 +87,7 @@ export default function authentication() {
   }
 
   return (
-    <div className="flex text-white bg-neutral-900 max-w-[1920px] h-screen relative items-center justify-center overflow-hidden">
+    <div className="flex text-white bg-neutral-900 w-full h-screen relative items-center justify-center overflow-hidden">
       <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
           <AwesomeButtonSocial type="github" className="w-[100vw]">

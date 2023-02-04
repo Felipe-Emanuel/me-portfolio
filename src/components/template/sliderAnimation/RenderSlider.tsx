@@ -1,19 +1,27 @@
 import api from "@api/api";
 import { useEffect, useState } from "react";
 import { Slider } from "@sliderAnimation/Slider";
+import loadingImage from "../../../../public/images/loadingImage.gif";
+import Image from "next/image";
 
-export function RenderSlider({ shadow }: any) {
+export function RenderSlider() {
+  const [loadData, setLoadData] = useState(true);
   const [data, setData] = useState([]);
 
   async function renderBanner() {
-    const req = await api.get("/api/images");
+    const req = await api.get("/api/images", {
+      params: {
+          limit: 5
+      }
+  });
     const res = await req;
-
     setData(res.data.images);
   }
 
   useEffect(() => {
+    setLoadData(true);
     renderBanner();
+    setLoadData(false);
   }, []);
 
   const topDarkOverlay = {
@@ -25,9 +33,11 @@ export function RenderSlider({ shadow }: any) {
     <div className="relative -top-10 -left-10 w-screen h-auto bg-light dark:bg-dark">
       <div
         className="flex flex-col
-      relative w-full z-10 right-0 xl:h-[80vh] bg-contain -top-0
+      relative min-w-[280px] max-w-full z-10 right-0 h-full xl:max-h-[1080px] bg-contain -top-0
       sm:left-0 sm:top-0"
       >
+        {loadData && <Image src={loadingImage} alt="loading" />}
+
         {Slider(data.map((images: string) => images))}
       </div>
       <div

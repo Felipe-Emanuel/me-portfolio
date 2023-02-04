@@ -28,11 +28,14 @@ module.exports = {
         default: ["'Poppins', sans-serif"],
         sans: ["'Abril Fatface', sans-serif"],
         SecondarySans: ["'Antic Didone', serif"],
+        SliderTitle: ["'Aboreto', cursive;"],
       },
       colors: {
         dark: "#000",
         darkSecondary: "#000012",
         light: "#bbb",
+        orangeDark: "#bc6327",
+        pinkLight: "#b856b7",
       },
       backgroundColor: {
         dark: "#121214",
