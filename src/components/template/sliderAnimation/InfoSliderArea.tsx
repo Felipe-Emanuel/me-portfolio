@@ -28,7 +28,7 @@ export function InfoSliderArea({
     >
       <div
         className="
-            font-SliderTitle bg-transparent
+            font-SliderTitle bg-transparent 
             text-lg lg:text-2xl 2xl:text-4xl text-white absolute w-fit max-w-[5rem] left-10 bottom-9"
       >
         {text}

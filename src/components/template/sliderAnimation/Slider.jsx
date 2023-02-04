@@ -14,12 +14,27 @@ export const Slider = (data = []) => {
   const [Bullet, setIsBullet] = useState(false);
 
   function updateBullets() {
-    width >= 768 ? setIsBullet(true) : setIsBullet(false);
+    width >= 640 ? setIsBullet(true) : setIsBullet(false);
   }
 
   useEffect(() => {
     updateBullets();
   }, [width]);
+
+  function renderImage() {
+    return data.map((images) => {
+      return (
+        <Image width={100} key={images.id} data-src={images.image}>
+          <BlackOverlay
+            acessLink={images.acessLlink}
+            text={images.name}
+            gitLink={images.gitLlink}
+          />
+        </Image>
+      );
+    });
+  }
+
   return (
     <AutoplaySlider
       mobileTouch
@@ -31,17 +46,7 @@ export const Slider = (data = []) => {
       animation="fallAnimation"
       bullets={Bullet}
     >
-      {data.map((images) => {
-        return (
-          <Image width={100} key={images.id} data-src={images.image}>
-            <BlackOverlay
-              acessLink={images.acessLlink}
-              text={images.name}
-              gitLink={images.gitLlink}
-            />
-          </Image>
-        );
-      })}
+      {renderImage()}
     </AutoplaySlider>
   );
 };

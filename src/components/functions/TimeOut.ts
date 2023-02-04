@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function TimeOut() {
     const [isActive, setIsActive] = useState(false);
-    const [time, setTime] = useState(2.2);
+    const [time, setTime] = useState(2);
     const timing: any = useRef(0);
   
     useEffect(() => {
