@@ -6,61 +6,24 @@ interface ButtonThemeProps {
 }
 
 export function ButtonTheme({ theme, changeTheme }: ButtonThemeProps) {
-  const sizeIcon = 4;
-
   return theme === "dark" ? (
-    <div
-      onClick={changeTheme}
-      className={`
-            flex items-center cursor-pointer
-            bg-gradient-to-r from-yellow-300 to-yellow-600
-            w-10 md:w-24 h-4 md:h-8 p-1 py-2 lg:py-0 rounded-full
-        `}
-    >
-      <div
+    <div onClick={changeTheme}
         className={`
-                flex items-center justify-center
-                bg-white text-yellow-600
-                w-4 md:w-6 h-4 md:h-6 rounded-full
+                flex items-center justify-center pr-10
+                text-yellow-300 hover:text-yellow-200 cursor-pointer transition-all
             `}
       >
-        {SunIcon(sizeIcon)}
+        {SunIcon()}
       </div>
-      <div
-        className={`
-                hidden md:flex items-center ml-2
-                text-white
-            `}
-      >
-        <span className="text-sm">Claro</span>
-      </div>
-    </div>
+
   ) : (
-    <div
-      onClick={changeTheme}
-      className={`
-            flex items-center justify-end cursor-pointer
-            bg-gradient-to-r from-gray-500 to-gray-900
-            w-10 md:w-24 h-4 md:h-8 p-1 py-2 rounded-full
-        `}
-    >
-      <div
+    <div onClick={changeTheme}
         className={`
-                hidden md:flex items-center mr-1
-                text-light
+                flex items-center justify-center pr-10
+                text-gray-600 hover:text-gray-500 cursor-pointer transition-all
             `}
       >
-        <span className="text-sm">Escuro</span>
+        {MoonIcon()}
       </div>
-      <div
-        className={`
-                flex items-center justify-center
-                bg-black text-light
-                w-4 md:w-6 h-4 md:h-6 rounded-full
-            `}
-      >
-        {MoonIcon(sizeIcon)}
-      </div>
-    </div>
   );
 }

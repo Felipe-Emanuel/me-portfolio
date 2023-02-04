@@ -1,6 +1,5 @@
 import { ButtonTheme } from "@/components/template/utils/ButtonTheme";
 import { useAppData } from "@/data/hook/useAppData";
-import { useMobileMenu } from "@/data/hook/useMobileMenu";
 import { Layout } from "@layout/Layout";
 
 export default function Settings() {

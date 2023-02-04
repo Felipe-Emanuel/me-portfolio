@@ -68,14 +68,14 @@ export function LogoOutIcon() {
   );
 }
 
-export const SunIcon = (size = 6) => (
+export const SunIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={`h-${size} w-${size}`}
+    className={`h-6 w-6`}
   >
     <path
       strokeLinecap="round"
@@ -85,14 +85,14 @@ export const SunIcon = (size = 6) => (
   </svg>
 );
 
-export const MoonIcon = (size = 6) => (
+export const MoonIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={`h-${size} w-${size}`}
+    className={`h-6 w-6`}
   >
     <path
       strokeLinecap="round"
