@@ -32,7 +32,7 @@ export const Dropdown = () => {
             Olá, {userName}
           </p>
           <ChevronDownIcon
-            className={`text-white h-5 w-5 hidden lg:flex transition-transform duration-300 ease-in-out ${iconAnimate}`}
+            className={`text-white h-5 w-5 hidden sm:flex transition-transform duration-300 ease-in-out ${iconAnimate}`}
             aria-hidden="true"
           />
         </Menu.Button>
