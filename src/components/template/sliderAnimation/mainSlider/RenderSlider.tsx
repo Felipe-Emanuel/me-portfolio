@@ -1,7 +1,7 @@
 import api from "@api/api";
 import { useEffect, useState } from "react";
-import { Slider } from "@sliderAnimation/Slider";
-import loadingImage from "../../../../public/images/loadingImage.gif";
+import { Slider } from "@/components/template/sliderAnimation/mainSlider/Slider";
+import loadingImage from "../../../../../public/images/loadingImage.gif";
 import Image from "next/image";
 
 export function RenderSlider() {

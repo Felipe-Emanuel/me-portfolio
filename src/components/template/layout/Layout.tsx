@@ -5,7 +5,7 @@ import { TopBar } from "@Menu/TopBar";
 import { Title } from "../utils/Title";
 import { useMobileMenu } from "@/data/hook/useMobileMenu";
 import { MenuAnimation } from "@/components/animations/menu/MenuAnimation";
-import { Overlay } from "../sliderAnimation/BlackOverlay";
+import { Overlay } from "../sliderAnimation/mainSlider/BlackOverlay";
 
 interface LayoutProps {
   title?: string;

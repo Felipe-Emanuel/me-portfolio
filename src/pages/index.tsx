@@ -1,7 +1,7 @@
 import { Section } from "@layout/Section";
-import { RenderSlider } from "@sliderAnimation/RenderSlider";
 import { Layout } from "@layout/Layout";
 import { KeepNavigation } from "@sections/keepNavigate/KeepNavigation";
+import { RenderSlider } from "@/components/template/sliderAnimation/mainSlider/RenderSlider";
 
 export default function Home() { 
   return (

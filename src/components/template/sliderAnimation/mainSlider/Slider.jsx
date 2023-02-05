@@ -3,9 +3,9 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import { useState, useEffect } from "react";
-import { BlackOverlay } from "@/components/template/sliderAnimation/BlackOverlay";
 import Image from "next/image";
 import { useWindow } from "@hook/useWindow";
+import { BlackOverlay } from "./BlackOverlay";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
