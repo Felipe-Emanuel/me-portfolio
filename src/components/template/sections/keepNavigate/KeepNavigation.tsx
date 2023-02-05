@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Title } from "@utils/Title";
 import api from "@/data/services/api";
-import { SwiperComponent, SwiperProps, SwiperSlide } from "@sections/swiper";
+import { SwiperComponent, SwiperProps, SwiperSlide } from "@/components/template/sliderAnimation/swiper";
 import { useWindow } from "@hook/useWindow";
 
 interface KeepNavigationProps {}
