@@ -6,12 +6,13 @@ import { useAuth } from "@/data/hook/useAuth";
 import { LogoOutIcon } from "@/components/icons";
 import { ButtonTheme } from "@/components/template/utils/ButtonTheme";
 import { useAppData } from "@/data/hook/useAppData";
+// import firebase from "/firebase/config";
 
 export const Dropdown = () => {
   const [changeIcon, setChangeIcon] = useState(false);
   const { theme, changeTheme } = useAppData();
   const { logout, user } = useAuth();
-  const userName = user?.name.split(" ")[0];
+  const userName = user?.name !== null ? user?.name.split(" ")[0] : 'Usuário';
 
   const linkStyle = ` w-full transition-all duration-300 ease-in-out
                       text-white font-default font-semibold
@@ -20,6 +21,7 @@ export const Dropdown = () => {
   const setChange = () => setChangeIcon((changeIcon) => !changeIcon);
 
   const iconAnimate = changeIcon ? "translate-y-0.5" : "translate-y-0";
+
 
   return (
     <Menu as="div" className="relative inline-block text-left">

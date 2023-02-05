@@ -23,12 +23,19 @@ export const Slider = (data = []) => {
 
   function renderImage() {
     return data.map((images) => {
+      console.log(images.image, images.name);
       return (
         <Image width={100} key={images.id} data-src={images.image}>
           <BlackOverlay
             acessLink={images.acessLlink}
             text={images.name}
             gitLink={images.gitLlink}
+            localStorageValue={[
+              images.id,
+              images?.image,
+              images?.name,
+              images.acessLlink,
+            ]}
           />
         </Image>
       );

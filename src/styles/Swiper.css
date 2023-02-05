@@ -1,0 +1,19 @@
+.swiper-button-prev {
+  color: #fff;
+  transition: 300ms ease-in-out;
+}
+
+.swiper-button-next {
+  color: #fff;
+  transition: 300ms ease-in-out;
+  position: absolute;
+  right: 4rem;
+}
+
+.swiper-button-prev:hover {
+  transform: scale(1.1);
+}
+
+.swiper-button-next:hover {
+  transform: scale(1.1);
+}

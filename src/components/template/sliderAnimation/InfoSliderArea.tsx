@@ -6,17 +6,23 @@ interface InfoSliderAreaProps {
   text: string;
   gitLink: string;
   acessLink: string;
+  localStorageValue: string[];
 }
 
 export function InfoSliderArea({
   text,
   gitLink,
   acessLink,
+  localStorageValue,
 }: InfoSliderAreaProps) {
   const [hovered, setHovered] = useState(false);
   const { isActive } = TimeOut();
 
   const setHoverIcon = () => setHovered((hovered) => !hovered);
+
+  function setLocalStorage(key: string, value: string) {
+    localStorage.setItem(key, value);
+  }
 
   return (
     <div
@@ -31,10 +37,11 @@ export function InfoSliderArea({
             font-SliderTitle bg-transparent 
             text-lg lg:text-2xl 2xl:text-4xl text-white absolute w-fit max-w-[5rem] left-10 bottom-9"
       >
-        {text}
+        <h1>{text}</h1>
       </div>
       <a href={acessLink} target="_blank">
         <button
+          onClick={() => setLocalStorage("Recently", JSON.stringify(localStorageValue))}
           onMouseEnter={setHoverIcon}
           onMouseLeave={setHoverIcon}
           className="shadow shadow-black/25

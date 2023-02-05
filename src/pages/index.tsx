@@ -1,13 +1,15 @@
-import { RenderSlider } from "@/components/template/sliderAnimation/RenderSlider";
+import { Section } from "@layout/Section";
+import { RenderSlider } from "@sliderAnimation/RenderSlider";
 import { Layout } from "@layout/Layout";
+import { KeepNavigation } from "@sections/keepNavigate/KeepNavigation";
 
 export default function Home() { 
   return (
     <Layout>
       <RenderSlider />
-      <section className="h-screen z-10">
-        <h3 className="text-2xl text-red-800">teste</h3>
-      </section>
+      <Section id="continue-your-navigation">
+        <KeepNavigation />
+      </Section>
     </Layout>
   );
 }

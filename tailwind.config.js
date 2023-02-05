@@ -21,6 +21,9 @@ module.exports = {
     {
       pattern: /^left-/,
     },
+    {
+      pattern: /^-translate-x/,
+    },
   ],
   theme: {
     extend: {

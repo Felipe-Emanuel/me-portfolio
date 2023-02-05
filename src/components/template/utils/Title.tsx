@@ -1,5 +1,5 @@
 interface TitleProps {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  as?: "h2" | "h3" | "h4" | "h5" | "h6";
   title?: string;
   subtitle?: string;
   className?: string;
@@ -15,7 +15,7 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
           className ??
           `
             font-black text-3xl
-            text-gray-900 dark:text-gray-100
+            text-gray-900 dark:text-white
           `
         }
       >
@@ -24,7 +24,7 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
       <h2
         className={`
           font-light text-sm
-          text-gray-600 dark:text-light
+          text-gray-600 dark:text-white
         `}
       >
         {subtitle}

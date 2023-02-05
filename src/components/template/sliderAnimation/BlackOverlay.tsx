@@ -5,12 +5,13 @@ interface BlackOverlay {
   text: string;
   gitLink: string;
   acessLink: string;
-
+  localStorageValue: string[];
 }
 
 export function BlackOverlay({ text,
   gitLink,
-  acessLink, }: BlackOverlay) {
+  acessLink,
+  localStorageValue }: BlackOverlay) {
   const blackOverlay = {
     background:
       "linear-gradient(rgba(0, 0, 0, 0) 49.02%, rgba(0, 0, 0, 0.008) 52.42%, rgba(0, 0, 0, 0.035) 55.82%, rgba(0, 0, 0, 0.082) 59.22%, rgba(0, 0, 0, 0.15) 62.62%, rgba(0, 0, 0, 0.23) 66.02%, rgba(0, 0, 0, 0.333) 69.41%, rgba(0, 0, 0, 0.443) 72.81%, rgba(0, 0, 0, 0.557) 76.21%, rgba(0, 0, 0, 0.667) 79.61%, rgba(0, 0, 0, 0.77) 83.01%, rgba(0, 0, 0, 0.85) 86.41%, rgba(0, 0, 0, 0.918) 89.8%, rgba(0, 0, 0, 0.965) 93.2%, rgba(0, 0, 0, 0.992) 96.6%, rgb(0, 0, 0) 100%)",
@@ -27,7 +28,7 @@ export function BlackOverlay({ text,
         className="absolute left-0 top-0 h-full w-full"
       />
       <div style={blackOverlay} className="absolute left-0 top-0 h-full w-full">
-        <InfoSliderArea gitLink={gitLink} acessLink={acessLink} text={text}/>
+        <InfoSliderArea localStorageValue={localStorageValue} gitLink={gitLink} acessLink={acessLink} text={text}/>
       </div>
     </>
   );

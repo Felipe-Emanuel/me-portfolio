@@ -41,6 +41,9 @@
       "@sliderAnimation/*": [
         "src/components/template/sliderAnimation/*"
       ],
+      "@sections/*": [
+        "src/components/template/sections/*"
+      ],
       "@layout/*": [
         "src/components/template/layout/*"
       ],
