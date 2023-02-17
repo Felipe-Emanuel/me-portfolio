@@ -8,6 +8,7 @@ import {
 import { useWindow } from "@hook/useWindow";
 import { useAuth } from "@/data/hook/useAuth";
 import firebase from "@/firebase/config";
+import { TrashIcon } from "@/components/icons";
 
 export function KeepNavigation() {
   const { user } = useAuth();
@@ -15,7 +16,7 @@ export function KeepNavigation() {
   const [lastViews, setLastViews] = useState<any>([]);
   const { width } = useWindow();
 
-  async function teste() {
+  async function getLastViews() {
     const recentlyView = await firebase
       .firestore()
       .collection("recently")
@@ -33,7 +34,7 @@ export function KeepNavigation() {
   }
 
   useEffect(() => {
-    teste();
+    getLastViews();
   }, []);
 
   const handleSetControlls = () =>
@@ -51,6 +52,22 @@ export function KeepNavigation() {
           : false,
     };
 
+    async function handleDelet(id: string) {
+      await firebase
+        .firestore()
+        .collection("recently")
+        .doc(id)
+        .delete()
+        .then(() => {
+          const deletedLastView = lastViews.filter((item: { id: string }) => {
+            return item.id !== id;
+          });
+
+          setLastViews(deletedLastView);
+        })
+        .catch((err) => console.log(err));
+    }
+
     return (
       <div
         className="px-3 w-screen"
@@ -63,21 +80,29 @@ export function KeepNavigation() {
               return (
                 <SwiperSlide key={i} className="w-screen">
                   <a href={cards.lastView.acessLlink} target="_blank">
-                    <img
-                      src={cards.lastView.image}
-                      className="relative
-                        h-52 xl:h-72 w-52 xl:w-96 rounded-lg
+                    <div
+                      className="relative h-52 xl:h-72 w-52 xl:w-72 2xl:w-auto max-w-[25rem] p-[0.10rem]"
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleDelet(cards.id);
+                        }}
+                        className="
+                          right-2 top-2 rounded z-10 flex items-center justify-center
+                          absolute w-6 h-6 text-white hiver:text-white/8"
+                        >
+                        <TrashIcon />
+                      </button>
+                      <img
+                        src={cards.lastView.image}
+                        className="
+                        w-full h-full rounded-lg
                         border-[3px] p-[0.10rem] border-transparent
                         hover:border-pinkLight dark:hover:border-orangeDark
                         transition-all duration-150 ease-in"
-                    />
-                    <button
-                      className="
-                      right-1 top-1 rounded z-10
-                      absolute w-6 h-6 bg-red-600 text-white"
-                    >
-                      D
-                    </button>
+                      />
+                    </div>
                   </a>
                   <Title
                     as="h3"

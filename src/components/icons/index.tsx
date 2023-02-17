@@ -2,6 +2,8 @@
 // Para mais ícones, acesse: https://react-icons.github.io/react-icons
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import { SlOptionsVertical } from 'react-icons/sl'
+import { CgTrashEmpty } from 'react-icons/cg'
 
 export function HomeIcon() {
   return (
@@ -144,6 +146,14 @@ export function GitHubIcon({className}: any) {
 
 export function LinkedinIcon({className}: any) {
   return <BsLinkedin className={className ?? "w-6 h-6"}/>;
+}
+
+export function OptionsIcon({className}: any) {
+  return <SlOptionsVertical className={className ?? "w-4 h-4"}/>;
+}
+
+export function TrashIcon({className}: any) {
+  return <CgTrashEmpty className={className ?? "w-4 h-4"}/>;
 }
 
 
