@@ -3,7 +3,7 @@ import { Layout } from "@layout/Layout";
 import { KeepNavigation } from "@sections/keepNavigate/KeepNavigation";
 import { RenderSlider } from "@/components/template/sliderAnimation/mainSlider/RenderSlider";
 
-export default function Home() { 
+export default function Home() {
   return (
     <Layout>
       <RenderSlider />

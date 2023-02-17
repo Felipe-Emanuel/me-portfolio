@@ -1,15 +1,13 @@
-import api from "@api/api";
 import { useEffect, useState } from "react";
 import { AuthImages } from "./AuthImages";
 import { Title } from "@utils/Title";
+import { useData } from "@/data/hook/useData";
 
 export function NewsAtAuth() {
-  const [data, setData] = useState<any[]>([]);
+  const { dataGet, getData } = useData();
   
   useEffect(() => {
-    api.get("/api/images").then(({ data }) => {
-      setData(data.images);
-    });
+    getData("images")
   }, []);
 
   function renderImages() {
@@ -19,7 +17,7 @@ export function NewsAtAuth() {
         flex absolute scale-150 w-screen flex-wrap bg-black/75
         justify-center items-center rotate-45 pointer-events-none -skew-y-12 skew-x-6"
       >
-        {data?.map((data) => {
+        {dataGet?.map((data: any) => {
           return <AuthImages key={data.id} img={data.image} />;
         })}
       </ul>

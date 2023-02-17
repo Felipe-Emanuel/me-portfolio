@@ -6,10 +6,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useWindow } from "@hook/useWindow";
 import { BlackOverlay } from "./BlackOverlay";
+import { useData } from "@/data/hook/useData";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
-export const Slider = (data = []) => {
+export const Slider = (cards = []) => {
+  const { postFireBaseLastViews } = useData();
   const { width } = useWindow();
   const [Bullet, setIsBullet] = useState(false);
 
@@ -22,20 +24,14 @@ export const Slider = (data = []) => {
   }, [width]);
 
   function renderImage() {
-    return data.map((images) => {
-      console.log(images.image, images.name);
+    return cards.map((card) => {
       return (
-        <Image width={100} key={images.id} data-src={images.image}>
+        <Image width={100} key={card.id} data-src={card.image}>
           <BlackOverlay
-            acessLink={images.acessLlink}
-            text={images.name}
-            gitLink={images.gitLlink}
-            localStorageValue={[
-              images.id,
-              images?.image,
-              images?.name,
-              images.acessLlink,
-            ]}
+            handleInfo={() => postFireBaseLastViews(card)}
+            acessLink={card.acessLlink}
+            text={card.name}
+            gitLink={card.gitLlink}
           />
         </Image>
       );

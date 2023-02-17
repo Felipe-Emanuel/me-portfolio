@@ -3,24 +3,15 @@ import { useEffect, useState } from "react";
 import { Slider } from "@/components/template/sliderAnimation/mainSlider/Slider";
 import loadingImage from "../../../../../public/images/loadingImage.gif";
 import Image from "next/image";
+import { useData } from "@/data/hook/useData";
 
 export function RenderSlider() {
   const [loadData, setLoadData] = useState(true);
-  const [data, setData] = useState([]);
-
-  async function renderBanner() {
-    const req = await api.get("/api/images", {
-      params: {
-          limit: 5
-      }
-  });
-    const res = await req;
-    setData(res.data.images);
-  }
-
+  const { dataGet, getData } = useData();
+  
   useEffect(() => {
     setLoadData(true);
-    renderBanner();
+    getData("images", 5)
     setLoadData(false);
   }, []);
 
@@ -38,7 +29,7 @@ export function RenderSlider() {
       >
         {loadData && <Image src={loadingImage} alt="loading" />}
 
-        {Slider(data.map((images: string) => images))}
+        {Slider(dataGet.map((cards: string) => cards))}
       </div>
       <div
         style={topDarkOverlay}
