@@ -35,39 +35,37 @@ export function KeepNavigation() {
 
   useEffect(() => {
     getLastViews();
-  }, []);
+  }, [lastViews]);
 
   const handleSetControlls = () =>
     setControllsVisivble((controllsVisivble) => !controllsVisivble);
 
+  const widthValidation = width < 768 ? "auto" : width <= 1024 ? 3.5 : 4.5;
+
+  const settings: SwiperProps = {
+    spaceBetween: 20,
+    slidesPerView: widthValidation,
+    navigation:
+      controllsVisivble && width >= 768 && lastViews.length > 3 ? true : false,
+  };
+
+  async function handleDelet(id: string) {
+    await firebase
+      .firestore()
+      .collection("recently")
+      .doc(id)
+      .delete()
+      .then(() => {
+        const deletedLastView = lastViews.filter((item: { id: string }) => {
+          return item.id !== id;
+        });
+
+        setLastViews(deletedLastView);
+      })
+      .catch((err) => console.log(err));
+  }
+
   function renderSlide() {
-    const widthValidation = width < 768 ? "auto" : width <= 1024 ? 3.5 : 4.5;
-
-    const settings: SwiperProps = {
-      spaceBetween: 20,
-      slidesPerView: widthValidation,
-      navigation:
-        controllsVisivble && width >= 768 && lastViews.length > 3
-          ? true
-          : false,
-    };
-
-    async function handleDelet(id: string) {
-      await firebase
-        .firestore()
-        .collection("recently")
-        .doc(id)
-        .delete()
-        .then(() => {
-          const deletedLastView = lastViews.filter((item: { id: string }) => {
-            return item.id !== id;
-          });
-
-          setLastViews(deletedLastView);
-        })
-        .catch((err) => console.log(err));
-    }
-
     return (
       <div
         className="px-3 w-screen"
@@ -80,9 +78,7 @@ export function KeepNavigation() {
               return (
                 <SwiperSlide key={i} className="w-screen">
                   <a href={cards.lastView.acessLlink} target="_blank">
-                    <div
-                      className="relative h-52 xl:h-72 w-52 xl:w-72 2xl:w-auto max-w-[25rem] p-[0.10rem]"
-                    >
+                    <div className="relative h-52 xl:h-72 w-52 xl:w-72 2xl:w-auto max-w-[25rem] p-[0.10rem]">
                       <button
                         onClick={(e) => {
                           e.preventDefault();
@@ -90,8 +86,8 @@ export function KeepNavigation() {
                         }}
                         className="
                           right-2 top-2 rounded z-10 flex items-center justify-center
-                          absolute w-6 h-6 text-white hiver:text-white/8"
-                        >
+                          absolute w-6 h-6 text-white hover:text-white/80"
+                      >
                         <TrashIcon />
                       </button>
                       <img
@@ -117,6 +113,14 @@ export function KeepNavigation() {
       </div>
     );
   }
+
+  const updatedDOcRef = firebase.firestore().collection("recently").doc().get();
+
+  console.log(updatedDOcRef);
+
+  useEffect(() => {
+    renderSlide();
+  }, [updatedDOcRef]);
 
   return (
     <>
