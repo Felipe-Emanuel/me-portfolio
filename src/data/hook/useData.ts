@@ -13,9 +13,7 @@ type LastViewList = {
 export function useData() {
   const { user } = useAuth();
   const [dataGet, setDataGet] = useState<any>([]);
-  const [dataPost, setDataPost] = useState<any>([]);
   const [lastViewList, setLastViewList] = useState<LastViewList[]>([]);
-  const [checklastViewList, setCheckLastViewList] = useState('');
 
   const getData = async (path: string, limit?: number) => {
     const req = await api
@@ -40,35 +38,36 @@ export function useData() {
       gitLlink: prop.gitLlink,
     };
 
-    if (lastView.name !== checklastViewList) {
+    const docRef = firebase
+      .firestore()
+      .collection("recently")
+      .where("lastView.id", "==", lastView?.id)
+      .where("lastView.userId", "==", user?.uid);
 
-      const lastViewFromFireStore = await firebase
-        .firestore()
-        .collection("recently")
-        .add({
-          lastView: lastView,
-        })
-        .then((doc) => {
-          const data = {
-            id: doc.id,
-            acessLlink: lastView.acessLlink,
-            image: lastView.image,
-            name: lastView.name,
-          };
-
-          setLastViewList([...lastViewList, data])
-          setCheckLastViewList(data.name)
-        })
-        .catch((err) => console.error(err));
-      return lastViewFromFireStore;
-    } else {
-      return;
-    }
+    docRef.get().then((doc) => {
+      doc.size === 0
+        ? firebase
+            .firestore()
+            .collection("recently")
+            .add({
+              lastView: lastView,
+            })
+            .then((doc) => {
+              const data = {
+                id: doc.id,
+                acessLlink: lastView.acessLlink,
+                image: lastView.image,
+                name: lastView.name,
+              };
+              setLastViewList([...lastViewList, data]);
+            })
+            .catch((err) => console.error(err))
+        : false;
+    });
   };
 
   return {
     dataGet,
-    dataPost,
     lastViewList,
     getData,
     postFireBaseLastViews,

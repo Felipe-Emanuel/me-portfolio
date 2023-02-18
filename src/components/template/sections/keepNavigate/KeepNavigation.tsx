@@ -12,9 +12,9 @@ import { TrashIcon } from "@/components/icons";
 
 export function KeepNavigation() {
   const { user } = useAuth();
+  const { width } = useWindow();
   const [controllsVisivble, setControllsVisivble] = useState(false);
   const [lastViews, setLastViews] = useState<any>([]);
-  const { width } = useWindow();
 
   async function getLastViews() {
     const recentlyView = await firebase
