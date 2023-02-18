@@ -1,9 +1,14 @@
 import Image from "next/image";
 import router from "next/router";
 import loadingImage from "../../../public/images/loadingImage.gif";
+import { ReactNode } from "react";
 import { useAuth } from "@/data/hook/useAuth";
 
-export function AuthForce({ children }: any) {
+interface AuthForceProps {
+  children: ReactNode
+}
+
+export function AuthForce({ children }: AuthForceProps) {
   const { loading, user } = useAuth();
 
   function renderContent() {

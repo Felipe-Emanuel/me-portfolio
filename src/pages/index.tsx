@@ -5,7 +5,7 @@ import { RenderSlider } from "@/components/template/sliderAnimation/mainSlider/R
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout pageTitle="Projetos | Portfólio">
       <RenderSlider />
       <Section id="continue-your-navigation">
         <KeepNavigation />

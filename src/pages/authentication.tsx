@@ -7,6 +7,7 @@ import { AuthInput } from "@auth/AuthInput";
 import { NewsAtAuth } from "@layout/NewsAtAuth";
 import { SocialMedia } from "@utils/SocialMedia";
 import { Title } from "@utils/Title";
+import Head from "next/head";
 
 export default function authentication() {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -88,6 +89,9 @@ export default function authentication() {
 
   return (
     <div className="flex text-white bg-neutral-900 w-full h-screen relative items-center justify-center overflow-hidden">
+      <Head>
+        <title>Autenticação | Portfólio</title>
+      </Head>
       <div className="md:hidden absolute rotate-45 top-[7vh] -right-[30vw] bg-black overflow-hidden">
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
           <AwesomeButtonSocial type="github" className="w-[100vw]">

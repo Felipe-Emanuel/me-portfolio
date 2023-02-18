@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReactNode } from "react";
 import { useRouter } from "next/router";
 
 interface MenuItemProps {
@@ -6,7 +7,7 @@ interface MenuItemProps {
   text: string;
   className?: string;
   path?: string;
-  icon?: any;
+  icon?: ReactNode;
   onClick?: (e: any) => void;
 }
 

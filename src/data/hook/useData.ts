@@ -1,4 +1,4 @@
-import { useState, ReactNode, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "./useAuth";
 import firebase from "@/firebase/config";
 import api from "../services/api";
@@ -10,9 +10,19 @@ type LastViewList = {
   name: string;
 };
 
+type LastViewProps = {
+  userId: string,
+  name: string,
+  id: string,
+  date: string | Date,
+  image: string,
+  acessLlink: string,
+  gitLlink: string,
+};
+
 export function useData() {
   const { user } = useAuth();
-  const [dataGet, setDataGet] = useState<any>([]);
+  const [dataGet, setDataGet] = useState([]);
   const [lastViewList, setLastViewList] = useState<LastViewList[]>([]);
 
   const getData = async (path: string, limit?: number) => {
@@ -27,7 +37,7 @@ export function useData() {
     return req;
   };
 
-  const postFireBaseLastViews = async (prop: any) => {
+  const postFireBaseLastViews = async (prop: LastViewProps) => {
     const lastView = {
       userId: user?.uid,
       name: prop.name,

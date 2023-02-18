@@ -3,6 +3,10 @@ import { AuthImages } from "./AuthImages";
 import { Title } from "@utils/Title";
 import { useData } from "@/data/hook/useData";
 
+type DataGet = {
+  id: string, image: string
+}
+
 export function NewsAtAuth() {
   const { dataGet, getData } = useData();
   
@@ -17,7 +21,7 @@ export function NewsAtAuth() {
         flex absolute scale-150 w-screen flex-wrap bg-black/75
         justify-center items-center rotate-45 pointer-events-none -skew-y-12 skew-x-6"
       >
-        {dataGet?.map((data: any) => {
+        {dataGet?.map((data: DataGet) => {
           return <AuthImages key={data.id} img={data.image} />;
         })}
       </ul>

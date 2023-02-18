@@ -6,7 +6,7 @@ interface InfoSliderAreaProps {
   text: string;
   gitLink: string;
   acessLink: string;
-  handleInfo: any
+  handleInfo: () => void
 }
 
 export function InfoSliderArea({

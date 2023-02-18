@@ -6,7 +6,7 @@ export default function Settings() {
   const { theme, changeTheme } = useAppData();
 
   return (
-    <Layout title="Configurações" subtitle="Mais Configurações">
+    <Layout pageTitle="Configure sua página" title="Configurações" subtitle="Mais Configurações">
       <ButtonTheme theme={theme!} changeTheme={changeTheme!} />
 
       <h3>Conteúdo</h3>

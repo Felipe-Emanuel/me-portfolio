@@ -6,14 +6,16 @@ import { Title } from "../utils/Title";
 import { useMobileMenu } from "@/data/hook/useMobileMenu";
 import { MenuAnimation } from "@/components/animations/menu/MenuAnimation";
 import { Overlay } from "../sliderAnimation/mainSlider/BlackOverlay";
+import Head from "next/head";
 
 interface LayoutProps {
+  pageTitle: string;
   title?: string;
   subtitle?: string;
   children?: any;
 }
 
-export function Layout({ title, subtitle, children }: LayoutProps) {
+export function Layout({ title, subtitle, children, pageTitle }: LayoutProps) {
   const { isOverlayActive, openMenu, isMenuOpen } = useMobileMenu();
   const { theme } = useAppData();
 
@@ -29,6 +31,9 @@ export function Layout({ title, subtitle, children }: LayoutProps) {
         flex flex-col h-screen w-screen
         `}
       >
+        <Head>
+          <title>{pageTitle}</title>
+        </Head>
         <div
           className={`flex flex-col p-10 relative
             bg-light dark:bg-dark ${checkOverlay}

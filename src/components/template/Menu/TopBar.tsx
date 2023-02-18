@@ -1,12 +1,12 @@
 import { NavBar } from "./NavBar";
 import { MobileMenu } from "./MobileMenu";
 import { useMobileMenu } from "@/data/hook/useMobileMenu";
-
+import { ReactNode } from "react";
 import { Dropdown } from "./Dropdown";
 import { AvatarUser } from "../layout/AvatarUser";
 
 interface TopBarProps {
-  hamburger: any;
+  hamburger: ReactNode;
 }
 
 export function TopBar({ hamburger }: TopBarProps) {

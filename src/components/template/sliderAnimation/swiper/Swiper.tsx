@@ -5,7 +5,6 @@ import { Navigation, Pagination, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 interface SwiperComponentProps {
   settings: SwiperProps;
   children: ReactNode;

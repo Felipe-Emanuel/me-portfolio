@@ -1,9 +1,9 @@
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/fall-animation.css";
-import { useState, useEffect } from "react";
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { useWindow } from "@hook/useWindow";
 import { BlackOverlay } from "./BlackOverlay";
 import { useData } from "@/data/hook/useData";

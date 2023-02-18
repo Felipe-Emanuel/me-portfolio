@@ -10,6 +10,15 @@ import { useAuth } from "@/data/hook/useAuth";
 import firebase from "@/firebase/config";
 import { TrashIcon } from "@/components/icons";
 
+type Cards = {
+  lastView: {
+    acessLlink: string,
+    image: string,
+    name: string,
+  },
+  id: string,
+}
+
 export function KeepNavigation() {
   const { user } = useAuth();
   const { width } = useWindow();
@@ -74,7 +83,7 @@ export function KeepNavigation() {
       >
         <SwiperComponent settings={settings}>
           {lastViews.length > 0 &&
-            lastViews.map((cards: any, i: number) => {
+            lastViews.map((cards: Cards, i: number) => {
               return (
                 <SwiperSlide key={i} className="w-screen">
                   <a href={cards.lastView.acessLlink} target="_blank">
@@ -113,14 +122,6 @@ export function KeepNavigation() {
       </div>
     );
   }
-
-  const updatedDOcRef = firebase.firestore().collection("recently").doc().get();
-
-  console.log(updatedDOcRef);
-
-  useEffect(() => {
-    renderSlide();
-  }, [updatedDOcRef]);
 
   return (
     <>
