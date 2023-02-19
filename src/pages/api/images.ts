@@ -9,7 +9,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       id: id++,
       image: "/images/Next-Crud.png",
       acessLlink: 'https://next-crud-bvuf.vercel.app/',
-      gitLlink: 'https://github.com/Felipe-Emanuel/next-crud'
+      gitLlink: 'https://github.com/Felipe-Emanuel/next-crud',
+      description: 'Apesar do projeto não apresentar uma versão responsiva, foi trabalhado o conceito lógico da programação POO com JavaScript usando o Firestore do Firebase. Foi usado Typescript para a melhor manutenção de futuras atualizações no código e TailwindCss para a estilização. Next Crud foi desenvolvido em um curso de NextJS e toda sua funcionalidade pode ser acessada de maneira fácil e, claro, o código está público no Github.'
     },
     {
       name: 'Next Quiz',

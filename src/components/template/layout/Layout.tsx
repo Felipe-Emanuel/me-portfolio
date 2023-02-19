@@ -24,32 +24,35 @@ export function Layout({ title, subtitle, children, pageTitle }: LayoutProps) {
       ? "overflow-hidden"
       : "overflow-y-auto overflow-x-hidden";
 
+      const darkMode = {
+        background:
+          "linear-gradient(106.06deg, #000000 59.02%, rgba(4, 1, 6, 0.981065) 65.78%, rgba(9, 1, 13, 0.958322) 70.67%, rgba(13, 2, 20, 0.93597) 75.49%, rgba(18, 2, 27, 0.915437) 79.62%, rgba(23, 3, 35, 0.91) 81.86%, rgba(19, 2, 29, 0.900826) 83.83%, rgba(15, 2, 23, 0.911299) 86.41%, rgba(10, 1, 15, 0.924743) 90.61%, rgba(0, 0, 0, 0.95) 105.7%)",
+      }
+      const lightMode = {
+        background:
+          "linear-gradient(113.02deg, #BBBBBB 0%, #FFFFFF 62.35%, #FFFFFF 67.49%, #BBBBBB 122.42%, rgba(187, 187, 187, 0.76) 122.42%)",
+      }
+
+      const checkTheme = theme === "dark" ? darkMode : lightMode
+
   return (
     <AuthForce>
-      <div
-        className={` ${theme}
-        flex flex-col h-screen w-screen
-        `}
-      >
-        <Head>
-          <title>{pageTitle}</title>
-        </Head>
-        <div
-          className={`flex flex-col p-10 relative
-            bg-light dark:bg-dark ${checkOverlay}
+      <Head>
+        <title>{pageTitle}</title>
+      </Head>
+      <main className={theme}>
+        <div style={checkTheme}
+          className={` 
+            p-10 relative flex flex-col h-screen w-screen
+             ${checkOverlay}
           `}
         >
           {isOverlayActive && <Overlay />}
-          <div className="absolute pb-10 z-50">
-            <TopBar
-              hamburger={
-                <MenuAnimation
-                  isClose={isMenuOpen}
-                  onClick={() => openMenu()}
-                />
-              }
-            />
-          </div>
+          <TopBar
+            hamburger={
+              <MenuAnimation isClose={isMenuOpen} onClick={() => openMenu()} />
+            }
+          />
           {title && (
             <div className="py-14">
               <Title title={title} subtitle={subtitle} />
@@ -57,7 +60,7 @@ export function Layout({ title, subtitle, children, pageTitle }: LayoutProps) {
           )}
           {children}
         </div>
-      </div>
+      </main>
     </AuthForce>
   );
 }

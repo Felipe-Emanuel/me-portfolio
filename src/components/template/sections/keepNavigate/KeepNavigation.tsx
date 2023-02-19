@@ -128,9 +128,7 @@ export function KeepNavigation() {
       <Title
         as="h2"
         title="Continue sua navegação"
-        className={`font-black text-lg md:text-3xl text-white py-4 ${
-          lastViews.length > 0 ? "flex" : "hidden"
-        }`}
+        className={`font-black text-lg md:text-3xl text-white py-4 ${lastViews.length > 0 ? 'flex' : 'hidden'}`}
       />
       <div className="w-screen p-4 relative -left-8">{renderSlide()}</div>
     </>

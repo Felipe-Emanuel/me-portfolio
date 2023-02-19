@@ -42,7 +42,7 @@ export function TopBar({ hamburger }: TopBarProps) {
       className={`
         left-0 px-10 top-0 py-3 w-full backdrop-blur-sm
         bg-gradient-to-b from-black via-black/50 to-transparent
-        justify-between flex items-center z-20 fixed
+        justify-between flex items-center z-50 fixed
       `}
     >
       {renderMenuButton()}
