@@ -1,7 +1,5 @@
 import { GitHubIcon } from "@/components/icons";
-import { useData } from "@/data/hook/useData";
 import { Title } from "@utils/Title";
-import Image from "next/image";
 
 interface LastProjectProps {
   data: {

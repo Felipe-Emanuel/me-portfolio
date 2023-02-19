@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "./useAuth";
 import firebase from "@/firebase/config";
 import api from "../services/api";
@@ -24,6 +24,8 @@ export function useData() {
   const { user } = useAuth();
   const [dataGet, setDataGet] = useState([]);
   const [lastViewList, setLastViewList] = useState<LastViewList[]>([]);
+  const [lastViews, setLastViews] = useState<any>([]);
+
 
   const getData = async (path: string, limit?: number) => {
     const req = await api
@@ -36,6 +38,23 @@ export function useData() {
       .catch((err) => console.error(err));
     return req;
   };
+
+  async function getLastViews() {
+    const recentlyView = await firebase
+      .firestore()
+      .collection("recently")
+      .where("lastView.userId", "==", user?.uid)
+      .get();
+
+    const data = recentlyView.docs.map((u) => {
+      return {
+        id: u.id,
+        ...u.data(),
+      };
+    });
+
+    setLastViews(data);
+  }
 
   const postFireBaseLastViews = async (prop: LastViewProps) => {
     const lastView = {
@@ -76,10 +95,32 @@ export function useData() {
     });
   };
 
+  useEffect(() => {
+    getLastViews();
+  }, []);
+
+  async function handleDelet(id: string) {
+    await firebase
+      .firestore()
+      .collection("recently")
+      .doc(id)
+      .delete()
+      .then(() => {
+        const deletedLastView = lastViews.filter((item: { id: string }) => {
+          return item.id !== id;
+        });
+
+        setLastViews(deletedLastView);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return {
     dataGet,
     lastViewList,
+    lastViews,
     getData,
     postFireBaseLastViews,
+    handleDelet,
   };
 }

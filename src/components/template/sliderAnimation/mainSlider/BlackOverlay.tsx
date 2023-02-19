@@ -58,7 +58,7 @@ export function Overlay() {
     <div
       style={checkBottomTheme}
       className={`
-      absolute z-50 inset-0`}
+      absolute z-50 inset-0 h-full`}
     />
   );
 }

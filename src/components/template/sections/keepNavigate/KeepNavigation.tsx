@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Title } from "@utils/Title";
 import {
   SwiperComponent,
@@ -6,45 +6,22 @@ import {
   SwiperSlide,
 } from "@/components/template/sliderAnimation/swiper";
 import { useWindow } from "@hook/useWindow";
-import { useAuth } from "@/data/hook/useAuth";
-import firebase from "@/firebase/config";
 import { TrashIcon } from "@/components/icons";
+import { useData } from "@/data/hook/useData";
 
 type Cards = {
   lastView: {
-    acessLlink: string,
-    image: string,
-    name: string,
-  },
-  id: string,
-}
+    acessLlink: string;
+    image: string;
+    name: string;
+  };
+  id: string;
+};
 
 export function KeepNavigation() {
-  const { user } = useAuth();
+  const { lastViews, handleDelet } = useData();
   const { width } = useWindow();
   const [controllsVisivble, setControllsVisivble] = useState(false);
-  const [lastViews, setLastViews] = useState<any>([]);
-
-  async function getLastViews() {
-    const recentlyView = await firebase
-      .firestore()
-      .collection("recently")
-      .where("lastView.userId", "==", user?.uid)
-      .get();
-
-    const data = recentlyView.docs.map((u) => {
-      return {
-        id: u.id,
-        ...u.data(),
-      };
-    });
-
-    setLastViews(data);
-  }
-
-  useEffect(() => {
-    getLastViews();
-  }, [lastViews]);
 
   const handleSetControlls = () =>
     setControllsVisivble((controllsVisivble) => !controllsVisivble);
@@ -57,22 +34,6 @@ export function KeepNavigation() {
     navigation:
       controllsVisivble && width >= 768 && lastViews.length > 3 ? true : false,
   };
-
-  async function handleDelet(id: string) {
-    await firebase
-      .firestore()
-      .collection("recently")
-      .doc(id)
-      .delete()
-      .then(() => {
-        const deletedLastView = lastViews.filter((item: { id: string }) => {
-          return item.id !== id;
-        });
-
-        setLastViews(deletedLastView);
-      })
-      .catch((err) => console.log(err));
-  }
 
   function renderSlide() {
     return (
@@ -87,7 +48,11 @@ export function KeepNavigation() {
               return (
                 <SwiperSlide key={i} className="w-screen">
                   <a href={cards.lastView.acessLlink} target="_blank">
-                    <div className="relative h-52 xl:h-72 w-52 xl:w-72 2xl:w-auto max-w-[25rem] p-[0.10rem]">
+                    <div
+                      className="
+                        relative h-52 xl:h-72 w-52 xl:w-72
+                        2xl:w-auto max-w-[25rem] p-[0.10rem]"
+                    >
                       <button
                         onClick={(e) => {
                           e.preventDefault();
@@ -128,7 +93,10 @@ export function KeepNavigation() {
       <Title
         as="h2"
         title="Continue sua navegação"
-        className={`font-black text-lg md:text-3xl text-white py-4 ${lastViews.length > 0 ? 'flex' : 'hidden'}`}
+        className={`
+          font-black text-lg md:text-3xl text-white py-4
+          ${lastViews.length > 0 ? "flex" : "hidden"}
+        `}
       />
       <div className="w-screen p-4 relative -left-8">{renderSlide()}</div>
     </>
