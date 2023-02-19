@@ -11,13 +11,13 @@ type LastViewList = {
 };
 
 type LastViewProps = {
-  userId: string,
-  name: string,
-  id: string,
-  date: string | Date,
-  image: string,
-  acessLlink: string,
-  gitLlink: string,
+  userId: string;
+  name: string;
+  id: string;
+  date: string | Date;
+  image: string;
+  acessLlink: string;
+  gitLlink: string;
 };
 
 export function useData() {
@@ -25,7 +25,6 @@ export function useData() {
   const [dataGet, setDataGet] = useState([]);
   const [lastViewList, setLastViewList] = useState<LastViewList[]>([]);
   const [lastViews, setLastViews] = useState<any>([]);
-
 
   const getData = async (path: string, limit?: number) => {
     const req = await api
@@ -95,10 +94,6 @@ export function useData() {
     });
   };
 
-  useEffect(() => {
-    getLastViews();
-  }, []);
-
   async function handleDelet(id: string) {
     await firebase
       .firestore()
@@ -119,6 +114,7 @@ export function useData() {
     dataGet,
     lastViewList,
     lastViews,
+    getLastViews,
     getData,
     postFireBaseLastViews,
     handleDelet,

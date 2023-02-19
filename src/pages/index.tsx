@@ -26,6 +26,7 @@ interface HomeProps {
 }
 
 export default function Home(data: HomeProps) {
+  console.log('Estou trabalhando para melhorar a renderização dos componentes! Espero que esteja melhor em breve...')
   const parseData = JSON.parse(data.data);
 
   return (

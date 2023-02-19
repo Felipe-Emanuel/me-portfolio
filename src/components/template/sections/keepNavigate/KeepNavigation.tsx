@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Title } from "@utils/Title";
 import {
   SwiperComponent,
@@ -19,9 +19,13 @@ type Cards = {
 };
 
 export function KeepNavigation() {
-  const { lastViews, handleDelet } = useData();
+  const { lastViews, handleDelet, getLastViews } = useData();
   const { width } = useWindow();
   const [controllsVisivble, setControllsVisivble] = useState(false);
+
+  useEffect(() => {
+    getLastViews()
+  }, [])
 
   const handleSetControlls = () =>
     setControllsVisivble((controllsVisivble) => !controllsVisivble);
@@ -92,10 +96,9 @@ export function KeepNavigation() {
     <>
       <Title
         as="h2"
-        title="Continue sua navegação"
+        title={lastViews.length > 0 ? "Continue sua navegação" : "Sua navegação ficará salva aqui!"}  
         className={`
           font-black text-lg md:text-3xl text-white py-4
-          ${lastViews.length > 0 ? "flex" : "hidden"}
         `}
       />
       <div className="w-screen p-4 relative -left-8">{renderSlide()}</div>
