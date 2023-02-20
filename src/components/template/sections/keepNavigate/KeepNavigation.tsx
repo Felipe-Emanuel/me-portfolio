@@ -31,10 +31,10 @@ export function KeepNavigation() {
   const handleSetControlls = () =>
     setControllsVisivble((controllsVisivble) => !controllsVisivble);
 
-  const widthValidation = width < 768 ? "auto" : width <= 1024 ? 3.5 : 4.5;
+  const widthValidation = width < 768 ? 1.5 : "auto" ? width <= 1024 ? 3.5 : 4.5 : "auto";
 
   const settings: SwiperProps = {
-    spaceBetween: 20,
+    spaceBetween: width < 768 ? 50 : 20,
     slidesPerView: widthValidation,
     navigation:
       controllsVisivble && width >= 768 && lastViews.length > 3 ? true : false,

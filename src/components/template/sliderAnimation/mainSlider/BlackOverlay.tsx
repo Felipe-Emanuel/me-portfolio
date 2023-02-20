@@ -1,4 +1,5 @@
 import { useAppData } from "@hook/useAppData";
+import { ReactNode } from "react";
 import { InfoSliderArea } from "./InfoSliderArea";
 
 interface BlackOverlay {
@@ -42,6 +43,7 @@ export function BlackOverlay({
 }
 
 export function Overlay() {
+  
   const { theme } = useAppData();
 
   const gradientLight = {
@@ -58,7 +60,7 @@ export function Overlay() {
     <div
       style={checkBottomTheme}
       className={`
-      absolute z-50 inset-0 h-full`}
+      absolute z-50 inset-0 h-screen`}
     />
   );
 }
