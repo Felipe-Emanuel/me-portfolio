@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+
   const limit: any = req.query.limit || Infinity
   let id = 0;
   const images = [

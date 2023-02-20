@@ -27,11 +27,11 @@ async function normalizedUser(firebaseUser: firebase.User): Promise<User> {
 
 function cookie(logged: boolean) {
   if (logged) {
-    Cookies.set("admin-template-auth", logged.toString(), {
+    Cookies.set("me-portfolio", logged.toString(), {
       expires: 7,
     });
   } else {
-    Cookies.remove("admin-template-auth");
+    Cookies.remove("me-portfolio");
   }
 }
 
@@ -107,7 +107,7 @@ export function AuthProvider({ children }: any) {
   }
 
   useEffect(() => {
-    if (Cookies.get("admin-template-auth")) {
+    if (Cookies.get("me-portfolio")) {
       const cancel = firebase.auth().onIdTokenChanged(sectionConfig);
       return () => cancel();
     } else {
