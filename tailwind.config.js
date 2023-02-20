@@ -22,7 +22,7 @@ module.exports = {
       pattern: /^left-/,
     },
     {
-      pattern: /^size/,
+      pattern: /^text-/,
     },
   ],
   theme: {

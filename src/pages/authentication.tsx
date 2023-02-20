@@ -132,7 +132,7 @@ export default function authentication() {
           onClick={submit}
           className={`
             w-full bg-indigo-500 hover:bg-indigo-400 transition-all
-          rounded-lg px-4 py-3 mt-6
+            rounded-lg px-4 py-3 mt-6
           `}
         >
           {mode === "login" ? "Entrar" : "Cadastrar"}
@@ -143,11 +143,11 @@ export default function authentication() {
         <button
           onClick={loginGoogle}
           className={`
-            w-full bg-red-500 hover:bg-red-400 transition-all
+            w-full bg-transparent ring-1 ring-inherit hover:bg-neutral-800 transition-all
             rounded-lg px-4 py-3 flex
           `}
         >
-          <span className="m-auto flex gap-4">
+          <span className="m-auto flex gap-4 font-default">
             <GoogleIcon /> Google
           </span>
         </button>

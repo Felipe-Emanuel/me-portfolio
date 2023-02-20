@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { AuthImages } from "./AuthImages";
 import { Title } from "@utils/Title";
 import { useData } from "@/data/hook/useData";
@@ -32,7 +32,7 @@ export function NewsAtAuth() {
     return (
       <div className="text-gray-200 px-10 z-40 text-left absolute left-0 top-[50%]">
         <Title
-          className="text-6xl font-sans lg:text-7xl xl:text-8xl 2xl:text-9xl py-10"
+          className="font-sans text-white text-5xl lg:text-7xl xl:text-8xl py-10"
           as="h2"
           title="Felipe.Emanuel"
         />
