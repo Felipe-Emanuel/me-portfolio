@@ -12,10 +12,10 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
     <div className="relative">
       <Comp
         className={
-          className ??
           `
-            font-black text-3xl
-            text-gray-900 dark:text-white
+            font-black font-default
+            text-black dark:text-white
+            ${className}
           `
         }
       >

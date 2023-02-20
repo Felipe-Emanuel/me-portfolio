@@ -1,5 +1,6 @@
 import { GitHubIcon } from "@/components/icons";
 import { Title } from "@utils/Title";
+import { Paragraph } from "../../utils/Paragraph";
 
 interface LastProjectProps {
   data: {
@@ -21,23 +22,23 @@ export function LastProject(data: LastProjectProps) {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-4 pt-10">
-      <div className="h-[28rem] sm:h-[22.8rem] flex flex-col justify-between">
+      <div className="h-[31rem] sm:h-[22.8rem] flex flex-col justify-between">
         <div>
           <Title
             as="h2"
             title="Último Projeto"
-            className="font-default text-sm font-black text-white/75 leading-8"
+            className="text-sm text-black/75 dark:text-white/75 leading-8"
           />
           <Title
             as="h3"
             title={lastProject.name}
-            className="font-default text-4xl font-black text-white leading-[3.75rem]"
+            className="text-4xl leading-[3.75rem]"
           />
         </div>
 
-        <p className="max-w-[27rem] text-white text-xs leading-5 pb-4">
+        <Paragraph className="max-w-[27rem] leading-5 pb-4">
           {lastProject.description}
-        </p>
+        </Paragraph>
         <a href={lastProject.gitLlink} className="w-full lg:w-28" target="_blank">
           <button
             className="shadow shadow-black/25 w-full lg:w-28 relative bottom-0

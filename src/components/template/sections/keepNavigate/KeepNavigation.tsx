@@ -82,7 +82,7 @@ export function KeepNavigation() {
                   <Title
                     as="h3"
                     title={cards.lastView.name}
-                    className={`font-black text-xs text-white py-4 px-2
+                    className={`font-black text-xs py-4 px-2
                     font-SliderTitle`}
                   />
                 </SwiperSlide>
@@ -94,15 +94,13 @@ export function KeepNavigation() {
   }
 
   return (
-    <>
+    <div className="pt-10">
       <Title
         as="h2"
         title={lastViews.length > 0 ? "Continue sua navegação" : "Sua navegação ficará salva aqui!"}  
-        className={`
-          font-black text-lg md:text-3xl text-white py-4
-        `}
+        className="text-lg md:text-3xl py-4 leading-8 xl"
       />
       <div className="w-screen p-4 relative -left-8">{renderSlide()}</div>
-    </>
+    </div>
   );
 }
