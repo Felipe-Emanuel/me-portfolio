@@ -8,6 +8,7 @@ import {
 import { useWindow } from "@hook/useWindow";
 import { TrashIcon } from "@/components/icons";
 import { useData } from "@/data/hook/useData";
+import { useAppData } from "@/data/hook/useAppData";
 
 type Cards = {
   lastView: {

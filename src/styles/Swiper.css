@@ -1,3 +1,7 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
 .swiper-button-prev {
   color: #fff !important;
   transition: 300ms ease-in-out !important;
@@ -6,13 +10,6 @@
   top: 1rem !important;
   left: 0 !important;
   width: 5rem !important;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 2%,
-    rgba(0, 0, 0, 0) 100%
-  );
 }
 
 .swiper-button-next {
@@ -23,13 +20,6 @@
   top: 1rem !important;
   height: 13rem !important;
   width: 5rem !important;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 93%,
-    rgba(0, 0, 0, 1) 98%
-  );
 }
 
 @media (min-width: 1280px) {
