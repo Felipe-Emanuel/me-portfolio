@@ -12,7 +12,7 @@ export const Dropdown = () => {
   const [changeIcon, setChangeIcon] = useState(false);
   const { theme, changeTheme } = useAppData();
   const { logout, user } = useAuth();
-  const userName = user?.name !== null && user?.name.split(" ")[0];
+  const userName = user?.name !== null && user?.name.split(" ")[0]!;
 
   const linkStyle = ` w-full transition-all duration-300 ease-in-out
                       text-white font-default font-semibold

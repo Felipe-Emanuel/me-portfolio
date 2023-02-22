@@ -2,8 +2,9 @@ import "react-awesome-button/dist/styles.css";
 import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { AwesomeButtonSocial } from "react-awesome-button";
+import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
 import { Paragraph } from "@utils/Paragraph";
+import { DocumentIcon } from "@/components/icons";
 
 export const SocialMediaDropDown = () => {
   const [changeIcon, setChangeIcon] = useState(false);
@@ -46,7 +47,7 @@ export const SocialMediaDropDown = () => {
                     <Paragraph
                       as="span"
                       size="xs"
-                      className="hidden sm:flex justify-center items-center text-white"
+                      className="flex justify-center items-center text-white"
                     >
                       Siga-me
                     </Paragraph>
@@ -67,11 +68,34 @@ export const SocialMediaDropDown = () => {
                       <Paragraph
                         as="span"
                         size="xs"
-                        className="hidden sm:flex justify-center items-center text-white"
+                        className="flex justify-center items-center text-white"
                       >
                         Siga-me
                       </Paragraph>
                     </AwesomeButtonSocial>
+                  </a>
+                </>
+              </Menu.Item>
+              <Menu.Item>
+                <>
+                  <hr />
+                  <a
+                    href="https://drive.google.com/file/d/1lIRR92mM1u9KESop2gdNtCwnRbDsefkH/view?usp=sharing"
+                    target="_blank"
+                  >
+                    <AwesomeButton
+                      type="danger"
+                      className="w-full sm:text-base"
+                    >
+                      <Paragraph
+                        as="span"
+                        size="xs"
+                        className="flex justify-center items-center text-white"
+                      >
+                        <DocumentIcon />
+                        Ver Currículo
+                      </Paragraph>
+                    </AwesomeButton>
                   </a>
                 </>
               </Menu.Item>

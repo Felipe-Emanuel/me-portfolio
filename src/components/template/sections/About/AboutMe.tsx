@@ -2,7 +2,9 @@ import "react-awesome-button/dist/styles.css";
 import { Title } from "@utils/Title";
 import { Paragraph } from "@utils/Paragraph";
 import { SocialMediaDropDown } from "./SocialMediaDropDown";
-import { AwesomeButtonSocial } from "react-awesome-button";
+import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
+import { DocumentIcon } from "@/components/icons";
+import { Graduation } from "./Graduation";
 
 export function AboutMe() {
   function renderParagraph() {
@@ -23,6 +25,9 @@ export function AboutMe() {
           oportunidades emocionantes no mundo do desenvolvimento frontend, então
           não hesite em entrar em contato através das minhas redes sociais.
         </Paragraph>
+        <div className="hidden md:flex">
+          <Graduation />
+        </div>
       </>
     );
   }
@@ -30,7 +35,7 @@ export function AboutMe() {
   function renderButtons() {
     return (
       <div
-        className="gap-4 hidden sm:flex sm:flex-col justify-center pt-4"
+        className="gap-4 h-fit hidden sm:flex sm:flex-col justify-center pt-4"
         aria-label="Botão de redes sociais"
       >
         <a href="https://github.com/Felipe-Emanuel" target="_blank">
@@ -55,6 +60,23 @@ export function AboutMe() {
             </Paragraph>
           </AwesomeButtonSocial>
         </a>
+        <a
+          href="https://drive.google.com/file/d/1lIRR92mM1u9KESop2gdNtCwnRbDsefkH/view?usp=sharing"
+          target="_blank"
+        >
+          <AwesomeButton type="danger" className="w-full sm:text-base">
+            <Paragraph
+              as="span"
+              size="xs"
+              className="hidden sm:flex justify-center items-center text-white"
+            >
+              <span>
+                <DocumentIcon />
+              </span>
+              Ver Currículo
+            </Paragraph>
+          </AwesomeButton>
+        </a>
       </div>
     );
   }
@@ -62,23 +84,28 @@ export function AboutMe() {
   return (
     <div className="max-w-[1280px] m-auto">
       <div className="flex gap-1 sm:gap-4">
-        <article
-          className="
-            w-20 h-20 sm:w-56 md:w-80 sm:h-56 md:h-80 rounded-full md:rounded-lg
-            border-[3px] p-[0.10rem] border-transparent
-            border-pinkLight dark:border-orangeDark
-            transition-all duration-300 ease-in"
-        >
-          <img
-            className="h-full w-full rounded-full md:rounded transition-all duration-300 ease-in"
-            src="/images/About/perfil.jpeg"
-            alt="Foto do desenvolvedor Felipe Emanuel"
-          />
+        <div className="h-fit relative">
+          <article
+            className="
+              w-20 h-20 sm:w-56 md:w-80 sm:h-56 md:h-80 rounded-full md:rounded-lg
+              border-[3px] p-[0.10rem] border-transparent
+              border-pinkLight dark:border-orangeDark
+              transition-all duration-300 ease-in"
+          >
+            <img
+              className="h-full w-full rounded-full md:rounded transition-all duration-300 ease-in"
+              src="/images/About/perfil.jpeg"
+              alt="Foto do desenvolvedor Felipe Emanuel"
+            />
+          </article>
+          <div className="md:hidden">
+            <Graduation />
+          </div>
           {renderButtons()}
-        </article>
+        </div>
 
         <div className="sm:relative w-[50%] m-auto sm:m-0">
-          <div className="flex flex-col gap-1 sm:gap-4 m-auto sm:absolute top-1 left-1">
+          <div className="h-fit flex flex-col gap-1 sm:gap-4 m-auto sm:relative top-1 left-1">
             <Title
               as="h3"
               title="Felipe Emanuel"

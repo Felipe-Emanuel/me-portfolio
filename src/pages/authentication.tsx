@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { GoogleIcon, WarningIcon } from "@/components/icons";
@@ -8,6 +8,7 @@ import { NewsAtAuth } from "@layout/NewsAtAuth";
 import { SocialMedia } from "@utils/SocialMedia";
 import { Title } from "@utils/Title";
 import Head from "next/head";
+import { ElipseLoadingAnimation } from "@/components/animations/ElipseLoading/ElipseLoadingAnimation";
 
 export default function authentication() {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -15,7 +16,7 @@ export default function authentication() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { register, login, loginGoogle } = useAuth();
+  const { register, login, loginGoogle, loading } = useAuth();
 
   function showError(msg: string, secoundsTime = 5) {
     setError(msg);
@@ -24,7 +25,8 @@ export default function authentication() {
     }, secoundsTime * 1000);
   }
 
-  async function submit() {
+  async function submit(e: FormEvent) {
+    e.preventDefault();
     try {
       if (mode === "login") {
         //@ts-ignore
@@ -57,8 +59,8 @@ export default function authentication() {
     );
   }
 
-  function renderLoginOrRegister(){
-    return(
+  function renderLoginOrRegister() {
+    return (
       <>
         {mode === "login" ? (
           <p className="mt-8 text-center">
@@ -84,7 +86,7 @@ export default function authentication() {
           </p>
         )}
       </>
-    )
+    );
   }
 
   return (
@@ -110,48 +112,56 @@ export default function authentication() {
               : "Cadastre-se na plataforma"
           }
         />
-        {errorMsg()}
-        <AuthInput
-          name="email"
-          required
-          type="email"
-          label="E-mail"
-          value={email}
-          changeValue={setEmail}
-        />
-        <AuthInput
-          name="password"
-          required
-          type="password"
-          label="Senha"
-          value={password}
-          changeValue={setPassword}
-        />
+        <form>
+          {errorMsg()}
+          <AuthInput
+            name="email"
+            required
+            type="email"
+            label="E-mail"
+            value={email}
+            changeValue={setEmail}
+          />
+          <AuthInput
+            name="password"
+            required
+            type="password"
+            label="Senha"
+            value={password}
+            changeValue={setPassword}
+          />
 
-        <button
-          onClick={submit}
-          className={`
+          <button
+            type="submit"
+            onClick={submit}
+            disabled={loading ? true : false}
+            className={`
             w-full bg-indigo-500 hover:bg-indigo-400 transition-all
-            rounded-lg px-4 py-3 mt-6
+            rounded-lg px-4 py-3 mt-6 disabled:cursor-not-allowed h-14
           `}
-        >
-          {mode === "login" ? "Entrar" : "Cadastrar"}
-        </button>
+          >
+            {loading ? (
+              <ElipseLoadingAnimation />
+            ) : (
+              <>{mode === "login" ? "Entrar" : "Cadastrar"}</>
+            )}
+          </button>
 
-        <hr className="my-6 border-light w-full" />
+          <hr className="my-6 border-light w-full" />
 
-        <button
-          onClick={loginGoogle}
-          className={`
+          <button
+            onClick={loginGoogle}
+            className={`
             w-full bg-transparent ring-1 ring-inherit hover:bg-neutral-800 transition-all
             rounded-lg px-4 py-3 flex
           `}
-        >
-          <span className="m-auto flex gap-4 font-default">
-            <GoogleIcon /> Google
-          </span>
-        </button>
+          >
+            <span className="m-auto flex gap-4 font-default">
+              <GoogleIcon /> Google
+            </span>
+          </button>
           {renderLoginOrRegister()}
+        </form>
       </div>
     </div>
   );

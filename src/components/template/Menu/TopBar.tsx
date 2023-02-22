@@ -40,8 +40,7 @@ export function TopBar({ hamburger }: TopBarProps) {
   return (
     <div
       className={`
-        left-0 px-10 top-0 py-3 w-full backdrop-blur-sm
-        bg-gradient-to-b from-black via-black/50 to-transparent
+        left-0 px-10 top-0 py-3 w-full backdrop-blur-sm bg-light/50 dark:bg-transparent
         justify-between flex items-center z-50 fixed
       `}
     >

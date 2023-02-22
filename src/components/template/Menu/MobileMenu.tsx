@@ -1,5 +1,8 @@
 import { LogoOutIcon } from "@/components/icons";
+import { useAppData } from "@/data/hook/useAppData";
 import { useAuth } from "@/data/hook/useAuth";
+import { ButtonTheme } from "../utils/ButtonTheme";
+import { Paragraph } from "../utils/Paragraph";
 import { MenuItem } from "./MenuItem";
 
 interface MobileMenuProps {
@@ -8,6 +11,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen }: MobileMenuProps) {
   const { logout } = useAuth();
+  const { theme, changeTheme } = useAppData();
 
   const pathsArray = ["/", "/settings", "/about"];
 
@@ -55,6 +59,9 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
             icon={<LogoOutIcon />}
             className={linkStyle}
           />
+          <div className="absolute bottom-3">
+            <ButtonTheme theme={theme!} changeTheme={changeTheme!} />
+          </div>
         </div>
       </div>
     </nav>
