@@ -75,7 +75,7 @@ export function KeepNavigation() {
                         w-full h-full rounded-lg
                         border-[3px] p-[0.10rem] border-transparent
                         hover:border-pinkLight dark:hover:border-orangeDark
-                        transition-all duration-150 ease-in"
+                        transition-all duration-150 ease-in hover:brightness-110"
                       />
                     </div>
                   </a>
@@ -94,7 +94,7 @@ export function KeepNavigation() {
   }
 
   return (
-    <div className="pt-10">
+    <div className="pt-5 md:pt-10">
       <Title
         as="h2"
         title={lastViews.length > 0 ? "Continue sua navegação" : "Sua navegação ficará salva aqui!"}  

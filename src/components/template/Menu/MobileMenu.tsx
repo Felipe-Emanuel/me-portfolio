@@ -35,15 +35,15 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
             className={linkStyle}
           />
           <MenuItem
-            path={pathsArray[1]}
-            url="/settings"
-            text="Ajustes"
-            className={linkStyle}
-          />
-          <MenuItem
             path={pathsArray[2]}
             url="/about"
             text="Sobre"
+            className={linkStyle}
+          />
+          <MenuItem
+            path={pathsArray[1]}
+            url="/settings"
+            text="Ajustes"
             className={linkStyle}
           />
         </div>

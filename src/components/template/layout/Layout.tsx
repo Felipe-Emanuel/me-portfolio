@@ -1,4 +1,3 @@
-import { useEffect, useCallback } from "react";
 import { AuthForce } from "@auth/AuthForce";
 import { useAppData } from "@hook/useAppData";
 import { TopBar } from "@Menu/TopBar";
@@ -59,7 +58,7 @@ export function Layout({ title, subtitle, children, pageTitle }: LayoutProps) {
               }
             />
             {title && (
-              <div className="py-14">
+              <div className="pt-14 pb-7">
                 <Title title={title} subtitle={subtitle} />
               </div>
             )}

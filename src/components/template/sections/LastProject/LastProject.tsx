@@ -21,7 +21,7 @@ export function LastProject(data: LastProjectProps) {
   const lastProject: Data = data.data.images[0];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-4 pt-10">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:pt-10">
       <div className="h-[31rem] sm:h-[22.8rem] flex flex-col justify-between">
         <div>
           <Title

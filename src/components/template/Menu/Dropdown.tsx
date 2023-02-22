@@ -12,7 +12,7 @@ export const Dropdown = () => {
   const [changeIcon, setChangeIcon] = useState(false);
   const { theme, changeTheme } = useAppData();
   const { logout, user } = useAuth();
-  const userName = user?.name !== null ? user?.name.split(" ")[0] : 'Usuário';
+  const userName = user?.name !== null && user?.name.split(" ")[0];
 
   const linkStyle = ` w-full transition-all duration-300 ease-in-out
                       text-white font-default font-semibold
@@ -33,7 +33,8 @@ export const Dropdown = () => {
             text-base font-default font-medium
             `}
           >
-            Olá, {userName}
+            {user?.name === null || false || undefined ? "Olá!" : `Olá, ${userName}`}
+            
           </p>
           <ChevronDownIcon
             className={`text-white h-5 w-5 hidden sm:flex transition-transform duration-300 ease-in-out ${iconAnimate}`}
