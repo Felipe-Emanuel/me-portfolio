@@ -12,9 +12,9 @@ interface TopBarProps {
 
 export function TopBar({ hamburger }: TopBarProps) {
   const { isMenuOpen, openMenu } = useMobileMenu();
-  const path = useRouter()
+  const path = useRouter();
 
-  const checkPath = path.asPath === '/' ? 'bg-transparent' : 'bg-light/50'
+  const checkPath = path.asPath === "/" ? "bg-transparent" : "bg-light/50";
 
   function renderMenuButton() {
     return (
@@ -35,8 +35,8 @@ export function TopBar({ hamburger }: TopBarProps) {
   function renderAvatarUser() {
     return (
       <div className={`flex justify-center gap-4 items-center w-fit`}>
-          <AvatarUser path="/profile" />
-          <Dropdown />
+        <AvatarUser path="/profile" />
+        <Dropdown />
       </div>
     );
   }

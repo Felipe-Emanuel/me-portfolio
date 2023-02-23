@@ -59,8 +59,9 @@ export function Graduation() {
         <a
           href="https://practicum.com/pt-bra/?utm_source=google&utm_medium=cpc&utm_campaign=Inhouse_gl_BRA_Countrypage_Allprofs_ua_sem&utm_content=cid--17894326202_gid--140093801512_network--g_placement--_dvc--c_tid--kwd-336980067113_mt--e_creative--613525396509&utm_term=practicum&gclid=CjwKCAiAl9efBhAkEiwA4ToriukgilYMZ9eS4jpSPxyOiab1FO-by-_3w962N9mYiuHWW6WzthSK4RoCQHoQAvD_BwE"
           target="_blank"
+          className="w-fit"
         >
-      <Paragraph size="base" className="font-bold">
+      <Paragraph size="base" hover className="font-bold">
           Practicum
       </Paragraph>
         </a>
