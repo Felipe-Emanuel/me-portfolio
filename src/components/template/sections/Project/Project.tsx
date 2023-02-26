@@ -21,7 +21,7 @@ import {
 } from "@sliderAnimation/swiper";
 
 interface ProjectProps {
-  normalizedGoal: string;
+  normalizedGoal?: string | null;
   data: {
     acessLlink: string;
     gitLlink: string;

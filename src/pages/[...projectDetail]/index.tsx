@@ -2,17 +2,9 @@ import firebase from "../../firebase/config";
 import { Section } from "@layout/Section";
 import { Layout } from "@layout/Layout";
 import { Project } from "@sections/Project/Project";
-import { GetServerSideProps } from "next";
-import { AluraIcon, PracticumIcon, UdemyIcon } from "@/components/icons";
-import Image from "next/image";
-import Me from "../../../public/images/About/perfil.jpeg";
+import { GetServerSideProps, GetServerSidePropsContext, Redirect } from "next";
 
-interface ProjectDetailProps {
-  normalizedData: string;
-  normalizedGoal: string;
-}
-
-type Card = {
+interface Card {
   acessLlink: string;
   gitLlink: string;
   id: string;
@@ -24,58 +16,74 @@ type Card = {
   responsive: boolean;
   goal: string;
   collaborators: string;
+}
+
+interface ProjectDetailProps {
+  normalizedData: string;
+  normalizedGoal?: string | null;
+}
+
+interface CourseCheck {
+  [key: string]: string;
+}
+
+const courseCheck: CourseCheck = {
+  Udemy: "udemy-icon",
+  Alura: "alura-icon",
+  Practicum: "practicum-icon",
+  Felipe: "felipe-icon",
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { projectDetail } = context.params!;
+export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async (
+  context: GetServerSidePropsContext
+) => {
+  const { projectDetail } = context.params ?? {};
 
-  if (!projectDetail![1]) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+  if (!projectDetail || !projectDetail[1]) {
+    const redirect: Redirect = {
+      destination: "/",
+      permanent: false,
     };
+    return { redirect };
   }
-  const data = await firebase
-    .firestore()
-    .collection("recently")
-    .where("lastView.name", "==", projectDetail![1])
-    .get()
-    .then((snapshot) => {
-      const data: any = snapshot.docs.map((doc) => doc.data().lastView);
-      return data[0];
-    });
 
-  const goal = data?.goal;
+  try {
+    const snapshot = await firebase
+      .firestore()
+      .collection("recently")
+      .where("lastView.name", "==", projectDetail[1])
+      .get();
 
-  const courseCheck = {
-    Udemy: "udemy-icon",
-    Alura: "alura-icon",
-    Practicum: "practicum-icon",
-    Felipe: "felipe-icon",
-  };
+    const data = snapshot.docs.map((doc) => doc.data().lastView)[0];
+    const goal = data?.goal;
 
-  const icon = () => {
-    if (!goal) {
-      return null;
-    } else if (goal.includes("Udemy")) {
-      return courseCheck["Udemy"];
-    } else if (goal.includes("Alura")) {
-      return courseCheck["Alura"];
-    } else if (goal.includes("Practicum")) {
-      return courseCheck["Practicum"];
-    } else {
-      return courseCheck["Felipe"];
-    }
-  };
+    const icon = () => {
+      if (!goal) {
+        return null;
+      } else if (goal.includes("Udemy")) {
+        return courseCheck["Udemy"];
+      } else if (goal.includes("Alura")) {
+        return courseCheck["Alura"];
+      } else if (goal.includes("Practicum")) {
+        return courseCheck["Practicum"];
+      } else {
+        return courseCheck["Felipe"];
+      }
+    };
 
-  const normalizedData = JSON.stringify(data);
+    const iconValue = icon();
+    const normalizedGoal = iconValue ? iconValue.toString() : null;
+    const normalizedData = JSON.stringify(data);
 
-  const iconValue = icon();
-  const normalizedGoal = iconValue ? iconValue.toString() : null;
-
-  return { props: { normalizedData, normalizedGoal } };
+    return { props: { normalizedData, normalizedGoal } };
+  } catch (error) {
+    console.error(error);
+    const redirect: Redirect = {
+      destination: "/",
+      permanent: false,
+    };
+    return { redirect };
+  }
 };
 
 export default function ProjectDetail({
