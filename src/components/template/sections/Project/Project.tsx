@@ -21,6 +21,7 @@ import {
 } from "@sliderAnimation/swiper";
 
 interface ProjectProps {
+  normalizedGoal: string;
   data: {
     acessLlink: string;
     gitLlink: string;
@@ -35,7 +36,7 @@ interface ProjectProps {
   };
 }
 
-export function Project({ data }: ProjectProps) {
+export function Project({ data, normalizedGoal }: ProjectProps) {
   const { width } = useWindow();
   const [hovered, setHovered] = useState(false);
   const [controllsVisivble, setControllsVisivble] = useState(false);
@@ -53,33 +54,26 @@ export function Project({ data }: ProjectProps) {
   const setHoverIcon = () => setHovered((hovered) => !hovered);
 
   function renderButton() {
-    const courseCheck: { [key: string]: JSX.Element } = {
-      Udemy: <UdemyIcon />,
-      Alura: <AluraIcon />,
-      Practicum: <PracticumIcon />,
-      Felipe: (
-        <Image
-          width={100}
-          height={100}
-          quality={100}
-          className="w-8 h-8 rounded-full"
-          src={Me}
-          alt="Felipe, desenvolvedor frontend dono do portfólio e deste projeto"
-        />
-      ),
-    };
-
     const icon = () => {
-      if (!data || !data.goal) {
+      if (!normalizedGoal) {
         return null;
-      } else if (data.goal.includes("Udemy")) {
-        return courseCheck["Udemy"];
-      } else if (data.goal.includes("Alura")) {
-        return courseCheck["Alura"];
-      } else if (data.goal.includes("Practicum")) {
-        return courseCheck["Practicum"];
+      } else if (normalizedGoal === "udemy-icon") {
+        return <UdemyIcon />;
+      } else if (normalizedGoal === "alura-icon") {
+        return <AluraIcon />;
+      } else if (normalizedGoal === "practicum-icon") {
+        return <PracticumIcon />;
       } else {
-        return courseCheck["Felipe"];
+        return (
+          <Image
+            width={100}
+            height={100}
+            quality={100}
+            className="w-8 h-8 rounded-full"
+            src={Me}
+            alt="Felipe, desenvolvedor frontend dono do portfólio e deste projeto"
+          />
+        );
       }
     };
 
