@@ -31,6 +31,7 @@ const courseCheck: CourseCheck = {
   Udemy: "udemy-icon",
   Alura: "alura-icon",
   Practicum: "practicum-icon",
+  RocketSeat: "rocketseat-icon",
   Felipe: "felipe-icon",
 };
 
@@ -66,6 +67,8 @@ export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async 
         return courseCheck["Alura"];
       } else if (goal.includes("Practicum")) {
         return courseCheck["Practicum"];
+      } else if(goal.includes("RocketSeat")){
+        return courseCheck["RocketSeat"]
       } else {
         return courseCheck["Felipe"];
       }
