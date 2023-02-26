@@ -55,9 +55,7 @@ export function Project({ data, normalizedGoal }: ProjectProps) {
 
   function renderButton() {
     const icon = () => {
-      if (!normalizedGoal) {
-        return null;
-      } else if (normalizedGoal === "udemy-icon") {
+      if (normalizedGoal === "udemy-icon") {
         return <UdemyIcon />;
       } else if (normalizedGoal === "alura-icon") {
         return <AluraIcon />;
