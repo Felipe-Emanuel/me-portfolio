@@ -37,8 +37,6 @@ interface ProjectProps {
 }
 
 export function Project({ data, normalizedGoal }: ProjectProps) {
-  console.log("ICON: ", normalizedGoal)
-  console.log("TEXT: ", data.goal)
   const { width } = useWindow();
   const [hovered, setHovered] = useState(false);
   const [controllsVisivble, setControllsVisivble] = useState(false);
