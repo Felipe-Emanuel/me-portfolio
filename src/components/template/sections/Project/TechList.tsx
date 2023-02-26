@@ -29,9 +29,13 @@ export function TechList({ techs }: TechListProps) {
     "Styled-Components": <StyledComponentstIcon />,
   };
 
-  return (
-    <ul className="relative flex m-auto justify-start gap-4 items-center dark:text-white flex-wrap z-30">
-      {techs.length > 0 && techs?.map((tech) => {
+  function renderTechList(){
+    if(!techs) {
+      return null
+    } else {
+      return (
+        <>
+        {techs.length > 0 && techs?.map((tech) => {
         const icon = techIconMap[tech];
         return (
           <li
@@ -43,6 +47,14 @@ export function TechList({ techs }: TechListProps) {
           </li>
         );
       })}
+        </>
+      )
+    }
+  }
+
+  return (
+    <ul className="relative flex m-auto justify-start gap-4 items-center dark:text-white flex-wrap z-30">
+      {renderTechList()}
     </ul>
   );
 }
