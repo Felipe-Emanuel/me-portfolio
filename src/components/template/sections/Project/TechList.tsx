@@ -31,7 +31,7 @@ export function TechList({ techs }: TechListProps) {
 
   return (
     <ul className="relative flex m-auto justify-start gap-4 items-center dark:text-white flex-wrap z-30">
-      {techs.map((tech) => {
+      {techs.length > 0 && techs?.map((tech) => {
         const icon = techIconMap[tech];
         return (
           <li
