@@ -30,7 +30,7 @@ export function TechList({ techs }: TechListProps) {
   };
 
   function renderTechList(){
-    console.log(techs);
+    console.log("TECHS: ", techs);
 
     if(!techs) {
       return null
