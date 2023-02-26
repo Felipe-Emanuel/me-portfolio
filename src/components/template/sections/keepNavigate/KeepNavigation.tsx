@@ -65,6 +65,9 @@ const setHoverCard = (i: number, value: boolean) => {
     const isDetailsButtonVisible = cardHovered[i].value === true
       ? "flex translate-y-0 opacity-100"
       : "translate-y-11 opacity-0";
+
+      const showAtMobile = width <= 500 ? 'flex translate-y-0 opacity-100' : isDetailsButtonVisible
+
     return (
       <Link
         href={to}
@@ -74,7 +77,7 @@ const setHoverCard = (i: number, value: boolean) => {
           shadow shadow-black/25 z-40 
           rounded flex gap-4 items-center hover:text-white transition-all duration-500
           bg-white hover:bg-pinkLight dark:hover:bg-orangeDark text-xs font-default
-          font-medium absolute bottom-3 right-3 py-1 px-2 ${isDetailsButtonVisible}
+          font-medium absolute bottom-3 right-3 py-1 px-2  ${showAtMobile}
         `}
       >
         Detalhes{" "}

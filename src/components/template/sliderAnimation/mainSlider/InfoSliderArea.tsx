@@ -3,10 +3,10 @@ import { TimeOut } from "@/components/functions/TimeOut";
 import { DoorIcon, GitHubIcon, HoveredDoorIcon } from "@/components/icons";
 
 interface InfoSliderAreaProps {
-  text: string;
-  gitLink: string;
-  acessLink: string;
-  handleInfo: () => void
+  text?: string;
+  gitLink?: string;
+  acessLink?: string;
+  handleInfo?: () => void
 }
 
 export function InfoSliderArea({
@@ -26,12 +26,13 @@ export function InfoSliderArea({
         isActive
           ? "scale-105 md:scale-125 lg:scale-150 -translate-y-10 md:-translate-y-32 lg:-translate-y-96"
           : "scale-90 md:scale-100 -translate-y-0 lg:-translate-y-56"
-      }`}
+      } `}
     >
       <div
         className="
             font-SliderTitle bg-transparent 
-            text-lg lg:text-2xl 2xl:text-4xl text-white absolute w-fit max-w-[5rem] left-10 bottom-9"
+            text-lg lg:text-2xl 2xl:text-4xl text-white absolute w-fit max-w-[5rem] left-10 bottom-9
+            "
       >
         <h1>{text}</h1>
       </div>

@@ -1,26 +1,14 @@
 import Image from "next/image";
-import moment from "moment";
 import Practicum from "public/images/About/PracticumLogo.jpeg";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Paragraph } from "../../utils/Paragraph";
 
 export function Graduation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState(
-    moment("15/12/2022", "DD/MM/YYYY").startOf("day")
-  );
 
   const openGraduation = () => setIsOpen((isOpen) => !isOpen);
 
   const checkIfIsOpen = () => (isOpen ? "w-24" : "w-5");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData(moment().startOf("day"));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="flex md:justify-center md:items-center md:w-full md:max-w-[22rem] md:gap-4">
@@ -47,7 +35,7 @@ export function Graduation() {
         <a
           href="https://practicum.com/pt-bra/?utm_source=google&utm_medium=cpc&utm_campaign=Inhouse_gl_BRA_Countrypage_Allprofs_ua_sem&utm_content=cid--17894326202_gid--140093801512_network--g_placement--_dvc--c_tid--kwd-336980067113_mt--e_creative--613525396509&utm_term=practicum&gclid=CjwKCAiAl9efBhAkEiwA4ToriukgilYMZ9eS4jpSPxyOiab1FO-by-_3w962N9mYiuHWW6WzthSK4RoCQHoQAvD_BwE"
           target="_blank"
-          className="md:hidden"
+          className="flex items-center md:hidden"
         >
           <Paragraph as="span" size="xs" className="text-black z-10">
             Practicum

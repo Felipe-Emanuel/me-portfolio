@@ -4,7 +4,7 @@ import {
   JavascriptIcon,
   NextJstIcon,
   ReactIcon,
-  TailwindcsstIcon,
+  TailwindcssIcon,
   TypescriptIcon,
 } from "@/components/icons";
 import { Title } from "../../utils/Title";
@@ -24,7 +24,7 @@ export function Skills() {
           <ReactIcon />
         </li>
         <li>
-          <TailwindcsstIcon />
+          <TailwindcssIcon />
         </li>
         <li>
           <NextJstIcon />

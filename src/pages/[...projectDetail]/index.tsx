@@ -14,6 +14,12 @@ type Card = {
   id: string;
   image: string;
   name: string;
+  subtitle: string;
+  techs: string[];
+  original: boolean;
+  responsive: boolean;
+  goal: string;
+  collaborators: string;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -31,25 +37,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await firebase
     .firestore()
     .collection("recently")
-    .where("lastView.name", '==', projectDetail![1])
+    .where("lastView.name", "==", projectDetail![1])
     .get()
-    .then(snapshot => {
-      const data: any = snapshot.docs.map(doc => doc.data().lastView)
-      return data[0]
-    })
+    .then((snapshot) => {
+      const data: any = snapshot.docs.map((doc) => doc.data().lastView);
+      return data[0];
+    });
 
-    const normalizedData = JSON.stringify(data)
+  const normalizedData = JSON.stringify(data);
 
-  return { props: {normalizedData} };
+  return { props: { normalizedData } };
 };
 
 export default function ProjectDetail({ normalizedData }: ProjectDetailProps) {
-  const data: Card = JSON.parse(normalizedData)
-
+  const data: Card = JSON.parse(normalizedData);
+  
   return (
-    <Layout pageTitle={`Projeto - ${data.name}`} title={data.name}>
+    <Layout pageTitle={`Projeto - ${data.name}`}>
       <Section id="project">
-        <Project data={data}/>
+        <Project data={data} />
       </Section>
     </Layout>
   );

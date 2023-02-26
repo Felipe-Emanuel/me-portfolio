@@ -14,14 +14,15 @@ export const Slider = (cards = []) => {
   function renderImage() {
     return cards.map((card) => {
       return (
-        <Image width={100} key={card.id} data-src={card.image}>
+        <div key={card.id} data-src={card.image}>
           <BlackOverlay
+            infoArea
             handleInfo={() => postFireBaseLastViews(card)}
             acessLink={card.acessLlink}
             text={card.name}
             gitLink={card.gitLlink}
           />
-        </Image>
+        </div>
       );
     });
   }

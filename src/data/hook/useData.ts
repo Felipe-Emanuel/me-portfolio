@@ -18,6 +18,12 @@ type LastViewProps = {
   image: string;
   acessLlink: string;
   gitLlink: string;
+  subtitle: string;
+  techs: string[];
+  original: boolean;
+  responsive: boolean;
+  goal: string;
+  collaborators: string;
 };
 
 export function useData() {
@@ -64,6 +70,12 @@ export function useData() {
       image: prop.image,
       acessLlink: prop.acessLlink,
       gitLlink: prop.gitLlink,
+      subtitle: prop.subtitle,
+      techs: prop.techs,
+      original: prop.original,
+      responsive: prop.responsive,
+      goal: prop.goal,
+      collaborators: prop.collaborators,
     };
 
     const docRef = firebase
@@ -86,6 +98,7 @@ export function useData() {
                 acessLlink: lastView.acessLlink,
                 image: lastView.image,
                 name: lastView.name,
+                subtitle: lastView.subtitle
               };
               setLastViewList([...lastViewList, data]);
             })

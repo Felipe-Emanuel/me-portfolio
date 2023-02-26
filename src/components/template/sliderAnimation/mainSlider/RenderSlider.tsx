@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Slider } from "@/components/template/sliderAnimation/mainSlider/Slider";
-import loadingImage from "../../../../../public/images/loadingImage.gif";
-import Image from "next/image";
 import { useData } from "@/data/hook/useData";
 
 export function RenderSlider() {
-  const [loadData, setLoadData] = useState(true);
   const { dataGet, getData } = useData();
-  
+
   useEffect(() => {
-    setLoadData(true);
-    getData("images", 5)
-    setLoadData(false);
+    getData("images", 5);
   }, []);
 
   const topDarkOverlay = {
@@ -26,8 +21,6 @@ export function RenderSlider() {
       relative min-w-[280px] max-w-full z-10 right-0 h-full xl:max-h-[1080px] bg-contain -top-0
       sm:left-0 sm:top-0"
       >
-        {loadData && <Image src={loadingImage} alt="loading" />}
-
         {Slider(dataGet.map((cards: string) => cards))}
       </div>
       <div

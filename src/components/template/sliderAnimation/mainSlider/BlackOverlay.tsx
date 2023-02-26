@@ -3,16 +3,18 @@ import { ReactNode } from "react";
 import { InfoSliderArea } from "./InfoSliderArea";
 
 interface BlackOverlay {
-  text: string;
-  gitLink: string;
-  acessLink: string;
-  handleInfo: () => void;
+  text?: string;
+  gitLink?: string;
+  acessLink?: string;
+  infoArea?: boolean;
+  handleInfo?: () => void;
 }
 
 export function BlackOverlay({
   text,
   gitLink,
   acessLink,
+  infoArea,
   handleInfo
 }: BlackOverlay) {
   const blackOverlay = {
@@ -30,13 +32,16 @@ export function BlackOverlay({
         style={topDarkOverlay}
         className="absolute left-0 top-0 h-full w-full"
       />
-      <div style={blackOverlay} className="absolute left-0 top-0 h-full w-full">
-        <InfoSliderArea
-          handleInfo={handleInfo}
-          gitLink={gitLink}
-          acessLink={acessLink}
-          text={text}
-        />
+      <div style={blackOverlay} className={`absolute left-0 top-0 h-full w-full`}>
+        {infoArea &&
+          <InfoSliderArea
+            handleInfo={handleInfo}
+            gitLink={gitLink}
+            acessLink={acessLink}
+            text={text}
+          />
+        }
+        
       </div>
     </>
   );
