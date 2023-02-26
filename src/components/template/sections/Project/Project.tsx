@@ -70,7 +70,9 @@ export function Project({ data }: ProjectProps) {
     };
 
     const icon = () => {
-      if (data.goal.includes("Udemy")) {
+      if (!data || !data.goal) {
+        return null;
+      } else if (data.goal.includes("Udemy")) {
         return courseCheck["Udemy"];
       } else if (data.goal.includes("Alura")) {
         return courseCheck["Alura"];
