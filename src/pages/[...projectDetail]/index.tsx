@@ -9,6 +9,7 @@ interface Card {
   gitLlink: string;
   id: string;
   image: string;
+  posters: string[];
   name: string;
   subtitle: string;
   techs: string[];

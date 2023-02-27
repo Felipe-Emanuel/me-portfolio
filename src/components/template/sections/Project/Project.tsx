@@ -1,46 +1,14 @@
-import { useState } from "react";
 import { useWindow } from "@/data/hook/useWindow";
 import { Title } from "@utils/Title";
 import { BlackOverlay } from "@sliderAnimation/mainSlider/BlackOverlay";
-import {
-  AluraIcon,
-  DoorIcon,
-  GitHubIcon,
-  HoveredDoorIcon,
-  PracticumIcon,
-  RocketSeatIcon,
-  UdemyIcon,
-} from "@/components/icons";
 import { TechList } from "./TechList";
-import { Paragraph } from "@utils/Paragraph";
-import Me from "../../../../../public/images/About/perfil.jpeg";
-import Image from "next/image";
-import {
-  SwiperComponent,
-  SwiperProps,
-  SwiperSlide,
-} from "@sliderAnimation/swiper";
 import { RenderButtons } from "./RenderButtons";
+import { PostsSlides } from "./PostsSlides";
+import { ProjectDataProps } from "./type";
 
-interface ProjectProps {
-  normalizedGoal?: string | null;
-  data: {
-    acessLlink: string;
-    gitLlink: string;
-    id: string;
-    image: string;
-    name: string;
-    subtitle: string;
-    techs: string[];
-    original: boolean;
-    goal: string;
-    collaborators: string;
-  };
-}
-
-export function Project({ data, normalizedGoal }: ProjectProps) {
+export function Project({ data, normalizedGoal }: ProjectDataProps) {
+  console.log(data);
   const { width } = useWindow();
-  const [controllsVisivble, setControllsVisivble] = useState(false);
 
   const topDarkOverlay = {
     background:
@@ -49,17 +17,6 @@ export function Project({ data, normalizedGoal }: ProjectProps) {
 
   const checkTitleWidth =
     width === 500 ? "text-4xl" : "text-3xl sm:text-5xl 2xl:text-9xl";
-
-  const widthValidation = width <= 768 ? 1.5 : 3.5;
-
-  const settings: SwiperProps = {
-    spaceBetween: 20,
-    slidesPerView: widthValidation,
-    navigation: controllsVisivble && width >= 640 ? true : false,
-  };
-
-  const handleSetControlls = () =>
-    setControllsVisivble((controllsVisivble) => !controllsVisivble);
 
   return (
     <article className="relative flex flex-col w-screen h-screen -top-14 -left-10">
@@ -74,7 +31,7 @@ export function Project({ data, normalizedGoal }: ProjectProps) {
           />
           <BlackOverlay />
         </div>
-        <div style={topDarkOverlay} className="w-screen -left-10 h-fit">
+        <div style={topDarkOverlay} className="w-screen -left-10">
           <Title
             title={data.name}
             className={`pointer-events-none transition-all font-SliderTitle ${checkTitleWidth} text-white absolute left-10 bottom-9`}
@@ -84,33 +41,12 @@ export function Project({ data, normalizedGoal }: ProjectProps) {
             title={data.subtitle}
             className="px-0.5 2xl:pl-2.5 font-SecondarySans font-thin text-white/50 dark:text-white/50 relative left-10 -top-8 text-xs w-96 sm:text-sm 2xl:text-base pr-44 sm:pr-0"
           />
-          <RenderButtons data={data} normalizedGoal={normalizedGoal}/>
+          <RenderButtons data={data} normalizedGoal={normalizedGoal} />
           <div className="relative left-10 top-12 w-64 ml-0.5 2xl:ml-2.5">
             <TechList techs={data.techs} />
           </div>
-
-          <div
-            className="relative left-10 top-20 w-screen h-56 overflow-hidden"
-            onMouseEnter={handleSetControlls}
-            onMouseLeave={handleSetControlls}
-          >
-            <SwiperComponent settings={settings}>
-              <SwiperSlide className="w-screen">
-                <Paragraph className="flex items-center justify-center gap-4 max-w-xs h-56 font-default leading-4 text-[10px] md:text-xs py-4">
-                  "{data.goal}"
-                </Paragraph>
-              </SwiperSlide>
-              <SwiperSlide className="w-screen">
-                <img
-                  src={data.image}
-                  className="
-                        max-w-xs h-52 rounded-lg
-                        border-[3px] p-[0.10rem] border-transparent
-                        hover:border-pinkLight dark:hover:border-orangeDark
-                        transition-all duration-150 ease-in hover:brightness-110"
-                />
-              </SwiperSlide>
-            </SwiperComponent>
+          <div className="relative left-10 top-14 w-full">
+            <PostsSlides data={data} />
           </div>
         </div>
       </div>

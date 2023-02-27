@@ -16,6 +16,7 @@ type LastViewProps = {
   id: string;
   date: string | Date;
   image: string;
+  posters: string[];
   acessLlink: string;
   gitLlink: string;
   subtitle: string;
@@ -68,6 +69,7 @@ export function useData() {
       id: +prop.id,
       date: new Date(),
       image: prop.image,
+      posters: prop.posters,
       acessLlink: prop.acessLlink,
       gitLlink: prop.gitLlink,
       subtitle: prop.subtitle,

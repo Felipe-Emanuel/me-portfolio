@@ -12,24 +12,9 @@ import Image from "next/image";
 import { useState } from "react";
 import Me from "../../../../../public/images/About/perfil.jpeg";
 import { Paragraph } from "@utils/Paragraph";
+import { ProjectDataProps } from "./type";
 
-interface ProjectProps {
-  normalizedGoal?: string | null;
-  data: {
-    acessLlink: string;
-    gitLlink: string;
-    id: string;
-    image: string;
-    name: string;
-    subtitle: string;
-    techs: string[];
-    original: boolean;
-    goal: string;
-    collaborators: string;
-  };
-}
-
-export function RenderButtons({ normalizedGoal, data }: ProjectProps) {
+export function RenderButtons({ normalizedGoal, data }: ProjectDataProps) {
   const { width } = useWindow();
   const [hovered, setHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
