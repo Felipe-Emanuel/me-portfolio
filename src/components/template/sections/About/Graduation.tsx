@@ -1,3 +1,4 @@
+import { LinkIcon } from "@/components/icons";
 import Image from "next/image";
 import Practicum from "public/images/About/PracticumLogo.jpeg";
 import { useState} from "react";
@@ -49,8 +50,8 @@ export function Graduation() {
           target="_blank"
           className="w-fit"
         >
-      <Paragraph size="base" hover className="font-bold">
-          Practicum
+      <Paragraph size="base" hover className="font-bold flex gap-2 items-center hover:opacity-75">
+          Practicum <span className="text-blueLight dark:text-orangeDark"> <LinkIcon /> </span>
       </Paragraph>
         </a>
       <Paragraph size="xs">

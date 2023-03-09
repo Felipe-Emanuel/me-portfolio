@@ -22,7 +22,7 @@ export function AboutMe() {
         <Paragraph size="xs" className="leading-5 pt-2 sm:pt-4">
           Se você está procurando um desenvolvedor frontend com paixão e
           determinação, parabéns por me encontrar! Estou sempre aberto a novas
-          oportunidades emocionantes no mundo do desenvolvimento frontend, então
+          oportunidades no mundo do desenvolvimento frontend, então
           não hesite em entrar em contato através das minhas redes sociais.
         </Paragraph>
         <div className="hidden md:flex">

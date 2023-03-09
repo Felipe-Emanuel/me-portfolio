@@ -2,6 +2,7 @@ import { GitHubIcon } from "@/components/icons";
 import { Title } from "@utils/Title";
 import { GitHubButton } from "@utils/GitHubButton";
 import { Paragraph } from "@utils/Paragraph";
+import { useWindow } from "@/data/hook/useWindow";
 
 interface LastProjectProps {
   data: {
@@ -20,10 +21,13 @@ type Data = {
 
 export function LastProject(data: LastProjectProps) {
   const lastProject: Data = data.data.images[0];
+  const { width } = useWindow()
+
+  const checkWidth = width < 414 ? 'h-31rem' : 'h-[20rem] sm:h-[22.8rem]'
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:pt-10">
-      <div className="h-[31rem] sm:h-[22.8rem] flex flex-col justify-between">
+      <div className={`flex flex-col justify-between ${checkWidth}`}>
         <div>
           <Title
             as="h2"
@@ -37,10 +41,10 @@ export function LastProject(data: LastProjectProps) {
           />
         </div>
 
-        <Paragraph className="max-w-[27rem] leading-5 pb-4">
+        <Paragraph className="max-w-[27rem] leading-5 md:pb-4">
           {lastProject.description}
         </Paragraph>
-        <div className="w-full lg:w-28">
+        <div className="w-full lg:w-28 py-4 sm:pt-0">
           <GitHubButton
             GitHubIcon={<GitHubIcon />}
             gitLink={lastProject.gitLlink}

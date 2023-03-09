@@ -12,7 +12,7 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
   const { logout } = useAuth();
   const { theme, changeTheme } = useAppData();
 
-  const pathsArray = ["/", "/settings", "/about"];
+  const pathsArray = ["/", "/about"];
 
   const openNavBarAnimation = () =>
     isOpen === true ? "translate-x-0" : "-translate-x-64";
@@ -39,12 +39,6 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
             path={pathsArray[2]}
             url="/about"
             text="Sobre"
-            className={linkStyle}
-          />
-          <MenuItem
-            path={pathsArray[1]}
-            url="/settings"
-            text="Ajustes"
             className={linkStyle}
           />
         </div>

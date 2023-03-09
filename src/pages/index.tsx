@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps = async () => {
   
-  const req = await api.get("/api/images", {
+  const req = await api.get("/api/projects", {
     params: {
       limit: 1,
     },

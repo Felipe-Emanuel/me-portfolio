@@ -6,7 +6,7 @@ export function RenderSlider() {
   const { dataGet, getData } = useData();
 
   useEffect(() => {
-    getData("images", 5);
+    getData("projects", 5);
   }, []);
 
   const topDarkOverlay = {

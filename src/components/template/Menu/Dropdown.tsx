@@ -54,12 +54,6 @@ export const Dropdown = () => {
             <div className="py-1 flex flex-col gap-4 text-xs md:text-sm lg:text-base">
               <Menu.Item>
                 <div className="flex items-center">
-                  <MenuItem
-                    url="/settings"
-                    path="/settings"
-                    text="Ajustes"
-                    className={linkStyle}
-                  />
                   <ButtonTheme theme={theme!} changeTheme={changeTheme!} />
                 </div>
               </Menu.Item>

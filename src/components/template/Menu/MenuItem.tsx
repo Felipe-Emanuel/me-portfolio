@@ -30,7 +30,7 @@ export function MenuItem({
       onClick={onClick}
       href={url ?? "#"}
       className={`text-white dark:hover:text-white/60 flex justify-start items-center
-          transition-all duration-300 hover:text-white/60
+          transition-all duration-300 hover:text-white/60 font-default font-semibold
           ${checkPath()}
           ${checkCursor()}
           ${className}

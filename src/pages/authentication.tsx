@@ -153,11 +153,16 @@ export default function authentication() {
             onClick={loginGoogle}
             className={`
             w-full bg-transparent ring-1 ring-inherit hover:bg-neutral-800 transition-all
-            rounded-lg px-4 py-3 flex
+            rounded-lg px-4 py-3 flex h-14
           `}
           >
             <span className="m-auto flex gap-4 font-default">
-              <GoogleIcon /> Google
+            {loading ? (
+              <ElipseLoadingAnimation />
+            ) : (
+              <><GoogleIcon /> Google</>
+            )}
+              
             </span>
           </button>
           {renderLoginOrRegister()}

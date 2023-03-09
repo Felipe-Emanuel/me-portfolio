@@ -28,7 +28,7 @@ export function AuthInput({
         onChange={(e) => changeValue?.(e.target.value)}
         required={required}
         className={`
-          px-4 py-3 rounded-lg mt-2
+          px-4 py-3 rounded-lg mt-2 font-default
           border focus:border-blue-500 bg-neutral-900
           focus:outline-none text-sm font-light
           peer

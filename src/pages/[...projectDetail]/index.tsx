@@ -56,6 +56,14 @@ export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async 
       .where("lastView.name", "==", projectDetail[1])
       .get();
 
+    if (snapshot.empty) {
+      const redirect: Redirect = {
+        destination: "/",
+        permanent: false,
+      };
+      return { redirect };
+    }
+
     const data = snapshot.docs.map((doc) => doc.data().lastView)[0];
     const goal = data?.goal;
 
@@ -89,6 +97,7 @@ export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async 
     return { redirect };
   }
 };
+
 
 export default function ProjectDetail({
   normalizedData,
