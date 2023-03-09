@@ -9,7 +9,6 @@ export function NavBar() {
         <MenuItem path={pathsArray[0]} url="/" text="Início" />
         <MenuItem path={pathsArray[2]} url="/about" text="Sobre" />
       </ul>
-
     </nav>
   );
 }

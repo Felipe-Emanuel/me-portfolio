@@ -61,7 +61,7 @@ export default function authentication() {
 
   function renderLoginOrRegister() {
     return (
-      <>
+      <span className="font-default">
         {mode === "login" ? (
           <p className="mt-8 text-center">
             {" "}
@@ -85,7 +85,7 @@ export default function authentication() {
             </a>
           </p>
         )}
-      </>
+      </span>
     );
   }
 
@@ -135,7 +135,7 @@ export default function authentication() {
             type="submit"
             onClick={submit}
             disabled={loading ? true : false}
-            className={`
+            className={`font-default
             w-full bg-indigo-500 hover:bg-indigo-400 transition-all
             rounded-lg px-4 py-3 mt-6 disabled:cursor-not-allowed h-14
           `}

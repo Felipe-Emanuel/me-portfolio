@@ -2,7 +2,6 @@ import { LogoOutIcon } from "@/components/icons";
 import { useAppData } from "@/data/hook/useAppData";
 import { useAuth } from "@/data/hook/useAuth";
 import { ButtonTheme } from "../utils/ButtonTheme";
-import { Paragraph } from "../utils/Paragraph";
 import { MenuItem } from "./MenuItem";
 
 interface MobileMenuProps {
@@ -23,13 +22,11 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
                       hover:text-white/60`;
 
   return (
-    <nav
-      className={`overflow-hidden bg-light/75 dark:bg-dark/75 -top-0
-        flex sm:hidden absolute -left-10 py-24 pl-[5.5rem]
-        h-screen w-72 transition-all duration-300 ease-in-out
-        ${openNavBarAnimation()}
-      `}
-    >
+    <nav className={`overflow-hidden bg-light/75 dark:bg-dark/75 -top-0
+      flex sm:hidden absolute -left-10 py-24 pl-[5.5rem]
+      h-screen w-72 transition-all duration-300 ease-in-out
+      ${openNavBarAnimation()}
+    `}>
       <div className={`flex flex-col leading-10 w-full justify-between`}>
         <div>
           <MenuItem

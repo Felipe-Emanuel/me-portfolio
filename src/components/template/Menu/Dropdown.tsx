@@ -6,14 +6,14 @@ import { useAuth } from "@/data/hook/useAuth";
 import { LogoOutIcon } from "@/components/icons";
 import { ButtonTheme } from "@/components/template/utils/ButtonTheme";
 import { useAppData } from "@/data/hook/useAppData";
-// import firebase from "/firebase/config";
+import { GetUserInfo } from "@/components/functions/GetUserInfo";
 
 export const Dropdown = () => {
   const [changeIcon, setChangeIcon] = useState(false);
   const { theme, changeTheme } = useAppData();
-  const { logout, user } = useAuth();
-  const userName = user?.name !== null && user?.name.split(" ")[0]!;
-
+  const { logout } = useAuth();
+  const { helloUser} = GetUserInfo();
+  
   const linkStyle = ` w-full transition-all duration-300 ease-in-out
                       text-white font-default font-semibold
                       hover:text-white/60`;
@@ -21,7 +21,6 @@ export const Dropdown = () => {
   const setChange = () => setChangeIcon((changeIcon) => !changeIcon);
 
   const iconAnimate = changeIcon ? "translate-y-0.5" : "translate-y-0";
-
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -33,8 +32,7 @@ export const Dropdown = () => {
             text-base font-default font-medium
             `}
           >
-            {user?.name === null || false || undefined ? "Olá!" : `Olá, ${userName}`}
-            
+            {helloUser}
           </p>
           <ChevronDownIcon
             className={`text-white h-5 w-5 hidden sm:flex transition-transform duration-300 ease-in-out ${iconAnimate}`}

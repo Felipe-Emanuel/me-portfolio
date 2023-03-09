@@ -38,7 +38,9 @@ module.exports = {
         darkSecondary: "#000012",
         light: "#bbb",
         orangeDark: "#bc6327",
-        pinkLight: "#b856b7",
+        blueLight: "#3f76c6",
+        HooverBlueLight: "#5b82b8",
+        gitHub: "#25282d",
       },
       backgroundColor: {
         dark: "#121214",

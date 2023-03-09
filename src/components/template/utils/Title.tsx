@@ -21,8 +21,8 @@ export function Title({ title, subtitle, className, as }: TitleProps) {
       </Comp>
       <h2
         className={`
-          font-light text-sm
-          text-gray-600 dark:text-white
+          font-light text-sm font-default
+          text-black dark:text-white
         `}
       >
         {subtitle}

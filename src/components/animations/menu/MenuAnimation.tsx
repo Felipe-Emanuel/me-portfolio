@@ -30,7 +30,7 @@ export function MenuAnimation({ isClose, onClick }: MenuAnimationProps) {
       aria-label="Menu Mobile"
       className={`flex justify-center items-center w-8 bg-inherit`}
     >
-      <span className="hue-rotate-90 dark:hue-rotate-180">{View}</span>
+      <span className="hue-rotate-15 dark:hue-rotate-180">{View}</span>
     </button>
   );
 }

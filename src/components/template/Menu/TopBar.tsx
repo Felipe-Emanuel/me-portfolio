@@ -14,7 +14,12 @@ export function TopBar({ hamburger }: TopBarProps) {
   const { isMenuOpen, openMenu } = useMobileMenu();
   const path = useRouter();
 
-  const checkPath = path.asPath !== "/about" && path.asPath !== "/profile" && path.asPath !== "/settings" ? "bg-transparent" : "bg-light/50";
+  const checkPath =
+    path.asPath !== "/about" &&
+    path.asPath !== "/profile" &&
+    path.asPath !== "/settings"
+      ? "bg-transparent"
+      : "bg-light/50";
 
   function renderMenuButton() {
     return (

@@ -21,7 +21,7 @@ export function Graduation() {
                 md:w-20 md:h-20 md:bottom-0 md:left-0 md:relative md:mt-4 md:top-0
                 lg:mt-10
                 items-center gap-1 overflow-hidden
-                ring-1 ring-pinkLight dark:ring-orangeDark z-40
+                ring-1 ring-blueLight dark:ring-orangeDark z-40
                 
             `}
       >

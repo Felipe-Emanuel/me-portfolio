@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 interface TextProps {
     className?: string;
     children: ReactNode;
+    title?: string;
     as?: 'span'
     size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
     hover?: boolean;

@@ -61,7 +61,7 @@ export function PostsSlides({ data }: ProjectDataProps) {
                     className="
                       h-28 w-36 sm:h-52 sm:w-56 lg:w-72 2xl:w-80 rounded-lg
                       border-[3px] p-[0.10rem] border-transparent
-                      hover:border-pinkLight dark:hover:border-orangeDark
+                      hover:border-blueLight dark:hover:border-orangeDark
                       transition-all duration-150 ease-in hover:brightness-110"
                   />
                 </SwiperSlide>

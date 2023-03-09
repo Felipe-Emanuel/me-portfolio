@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { TimeOut } from "@/components/functions/TimeOut";
 import { DoorIcon, GitHubIcon, HoveredDoorIcon } from "@/components/icons";
+import { GitHubButton } from "../../utils/GitHubButton";
+import { AcessButton } from "../../utils/AcessButton";
 
 interface InfoSliderAreaProps {
   text?: string;
   gitLink?: string;
   acessLink?: string;
-  handleInfo?: () => void
+  handleInfo?: () => void;
 }
 
 export function InfoSliderArea({
   text,
   gitLink,
   acessLink,
-  handleInfo
+  handleInfo,
 }: InfoSliderAreaProps) {
   const [hovered, setHovered] = useState(false);
   const { isActive } = TimeOut();
@@ -36,43 +38,22 @@ export function InfoSliderArea({
       >
         <h1>{text}</h1>
       </div>
-      <a href={acessLink} target="_blank" >
-        <button
-          onClick={handleInfo}
-          onMouseEnter={setHoverIcon}
-          onMouseLeave={setHoverIcon}
-          className="shadow shadow-black/25
-            rounded flex gap-4 items-center hover:text-white transition-all duration-300
-            bg-white hover:bg-pinkLight dark:hover:bg-orangeDark text-xs font-default
-            font-medium absolute bottom-0 left-10 py-1 px-2"
-        >
-          Acessar{" "}
-          {hovered ? (
-            <span>
-              <HoveredDoorIcon />
-            </span>
-          ) : (
-            <span>
-              {" "}
-              <DoorIcon />
-            </span>
-          )}
-        </button>
-      </a>
-      <a href={gitLink} target="_blank">
-        <button
-          className="shadow shadow-black/25
-            rounded flex gap-4 items-center hover:text-white transition-all duration-300
-            bg-pinkLight hover:bg-pinkLight/75 dark:bg-orangeDark dark:hover:bg-orangeDark/75
-            text-xs font-default font-medium
-            absolute bottom-0 left-40 py-1 px-2"
-        >
-          GitHub{" "}
-          <span>
-            <GitHubIcon />
-          </span>
-        </button>
-      </a>
+      <AcessButton
+        DoorIcon={<DoorIcon />}
+        HoveredDoorIcon={<HoveredDoorIcon />}
+        acessLink={acessLink!}
+        handleInfo={() => handleInfo!()}
+        hovered={hovered}
+        setHoverIcon={setHoverIcon}
+        text="Acessar"
+        target="_blank"
+        className="bottom-0 left-10"
+      />
+      <GitHubButton
+        GitHubIcon={<GitHubIcon />}
+        gitLink={gitLink!}
+        text="GitHub"
+      />
     </div>
   );
 }

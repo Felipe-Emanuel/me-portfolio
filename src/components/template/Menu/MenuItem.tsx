@@ -28,7 +28,7 @@ export function MenuItem({
   return (
     <Link
       onClick={onClick}
-      href={url ?? '#'}
+      href={url ?? "#"}
       className={`text-white dark:hover:text-white/60 flex justify-start items-center
           transition-all duration-300 hover:text-white/60
           ${checkPath()}
@@ -36,8 +36,11 @@ export function MenuItem({
           ${className}
         `}
     >
-      
-      <span className={`flex justify-between items-center ${icon && 'w-full pr-10'}`}>
+      <span
+        className={`flex justify-between items-center ${
+          icon && "w-full pr-10"
+        }`}
+      >
         {text} {icon}
       </span>
     </Link>

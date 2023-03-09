@@ -1,6 +1,7 @@
 import { GitHubIcon } from "@/components/icons";
 import { Title } from "@utils/Title";
-import { Paragraph } from "../../utils/Paragraph";
+import { GitHubButton } from "@utils/GitHubButton";
+import { Paragraph } from "@utils/Paragraph";
 
 interface LastProjectProps {
   data: {
@@ -39,26 +40,20 @@ export function LastProject(data: LastProjectProps) {
         <Paragraph className="max-w-[27rem] leading-5 pb-4">
           {lastProject.description}
         </Paragraph>
-        <a href={lastProject.gitLlink} className="w-full lg:w-28" target="_blank">
-          <button
-            className="shadow shadow-black/25 w-full lg:w-28 relative bottom-0
-            rounded flex gap-4 justify-center items-center hover:text-white transition-all duration-300
-            bg-pinkLight hover:bg-pinkLight/75 dark:bg-orangeDark dark:hover:bg-orangeDark/75
-            text-xs font-default font-medium
-            py-1 px-2"
-          >
-            GitHub{" "}
-            <span>
-              <GitHubIcon />
-            </span>
-          </button>
-        </a>
+        <div className="w-full lg:w-28">
+          <GitHubButton
+            GitHubIcon={<GitHubIcon />}
+            gitLink={lastProject.gitLlink}
+            text='GitHub'
+            className="w-full lg:w-28 relative bottom-0 justify-center -left-0"  
+          />
+        </div>
       </div>
       <a href={lastProject.acessLlink} className="flex m-auto" target="_blank">
         <img
           className="w-[50rem] h-full rounded-lg
           border-[3px] p-[0.10rem] border-transparent
-          hover:border-pinkLight dark:hover:border-orangeDark
+          hover:border-blueLight dark:hover:border-orangeDark
           transition-all duration-150 ease-in"
           src={lastProject.image}
           alt={lastProject.image}

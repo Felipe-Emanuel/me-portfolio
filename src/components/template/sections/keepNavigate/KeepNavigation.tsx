@@ -9,6 +9,7 @@ import { useWindow } from "@hook/useWindow";
 import { DoorIcon, HoveredDoorIcon, TrashIcon } from "@/components/icons";
 import { useData } from "@/data/hook/useData";
 import Link from "next/link";
+import { AcessButton } from "../../utils/AcessButton";
 
 type Cards = {
   lastView: {
@@ -69,29 +70,16 @@ const setHoverCard = (i: number, value: boolean) => {
       const showAtMobile = width <= 500 ? 'flex translate-y-0 opacity-100' : isDetailsButtonVisible
 
     return (
-      <Link
-        href={to}
-        onMouseEnter={setHoverIcon}
-        onMouseLeave={setHoverIcon}
-        className={`
-          shadow shadow-black/25 z-40 
-          rounded flex gap-4 items-center hover:text-white transition-all duration-500
-          bg-white hover:bg-pinkLight dark:hover:bg-orangeDark text-xs font-default
-          font-medium absolute bottom-3 right-3 py-1 px-2  ${showAtMobile}
-        `}
-      >
-        Detalhes{" "}
-        {hovered ? (
-          <span>
-            <HoveredDoorIcon />
-          </span>
-        ) : (
-          <span>
-            {" "}
-            <DoorIcon />
-          </span>
-        )}
-      </Link>
+      <AcessButton
+        as={Link}
+        DoorIcon={<DoorIcon />}
+        HoveredDoorIcon={<HoveredDoorIcon />}
+        acessLink={to}
+        hovered={hovered}
+        setHoverIcon={setHoverIcon}
+        text="Detalhes"
+        className={`absolute bottom-4 right-3 ${showAtMobile}`}
+      />
     );
   }
 
@@ -114,7 +102,7 @@ const setHoverCard = (i: number, value: boolean) => {
                       relative h-52 xl:h-72 w-52 xl:w-72
                       2xl:w-auto max-w-[25rem] p-[0.10rem]"
                   >
-                    <a href={cards.lastView.acessLlink} target="_blank">
+                    <a href={cards.lastView.acessLlink} target="_blank" className="relative">
                       <button
                         onClick={(e) => {
                           e.preventDefault();
@@ -132,13 +120,13 @@ const setHoverCard = (i: number, value: boolean) => {
                         className="
                         w-full h-full rounded-lg
                         border-[3px] p-[0.10rem] border-transparent
-                        hover:border-pinkLight dark:hover:border-orangeDark
+                        hover:border-blueLight dark:hover:border-orangeDark
                         transition-all duration-150 ease-in hover:brightness-110"
                       />
                     </a>
-                    {renderDetailsButton(
-                        `/projectDetail/${cards.lastView.name}`, i
-                      )}
+                      {renderDetailsButton(
+                          `/projectDetail/${cards.lastView.name}`, i
+                        )}
                   </div>
                   <Title
                     as="h3"

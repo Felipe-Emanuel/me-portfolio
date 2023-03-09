@@ -36,7 +36,7 @@ export function AuthInput({
       />
        <label
         htmlFor={label}
-        className="
+        className="font-default
           absolute scale-75 origin-[0]
           transform duration-300 -translate-y-4
           peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-2

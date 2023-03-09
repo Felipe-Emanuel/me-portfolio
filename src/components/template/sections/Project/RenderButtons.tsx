@@ -13,6 +13,8 @@ import { useState } from "react";
 import Me from "../../../../../public/images/About/perfil.jpeg";
 import { Paragraph } from "@utils/Paragraph";
 import { ProjectDataProps } from "./type";
+import { GitHubButton } from "../../utils/GitHubButton";
+import { AcessButton } from "../../utils/AcessButton";
 
 export function RenderButtons({ normalizedGoal, data }: ProjectDataProps) {
   const { width } = useWindow();
@@ -57,50 +59,29 @@ export function RenderButtons({ normalizedGoal, data }: ProjectDataProps) {
 
   return (
     <article className="flex items-center relative">
-      <a href={data.acessLlink} target="_blank">
-        <button
-          onMouseEnter={setHoverIcon}
-          onMouseLeave={setHoverIcon}
-          className="shadow shadow-black/25
-            rounded flex gap-4 items-center hover:text-white transition-all duration-300
-            bg-white hover:bg-pinkLight dark:hover:bg-orangeDark text-xs font-default
-            font-medium absolute left-10 py-1 px-2 ml-0.5 2xl:ml-2.5"
-        >
-          Acessar{" "}
-          {hovered ? (
-            <span>
-              <HoveredDoorIcon />
-            </span>
-          ) : (
-            <span>
-              {" "}
-              <DoorIcon />
-            </span>
-          )}
-        </button>
-      </a>
-      <a href={data.gitLlink} target="_blank">
-        <button
-          className="
-                shadow shadow-black/25
-                rounded flex gap-4 items-center hover:text-white transition-all duration-300
-                bg-pinkLight hover:bg-pinkLight/75 dark:bg-orangeDark dark:hover:bg-orangeDark/75
-                text-xs font-default font-medium
-                absolute left-40 py-1 px-2 ml-0.5 2xl:ml-2.5"
-        >
-          GitHub{" "}
-          <span>
-            <GitHubIcon />
-          </span>
-        </button>
-      </a>
+      <AcessButton
+        DoorIcon={<DoorIcon />}
+        HoveredDoorIcon={<HoveredDoorIcon />}
+        acessLink={data.acessLlink}
+        hovered={hovered}
+        setHoverIcon={setHoverIcon}
+        text="Acessar"
+        target="_blank"
+        className="left-10 -bottom-8 py-1 px-2 ml-0.5 2xl:ml-2.5"
+      />
+      <GitHubButton
+        GitHubIcon={<GitHubIcon />}
+        gitLink={data.gitLlink}
+        text='GitHub'
+        className="left-40 -bottom-8 py-1 px-2 ml-0.5 2xl:ml-2.5"
+      />
       <div
         onMouseEnter={openGraduation}
         onMouseLeave={openGraduation}
         className={`
                 bg-opacity-25 flex transition-all duration-300 rounded-full ${checkIfIsOpen()}
                 h-fit items-center gap-1 overflow-hidden
-                ring-1 ring-pinkLight dark:ring-orangeDark z-40
+                ring-1 ring-blueLight dark:ring-orangeDark z-40
                 absolute -bottom-9 left-[17.5rem] p-0.5 border
                 ${checkIconWidth}
             `}
