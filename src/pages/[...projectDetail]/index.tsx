@@ -3,7 +3,6 @@ import { Section } from "@layout/Section";
 import { Layout } from "@layout/Layout";
 import { Project } from "@sections/Project/Project";
 import { GetServerSideProps, GetServerSidePropsContext, Redirect } from "next";
-
 interface Card {
   acessLlink: string;
   gitLlink: string;
@@ -18,12 +17,10 @@ interface Card {
   goal: string;
   collaborators: string;
 }
-
 interface ProjectDetailProps {
   normalizedData: string;
   normalizedGoal?: string | null;
 }
-
 interface CourseCheck {
   [key: string]: string;
 }
@@ -36,9 +33,9 @@ const courseCheck: CourseCheck = {
   Felipe: "felipe-icon",
 };
 
-export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async (
-  context: GetServerSidePropsContext
-) => {
+export const getServerSideProps: GetServerSideProps<
+  ProjectDetailProps
+> = async (context: GetServerSidePropsContext) => {
   const { projectDetail } = context.params ?? {};
 
   if (!projectDetail || !projectDetail[1]) {
@@ -76,8 +73,8 @@ export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async 
         return courseCheck["Alura"];
       } else if (goal.includes("Practicum")) {
         return courseCheck["Practicum"];
-      } else if(goal.includes("RocketSeat")){
-        return courseCheck["RocketSeat"]
+      } else if (goal.includes("RocketSeat")) {
+        return courseCheck["RocketSeat"];
       } else {
         return courseCheck["Felipe"];
       }
