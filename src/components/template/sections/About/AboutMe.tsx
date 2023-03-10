@@ -88,7 +88,7 @@ export function AboutMe() {
           <article
             className="
               w-20 h-20 sm:w-56 md:w-80 sm:h-56 md:h-80 rounded-full md:rounded-lg
-              border-[3px] p-[0.10rem] border-transparent
+              border-[3px] p-[0.10rem]
               border-blueLight dark:border-orangeDark
               transition-all duration-300 ease-in"
           >
