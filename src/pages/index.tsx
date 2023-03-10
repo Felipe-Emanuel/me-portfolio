@@ -4,34 +4,30 @@ import { Layout } from "@layout/Layout";
 import { KeepNavigation } from "@sections/keepNavigate/KeepNavigation";
 import { RenderSlider } from "@sliderAnimation/mainSlider/RenderSlider";
 import { LastProject } from "@sections/LastProject/LastProject";
-import { GetStaticProps } from "next";
+import { useEffect, useState } from "react";
 
-export const getStaticProps: GetStaticProps = async () => {
+type Data = {
+  images: any
+} 
+
+export default function Home() {
+  const [data, setData] = useState<Data | null>(null)
+
+  useEffect(() => {
+    const req = async () => {
+      const res = await api.get("api/projects", {
+        params: {
+          limit: 1,
+        },
+      });
   
-  const req = await api.get("/api/projects", {
-    params: {
-      limit: 1,
-    },
-  });
-
-  const data = JSON.stringify(await req.data);
-
-  return {
-    props: {
-      data,
-      fallback: true,
-    },
-    revalidate: 60 * 1440,
-  };
-};
-
-interface HomeProps {
-  data: string;
-}
-
-export default function Home({data}: HomeProps) {
-  const parseData = JSON.parse(data);
-
+      const data = await res.data
+      setData(data)
+    }
+  
+    req()
+  }, [])
+  
   return (
     <Layout pageTitle="Projetos | Portfólio">
       <RenderSlider />
@@ -39,7 +35,7 @@ export default function Home({data}: HomeProps) {
         <KeepNavigation />
       </Section>
       <Section id="last-project">
-        <LastProject data={parseData} />
+        <LastProject data={data?.images} />
       </Section>
     </Layout>
   );
