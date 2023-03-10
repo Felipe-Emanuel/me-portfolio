@@ -29,8 +29,8 @@ interface HomeProps {
   data: string;
 }
 
-export default function Home(data: HomeProps) {
-  const parseData = JSON.parse(data.data);
+export default function Home({data}: HomeProps) {
+  const parseData = JSON.parse(data);
 
   return (
     <Layout pageTitle="Projetos | Portfólio">
