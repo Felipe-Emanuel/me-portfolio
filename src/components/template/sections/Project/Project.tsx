@@ -7,7 +7,6 @@ import { PostsSlides } from "./PostsSlides";
 import { ProjectDataProps } from "./type";
 
 export function Project({ data, normalizedGoal }: ProjectDataProps) {
-  console.log(data);
   const { width } = useWindow();
 
   const topDarkOverlay = {

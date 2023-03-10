@@ -98,7 +98,6 @@ export const getServerSideProps: GetServerSideProps<ProjectDetailProps> = async 
   }
 };
 
-
 export default function ProjectDetail({
   normalizedData,
   normalizedGoal,

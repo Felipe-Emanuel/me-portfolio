@@ -22,7 +22,7 @@ export function AuthForce({ children }: AuthForceProps) {
           flex justify-center items-center h-screen bg-light dark:bg-dark
         `}
       >
-        <Image src={loadingImage} alt="loading" />
+        <Image src={loadingImage} alt="loading" priority/>
       </div>
     );
   }

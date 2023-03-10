@@ -1,8 +1,5 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://meportfolio-nine.vercel.app/'
+    baseURL: 'https://meportfolio-nine.vercel.app'
 })
-
-export default api
-
